@@ -26,3 +26,14 @@
       c.style.display=(k==='all'||c.getAttribute('data-cat').indexOf(k)>-1)?'':'none'});
   });}
 })();
+(function(){
+  var imgs=document.querySelectorAll('.gal img, .works img');if(!imgs.length)return;
+  var lb=document.createElement('div');lb.className='lb';lb.innerHTML='<img alt="">';document.body.appendChild(lb);
+  imgs.forEach(function(i){i.addEventListener('click',function(){lb.querySelector('img').src=i.getAttribute('data-full')||i.src;lb.classList.add('on')})});
+  lb.addEventListener('click',function(){lb.classList.remove('on')});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});
+})();
+(function(){
+  var f=document.querySelector('.filter'),c=document.querySelector('.count b');if(!f||!c)return;
+  f.addEventListener('click',function(){setTimeout(function(){c.textContent=[].filter.call(document.querySelectorAll('[data-cat]'),function(x){return x.style.display!=='none'}).length},0)});
+})();
