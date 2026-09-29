@@ -7,8 +7,10 @@
 
 const REGIONS = {
   all: { names: [], zip: [] },
-  jn: { names: ['전남광주', '전라남도', '광주광역시', '광주시'], zip: ['46', '29'] },
-  gangjin: { names: ['강진'], zip: ['46810'] },
+  gwangju: { names: ['광주광역시', '광주시', '광주'], zip: ['29'] },
+  jeonnam: { names: ['전라남도', '전남'], zip: ['46'] },
+  jn: { names: ['전남광주', '전라남도', '광주광역시', '광주시'], zip: ['46', '29'] }, // 옛 링크 호환
+  gangjin: { names: ['강진'], zip: ['46810'] }, // 옛 링크 호환
   seoul: { names: ['서울'], zip: ['11'] },
   busan: { names: ['부산'], zip: ['26'] },
   daegu: { names: ['대구'], zip: ['27'] },
