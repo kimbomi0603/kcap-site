@@ -21,7 +21,7 @@
     if (pf.who && p.who.indexOf(pf.who) < 0) why.push(pf.who + ' 신청 불가');
     if (pf.age && p.age && +pf.age > p.age) why.push('만 ' + p.age + '세 이하');
     if (pf.tag && pf.tag !== '전체' && p.tags.indexOf('전체') < 0 && p.tags.indexOf(pf.tag) < 0) why.push('분야 다름');
-    if (pf.reg && pf.reg !== 'all' && p.reg === '강진' && ['jn', 'gangjin'].indexOf(pf.reg) < 0) why.push('강진 지역 사업');
+    if (pf.reg && pf.reg !== 'all' && p.reg === '강진' && ['jn', 'gangjin', 'jeonnam'].indexOf(pf.reg) < 0) why.push('강진 지역 사업');
     return why;
   }
   function applyPf() {

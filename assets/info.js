@@ -2,7 +2,7 @@
 (function () {
   var K = window.KCAP, $ = function (s) { return document.querySelector(s); };
   var PICKS = []; try { PICKS = JSON.parse(($('#picksData') || {}).textContent || '[]'); } catch (e) {}
-  var AREA = { all: [], jn: ['광주', '전남'], gangjin: ['광주', '전남'], seoul: ['서울'], busan: ['부산'], daegu: ['대구'], incheon: ['인천'], daejeon: ['대전'], ulsan: ['울산'], sejong: ['세종'], gyeonggi: ['경기'], gangwon: ['강원'], chungbuk: ['충북'], chungnam: ['충남'], jeonbuk: ['전북'], gyeongbuk: ['경북'], gyeongnam: ['경남'], jeju: ['제주'] };
+  var AREA = { all: [], jn: ['광주', '전남'], gangjin: ['광주', '전남'], gwangju: ['광주'], jeonnam: ['전남'], seoul: ['서울'], busan: ['부산'], daegu: ['대구'], incheon: ['인천'], daejeon: ['대전'], ulsan: ['울산'], sejong: ['세종'], gyeonggi: ['경기'], gangwon: ['강원'], chungbuk: ['충북'], chungnam: ['충남'], jeonbuk: ['전북'], gyeongbuk: ['경북'], gyeongnam: ['경남'], jeju: ['제주'] };
   var month = new Date().getMonth() + 1, EX = null, exReady;
 
   function loadEx() {
@@ -46,7 +46,7 @@
     loadEx().then(function () {
       var a = exFilter(q, reg);
       if (EX && !EX.configured && !a.length) return group('g-ex', '전시', 'calendar.html', '<p class="none">전시 자동 수집을 준비하고 있습니다.</p>');
-      group('g-ex', '전시', 'calendar.html?' + (q ? 'q=' + api + '&' : '') + 'r=' + (reg === 'gangjin' ? 'jn' : reg), a.length ? a.slice(0, 6).map(exCard).join('') : none, a.length);
+      group('g-ex', '전시', 'calendar.html?' + (q ? 'q=' + api + '&' : '') + 'r=' + (reg === 'gangjin' ? 'jeonnam' : reg), a.length ? a.slice(0, 6).map(exCard).join('') : none, a.length);
     });
     var pk = PICKS.filter(function (p) { if (!q) return true; var h = (p.n + ' ' + p.a + ' ' + p.t + ' ' + p.tags.join(' ') + ' ' + p.who.join(' ')); return q.split(/\s+/).every(function (w) { return h.indexOf(w) > -1; }); });
     group('g-pk', '협회 추천 공모', 'support.html#picks', pk.length ? pk.slice(0, 6).map(pkRow).join('') : none, pk.length);
@@ -57,7 +57,7 @@
         group(s[1], s[2], 'support.html#search', it.length ? it.slice(0, 5).map(gvRow).join('') : none, it.length);
       }).catch(function () { group(s[1], s[2], 'support.html#search', '<p class="none">지금은 불러올 수 없습니다.</p>'); });
     });
-    var u = new URLSearchParams(); if (q) u.set('q', q); if (reg !== 'jn') u.set('r', reg);
+    var u = new URLSearchParams(); if (q) u.set('q', q); if (reg !== 'all') u.set('r', reg);
     history.replaceState(null, '', location.pathname + (u.toString() ? '?' + u : ''));
   }
   if (form) {
@@ -69,10 +69,11 @@
     if (P.get('q')) search();
   }
 
-  // ---- 지금 볼 수 있는 전시 (전남광주) ----
+  // ---- 지금 볼 수 있는 전시 (지원사업 찾기에서 고른 '사는 곳' 우선, 없으면 전국) ----
   var now = $('#nowEx');
+  var myReg = 'all'; try { myReg = (JSON.parse(localStorage.getItem('kcap_profile_v1') || '{}').reg) || 'all'; } catch (e) {}
   if (now) loadEx().then(function () {
-    var a = exFilter('', 'jn').filter(function (it) { return !it.start || it.start <= K.today(); });
+    var a = exFilter('', myReg).filter(function (it) { return !it.start || it.start <= K.today(); });
     if (!a.length) a = exFilter('', 'all').filter(function (it) { return !it.start || it.start <= K.today(); });
     now.innerHTML = a.length ? a.slice(0, 4).map(exCard).join('') : '<p class="none">전시 자동 수집을 준비하고 있습니다. <a href="calendar.html#venues">주요 기관 바로가기 →</a></p>';
   });

@@ -2,12 +2,12 @@
 (function () {
   var K = window.KCAP, $ = function (s) { return document.querySelector(s); };
   var root = $('#cal'); if (!root) return;
-  var REG = [['all', '전국', []], ['jn', '전남광주', ['광주', '전남']], ['seoul', '서울', ['서울']], ['gyeonggi', '경기', ['경기']], ['incheon', '인천', ['인천']],
-    ['busan', '부산', ['부산']], ['daegu', '대구', ['대구']], ['daejeon', '대전', ['대전']], ['ulsan', '울산', ['울산']], ['sejong', '세종', ['세종']],
-    ['gangwon', '강원', ['강원']], ['chungbuk', '충북', ['충북']], ['chungnam', '충남', ['충남']], ['jeonbuk', '전북', ['전북']],
-    ['gyeongbuk', '경북', ['경북']], ['gyeongnam', '경남', ['경남']], ['jeju', '제주', ['제주']]];
+  var REG = [['all', '전국', []], ['seoul', '서울', ['서울']], ['busan', '부산', ['부산']], ['daegu', '대구', ['대구']], ['incheon', '인천', ['인천']], ['gwangju', '광주', ['광주']],
+    ['daejeon', '대전', ['대전']], ['ulsan', '울산', ['울산']], ['sejong', '세종', ['세종']], ['gyeonggi', '경기', ['경기']], ['gangwon', '강원', ['강원']],
+    ['chungbuk', '충북', ['충북']], ['chungnam', '충남', ['충남']], ['jeonbuk', '전북', ['전북']], ['jeonnam', '전남', ['전남']],
+    ['gyeongbuk', '경북', ['경북']], ['gyeongnam', '경남', ['경남']], ['jeju', '제주', ['제주']], ['jn', '전남광주', ['광주', '전남']]]; // jn 은 옛 링크 호환
   var P = new URLSearchParams(location.search);
-  var S = { items: [], r: P.get('r') || 'jn', w: P.get('w') || 'now', q: P.get('q') || '', date: '', free: false, mine: false, sort: 'end', view: 'list', shown: 24, pos: null };
+  var S = { items: [], r: (function (r) { return r === 'gangjin' ? 'jeonnam' : r; })(P.get('r')) || 'all', w: P.get('w') || 'now', q: P.get('q') || '', date: '', free: false, mine: false, sort: 'end', view: 'list', shown: 24, pos: null };
   var list = $('#cl'), meta = $('#cmeta'), more = $('#cmore'), sel = $('#cr');
 
   function areaOk(it) { var r = REG.filter(function (x) { return x[0] === S.r; })[0]; return !r || !r[2].length || r[2].indexOf(it.area) > -1; }
@@ -67,7 +67,7 @@
     else list.innerHTML = a.slice(0, S.shown).map(card).join('');
     more.hidden = a.length <= S.shown;
     if (S.view === 'map') drawMap(a);
-    var u = new URLSearchParams(); if (S.r !== 'jn') u.set('r', S.r); if (S.w !== 'now') u.set('w', S.w); if (S.q) u.set('q', S.q);
+    var u = new URLSearchParams(); if (S.r !== 'all') u.set('r', S.r); if (S.w !== 'now') u.set('w', S.w); if (S.q) u.set('q', S.q);
     history.replaceState(null, '', location.pathname + (u.toString() ? '?' + u : '') + location.hash);
   }
 
@@ -81,7 +81,7 @@
   function drawMap(a) {
     loadLeaflet(function () {
       if (!map) {
-        map = L.map('cm', { scrollWheelZoom: false }).setView([35.1, 126.9], 8);
+        map = L.map('cm', { scrollWheelZoom: false }).setView([36.3, 127.8], 7);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 18 }).addTo(map);
       }
       if (layer) layer.remove();
