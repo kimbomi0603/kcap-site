@@ -38,7 +38,7 @@
     },
     row: function (it) {
       var b = K.calls.badge(it), meta = [it.org, it.end ? '마감 ' + it.end.replace(/-/g, '.') : (it.when || ''), it.reg && it.reg !== '전국' ? it.reg : ''].filter(Boolean).join(' · ');
-      return '<a class="crow' + (it.source === 'kcap' ? ' pick' : '') + '" href="call.html?id=' + encodeURIComponent(it.id) + '">' +
+      return '<a class="crow' + (it.source === 'kcap' ? ' pick' : '') + '" data-tag="' + K.esc((it.tags || [])[0] || '전체') + '" href="call.html?id=' + encodeURIComponent(it.id) + '">' +
         '<span class="bdg ' + b.cls + '">' + K.esc(b.txt) + '</span>' + (it.source === 'kcap' ? '<span class="bdg new">협회 확인</span>' : '') +
         '<b>' + K.esc(it.title) + '</b><small>' + K.esc(meta) + '</small></a>';
     },

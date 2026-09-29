@@ -578,3 +578,44 @@ details.more ul{margin-top:12px}
 .us-out[hidden]{display:none}
 .us-out .grp:first-child{grid-column:1/-1}
 .us-out .grp:first-child .gb{grid-template-columns:repeat(2,1fr)}
+
+/* ---- 도구함 · 자원 지도 ---- */
+.tk{background:var(--white);border-top:3px solid var(--ink);padding:24px 24px 22px;display:flex;flex-direction:column;gap:10px;transition:transform .25s,box-shadow .25s}
+.tk:hover{transform:translateY(-4px);box-shadow:0 20px 40px -26px rgba(0,0,0,.35)}
+.tk .bdg{align-self:flex-start}
+.tk h3{font-family:var(--serif);font-weight:800;font-size:21px;letter-spacing:-.03em;line-height:1.35}
+.tk p{font-size:14.5px;line-height:1.65;color:var(--muted);flex:1}.tk p a{text-decoration:underline;color:var(--navy)}
+.tk .btn{align-self:flex-start;margin-top:6px}
+.tk.lk{color:inherit}.tk.lk .go{font-size:13px;font-weight:800;color:var(--red)}
+.ck-head{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:end;margin-bottom:36px}
+.ck-tools{display:grid;gap:12px;justify-items:end}
+.ck-tools b{font-family:Pretendard;font-weight:900;font-size:30px;letter-spacing:-.04em;color:var(--navy)}.ck-tools b.done{color:#1d6b43}
+.ck-bar{width:100%;height:8px;background:rgba(22,35,43,.12);border-radius:99px;overflow:hidden}.ck-bar i{display:block;height:100%;width:0;background:var(--navy);transition:width .3s}
+.ck-btns{display:flex;gap:8px}.ck-btns .btn{height:44px;padding:0 20px;cursor:pointer;font-family:inherit;background:none}.ck-btns .btn.ink{background:var(--ink)}
+.ck-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 40px}
+.ck-grp{background:var(--white);padding:22px 24px 12px;border-left:3px solid var(--navy)}
+.ck-grp h3{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:10px}
+.ck{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px solid var(--line);cursor:pointer;font-size:15px;line-height:1.5}
+.ck input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--navy)}
+.ck input:checked+span{color:var(--muted);text-decoration:line-through}
+.mk{list-style:none;display:grid;gap:18px;font-size:15px;line-height:1.7;color:#333}
+.mk li{padding-left:22px;position:relative}.mk li::before{content:'';position:absolute;left:0;top:11px;width:10px;height:10px;background:var(--red)}
+.mk li b{display:block;color:var(--ink);font-size:16px}
+dl.bg{display:grid;grid-template-columns:100px 1fr;gap:14px 18px;font-size:14.5px;line-height:1.65}
+dl.bg dt{font-weight:800;color:var(--navy);padding-top:1px}dl.bg dd{color:#333}
+#plMapWrap[hidden]{display:none}
+@media(max-width:900px){.ck-head{grid-template-columns:1fr}.ck-tools{justify-items:start}.ck-grid{grid-template-columns:1fr}dl.bg{grid-template-columns:1fr;gap:4px 0}dl.bg dd{margin-bottom:12px}}
+@media print{.hd,.mnav,.ft,.tabs,.shero .bgimg,#forms,#mistakes,#budget,#more,.ck-btns,.skip{display:none!important}.shero{background:none;color:#000}.shero .wrap{padding:10px 0;min-height:0}section{padding:10px 0}.ck-grid{grid-template-columns:1fr 1fr;gap:10px 20px}.ck-grp{border:1px solid #999;padding:10px 12px}.ck{padding:6px 0}.ck input{appearance:auto}.ck-tools b{color:#000}.paper2{background:none}.reveal{opacity:1!important;transform:none!important}}
+
+/* 모바일: 공모 목록 필터 바는 고정하지 않는다(목록 위 겹침 방지) */
+@media (max-width:960px){.cal-bar.crows-page{position:static;padding:0 0 12px}}
+
+/* ---- 캘린더 구독 ---- */
+.ics-sub{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;align-items:center;background:var(--white);border-top:3px solid var(--ink);padding:18px 22px;margin:30px 0 10px}
+.ics-sub b{font-size:15px}
+.ics-sub span{font-size:13.5px;color:var(--muted)}
+.ics-sub code{grid-column:1/-1;font-size:13px;background:var(--paper);padding:8px 12px;word-break:break-all}
+.ics-sub .btn{padding:10px 18px;font-size:13.5px;cursor:pointer;background:none;font-family:inherit}
+@media (max-width:700px){.ics-sub{grid-template-columns:1fr}}
+
+.seg{flex-wrap:wrap}.seg button{white-space:nowrap}
