@@ -42,11 +42,20 @@
   function search() {
     var q = $('#usq').value.trim(), reg = $('#usr').value, api = encodeURIComponent(q), none = '<p class="none">찾는 결과가 없습니다.</p>';
     $('#usout').hidden = false;
-    ['g-ex', 'g-pk', 'g-gv', 'g-yt'].forEach(function (id) { $('#' + id).innerHTML = '<div class="gh"><h3>불러오는 중…</h3></div>'; });
+    ['g-cl', 'g-ex', 'g-pk', 'g-gv', 'g-yt'].forEach(function (id) { $('#' + id).innerHTML = '<div class="gh"><h3>불러오는 중…</h3></div>'; });
     loadEx().then(function () {
       var a = exFilter(q, reg);
       if (EX && !EX.configured && !a.length) return group('g-ex', '전시', 'calendar.html', '<p class="none">전시 자동 수집을 준비하고 있습니다.</p>');
       group('g-ex', '전시', 'calendar.html?' + (q ? 'q=' + api + '&' : '') + 'r=' + (reg === 'gangjin' ? 'jeonnam' : reg), a.length ? a.slice(0, 6).map(exCard).join('') : none, a.length);
+    });
+    if (K.calls) K.calls.load().then(function (d) {
+      var t = K.today(), rn = K.calls.regName(reg), ql = q.toLowerCase();
+      var a = d.items.filter(function (it) {
+        if (!K.calls.open(it, t)) return false;
+        if (rn && it.reg && it.reg !== '전국' && it.reg !== rn) return false;
+        return !ql || ql.split(/\s+/).every(function (w) { return (it.title + ' ' + it.org + ' ' + it.summary + ' ' + (it.tags || []).join(' ')).toLowerCase().indexOf(w) > -1; });
+      }).sort(K.calls.sortByEnd);
+      group('g-cl', '공모 마감', 'calls.html?' + (q ? 'q=' + api + '&' : '') + (rn ? 'reg=' + encodeURIComponent(rn) : ''), a.length ? '<div class="crows">' + a.slice(0, 8).map(K.calls.row).join('') + '</div>' : none, a.length);
     });
     var pk = PICKS.filter(function (p) { if (!q) return true; var h = (p.n + ' ' + p.a + ' ' + p.t + ' ' + p.tags.join(' ') + ' ' + p.who.join(' ')); return q.split(/\s+/).every(function (w) { return h.indexOf(w) > -1; }); });
     group('g-pk', '협회 추천 공모', 'support.html#picks', pk.length ? pk.slice(0, 6).map(pkRow).join('') : none, pk.length);
