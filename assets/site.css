@@ -619,3 +619,14 @@ dl.bg dt{font-weight:800;color:var(--navy);padding-top:1px}dl.bg dd{color:#333}
 @media (max-width:700px){.ics-sub{grid-template-columns:1fr}}
 
 .seg{flex-wrap:wrap}.seg button{white-space:nowrap}
+
+/* ---- 언론보도 목록 ---- */
+.prows{border-top:2px solid var(--ink)}
+.prow{display:grid;grid-template-columns:92px 110px 1fr 24px;gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+.prow .pd{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.prow .pm{font-size:13px;font-weight:800;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prow b{font-weight:600;line-height:1.4}
+.prow .pg{color:var(--red);font-weight:800;text-align:right}
+.prow:hover b{text-decoration:underline;color:var(--navy)}
+.prow[hidden]{display:none}
+@media (max-width:700px){.prow{grid-template-columns:1fr 24px}.prow .pd,.prow .pm{display:inline;margin-right:8px}.prow .pd{grid-column:1}.prow b{grid-column:1}}
