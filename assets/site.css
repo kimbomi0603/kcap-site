@@ -630,3 +630,133 @@ dl.bg dt{font-weight:800;color:var(--navy);padding-top:1px}dl.bg dd{color:#333}
 .prow:hover b{text-decoration:underline;color:var(--navy)}
 .prow[hidden]{display:none}
 @media (max-width:700px){.prow{grid-template-columns:1fr 24px}.prow .pd,.prow .pm{display:inline;margin-right:8px}.prow .pd{grid-column:1}.prow b{grid-column:1}}
+
+/* ---- 정보마당 오늘의 마감: 전광판(B) ---- */
+.dash{background:var(--deep);color:#fff;padding:54px 0 48px;position:relative;overflow:hidden}
+.dash::before{content:'';position:absolute;inset:0;background:radial-gradient(800px 300px at 80% -20%,rgba(255,77,82,.28),transparent 60%),repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 4px)}
+.dash .wrap{position:relative}
+.dash .kicker{border-color:rgba(255,255,255,.35)}.dash .kicker span:last-child{color:rgba(255,255,255,.6)}
+.dash-head{grid-template-columns:1fr 1.1fr;align-items:end}
+.dash-title{font-family:Pretendard;font-weight:900;font-size:clamp(40px,6vw,80px);letter-spacing:-.06em;line-height:1;color:#fff}
+.dash-title em{font-style:normal;color:#ff4d52}
+.dash-hint{color:rgba(255,255,255,.7)}.dash-hint a{color:#fff}
+.dash-nums{border-top:0;gap:10px}
+.dash-nums a{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:18px 18px 14px}
+.dash-nums a:last-child{border-right:1px solid rgba(255,255,255,.15)}
+.dash-nums b{color:#fff;font-size:clamp(34px,4.4vw,58px)}.dash-nums b small{color:#ff4d52}
+.dash-nums span{color:rgba(255,255,255,.65)}
+.dash-nums a:hover{background:rgba(255,255,255,.12)}.dash-nums a:hover b{color:#fff}
+.dash-list{grid-template-columns:1fr;border-top:1px solid rgba(255,255,255,.2)}
+.dash-list .crow{display:grid;grid-template-columns:110px 1fr auto;align-items:center;gap:0 18px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.dash-list .crow .bdg{grid-row:1;justify-self:start;background:#ff4d52;color:#fff;height:26px;padding:0 11px;font-size:12.5px}
+.dash-list .crow .bdg.new,.dash-list .crow .bdg.soon,.dash-list .crow .bdg.on{background:rgba(255,255,255,.14);color:#fff}
+.dash-list .crow .bdg+.bdg{grid-column:3;justify-self:end}
+.dash-list .crow b{grid-column:2;order:0;font-size:17px;color:#fff;flex:none}
+.dash-list .crow small{grid-column:2;order:0;color:rgba(255,255,255,.6);flex:none}
+.dash-list .crow.pick{background:linear-gradient(90deg,rgba(255,77,82,.12),transparent 55%);padding-left:12px;margin-left:-12px}
+.dash-list .crow:hover b{color:#ff4d52;text-decoration:none}
+.dash-ac .btn.line{border-color:rgba(255,255,255,.55);color:#fff}
+
+
+/* ---- 언론보도 타임라인(D) ---- */
+.ptl{border-top:2px solid var(--ink)}
+.ptl-y{display:grid;grid-template-columns:150px 1fr;gap:0 40px;border-bottom:1px solid var(--line)}
+.ptl-y .d{position:sticky;top:90px;align-self:start;padding:26px 0}
+.ptl-y .d b{display:block;font-size:44px;font-weight:900;letter-spacing:-.05em;line-height:1;color:var(--ink)}
+.ptl-y .d small{display:block;font-size:13px;color:var(--muted);margin-top:6px;font-weight:700}
+.ptl-items{padding:18px 0 10px;border-left:1px solid var(--ink)}
+.ptl-it{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:12px 0 12px 28px;position:relative}
+.ptl-it::before{content:'';position:absolute;left:-5px;top:20px;width:9px;height:9px;border-radius:50%;background:var(--ink)}
+.ptl-it b{font-size:16px;line-height:1.45;font-weight:600}
+.ptl-it small{grid-column:1;font-size:13px;color:var(--muted)}
+.ptl-it small em{font-style:normal;font-weight:800;color:var(--navy);margin-right:6px}
+.ptl-it .go{grid-column:2;grid-row:1/3;align-self:center;font-weight:900;font-size:14px;color:var(--red);white-space:nowrap}
+.ptl-it:hover b{text-decoration:underline;color:var(--navy)}
+@media (max-width:760px){.ptl-y{grid-template-columns:1fr}.ptl-y .d{position:static;padding:22px 0 0}.ptl-y .d b{font-size:30px;display:inline}.ptl-y .d small{display:inline;margin-left:8px}.ptl-items{border-left:0}.ptl-it{padding-left:0}.ptl-it::before{display:none}}
+
+/* ===================== 디자인 v2: 도록(카탈로그) 톤 — 직각 · 가는 괘선 · 번호 매긴 절 · 흑백 사진 ===================== */
+:root{--paper:#f5f3ee;--line:#d8d4cb}
+body{background:var(--paper)}
+.reveal{opacity:1!important;transform:none!important;transition:none!important}
+.btn,.pill,.bdg,.seg button,.tg>span,.us-hot button,.dash-nums a,.wb-kpi a,.hubs a,.pjmini a,.filter button{border-radius:0!important}
+.btn{padding:14px 22px;font-size:14px;letter-spacing:-.01em}
+.btn:hover{transform:none}
+.btn.line{border-width:1px}.btn.wline{border-width:1px}
+.btn .ar{font-family:Pretendard}
+.pill{border-width:1px;padding:8px 14px}
+.bdg{height:20px;font-size:11px;letter-spacing:.02em;padding:0 7px}
+main{counter-reset:sec}
+.kicker{counter-increment:sec;border-bottom:1px solid var(--ink);padding-bottom:10px;margin-bottom:34px;font-size:12.5px;letter-spacing:.02em;text-transform:none}
+.kicker span:first-child::before{content:counter(sec,decimal-leading-zero) "  /  ";font-variant-numeric:tabular-nums;color:var(--red);margin-right:2px}
+.dash .kicker span:first-child::before{color:#ff4d52}
+.shero .top,.mhero .top{letter-spacing:.12em;font-size:11.5px}
+.shero .top{display:none}
+.shero h1{font-size:clamp(36px,5.2vw,64px)}
+.shero .wrap{padding-top:70px;padding-bottom:54px}
+.h2{font-size:clamp(28px,3.6vw,46px);letter-spacing:-.035em;line-height:1.18}
+.h3{font-size:clamp(20px,2.2vw,26px)}
+.lead{font-size:16px}
+/* 홈 히어로: 단색 블록 + 흑백 타일, 애니메이션 없음 */
+.mhero{background:#0f1c24;min-height:auto}
+.mosaic{gap:0;left:42%;opacity:.9}
+.mosaic img{opacity:1!important;animation:none!important;filter:grayscale(1) contrast(1.15) brightness(.85)}
+.mhero .ov{background:linear-gradient(90deg,#0f1c24 0,#0f1c24 46%,rgba(15,28,36,.15) 62%,rgba(15,28,36,0) 100%)}
+.mhero .inner{min-height:0;padding:14vh 32px 10vh}
+.mhero h1{font-family:var(--serif);font-weight:800;font-size:clamp(40px,6.2vw,92px);letter-spacing:-.04em;line-height:1.12}
+.mhero h1 em{color:#ff4d52}
+.mhero p{color:rgba(255,255,255,.78);font-size:16.5px}
+/* 흐르는 띠 → 얇은 괘선 티커 */
+.marq{background:var(--paper);color:var(--ink);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.marq .track{padding:11px 0}
+.marq span{font-size:13px;font-weight:700;letter-spacing:.06em;gap:26px;padding:0 13px}
+.marq span:after{content:"·";color:var(--red)}
+/* 선언문 */
+.mani{background:var(--paper)}
+.mani p.big{font-size:clamp(24px,3.2vw,42px);line-height:1.5;max-width:960px}
+.mani p.big mark{background:none;border-bottom:2px solid var(--red)}
+/* 협회장 블록: 사진 흑백, 평면 */
+.pfeat{background:#0f1c24}
+.pfeat .ph img{filter:grayscale(1) contrast(1.1)}
+.pfeat .ph .port{border:0;box-shadow:none;outline:1px solid #fff;outline-offset:6px;filter:none}
+.pfeat .nm{font-family:var(--serif);font-weight:800;letter-spacing:-.03em}
+.pfeat .nm small{color:#ff4d52;letter-spacing:.14em}
+/* 카드류: 그림자 대신 괘선 */
+.xcard,.pcard,.pk,.grp,.hubs a,.pjmini a,.wb-p,.subf,.ics-sub,.dash-nums a{box-shadow:none!important;border-radius:0!important}
+.xcard:hover,.pcard:hover,.pk:hover,.hubs a:hover{transform:none!important;box-shadow:none!important}
+.xcard{border:1px solid var(--ink);background:transparent}
+.xcard .im img{filter:grayscale(1);transition:filter .3s}
+.xcard:hover .im img{filter:none}
+.xcard .bd{padding:16px}
+.pcard{border:1px solid var(--ink);background:transparent}
+.pcard .th img{filter:grayscale(1)}
+.pcard:hover .th img{filter:none}
+.pk{border:1px solid var(--ink);border-top-width:1px;background:transparent}
+.pk .go{color:var(--ink);border-bottom:1px solid var(--ink);align-self:flex-start}
+.hubs a{border:1px solid var(--ink);background:transparent}
+.hubs a:hover{background:var(--ink);color:#fff}
+.hubs a:hover *{color:#fff}
+.pjmini a{border:1px solid rgba(255,255,255,.35);background:transparent}
+.grp{border:1px solid var(--line);background:#fff}
+.subf,.ics-sub{border:1px solid var(--ink);border-top-width:1px}
+/* 정보 박스·행 */
+.stats div,.dash-nums a{border-color:var(--line)}
+.crows .crow.pick{background:none;border-left:3px solid var(--red);padding-left:12px;margin-left:0}
+.dash-list .crow.pick{border-left-color:#ff4d52}
+/* 탭·필터 */
+.tabs a{font-size:14px;padding:14px 14px}
+.seg button,.tg>span{height:38px;font-size:13.5px;border-width:1px}
+.us input,.us select{border-width:1px}
+.us .btn{border-radius:0}
+/* 폼 */
+input,select,textarea{border-radius:0!important}
+/* 푸터 */
+.ft{border-top:1px solid var(--ink)}
+/* 언론 카드 fallback 타이틀 */
+.pcard .fb{background:#0f1c24}
+/* v2 모바일: 히어로 가독성 */
+@media(max-width:720px){
+  .mhero .ov{background:linear-gradient(180deg,rgba(15,28,36,.92) 0,rgba(15,28,36,.88) 70%,rgba(15,28,36,.6) 100%)}
+  .mhero .mosaic{opacity:.55}
+  .mhero .inner{padding:10vh 16px 8vh}
+  .mhero h1{font-size:clamp(34px,10vw,48px)}
+}
