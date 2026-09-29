@@ -11,7 +11,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SOURCES = ['arko', 'ncas', 'kawf', 'gokams', 'arte', 'kocca'].map((k) => require(`./collect/sources/${k}`));
+const SOURCES = ['kcap', 'arko', 'ncas', 'kawf', 'gokams', 'arte', 'kocca'].map((k) => require(`./collect/sources/${k}`));
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA_DIR = path.join(ROOT, 'data');
@@ -57,10 +57,19 @@ async function main() {
     }
   });
 
+  // 같은 공고가 여러 기관 게시판에 올라오는 경우(제목이 같고 마감이 같음) 하나만 남긴다. 협회 확인 > ARKO > 나머지 순으로 우선.
+  const PRIO = { kcap: 0, arko: 1, ncas: 2, kawf: 3, gokams: 4, arte: 5, kocca: 6 };
+  const normTitle = (t) => String(t || '').replace(/[\[\(（【][^\]\)）】]*[\]\)）】]/g, '').replace(/[^\w가-힣]/g, '').toLowerCase();
+  const byTitle = new Map();
+  for (const it of merged.values()) {
+    const key = normTitle(it.title) + '|' + (it.end || '');
+    const prev = byTitle.get(key);
+    if (!prev || (PRIO[it.source] ?? 9) < (PRIO[prev.source] ?? 9)) byTitle.set(key, it);
+  }
   const cutoff = Date.now() - KEEP_PAST_DAYS * DAY;
-  const items = [...merged.values()]
+  const items = [...byTitle.values()]
     .filter((it) => {
-      if (!it.end) return true;
+      if (!it.end || it.source === 'kcap') return true;
       const t = Date.parse(it.end + 'T23:59:59+09:00');
       return Number.isNaN(t) ? true : t >= cutoff;
     })
