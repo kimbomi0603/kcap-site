@@ -1,0 +1,14 @@
+{
+  "name": "kcap-site",
+  "private": true,
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "collect": "node scripts/collect.js"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0"
+  }
+}
