@@ -169,7 +169,7 @@ function ageText(min, max) {
   return a ? `만 ${a}세 이상` : `만 ${b}세 이하`;
 }
 // 20261008 → 2026.10.08
-const ymdText = (s) => String(s || '').replace(/(20\d{2})(\d{2})(\d{2})/g, '$1.$2.$3').replace(/\s*~\s*/g, ' ~ ').trim();
+const ymdText = (s) => { const t = String(s || '').replace(/(20\d{2})(\d{2})(\d{2})/g, '$1.$2.$3').replace(/\s*~\s*/g, ' ~ ').trim(); return /^[\s~]*$/.test(t) ? '' : t; };
 async function youth(q, region) {
   let key = process.env.YOUTH_KEY;
   if (!key) return { configured: false, items: [] };
