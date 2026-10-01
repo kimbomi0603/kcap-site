@@ -1,0 +1,18 @@
+<!-- 알림 구독 폼 — 원하는 페이지(info.html, support.html 등)에 그대로 붙여 넣고,
+     페이지 끝의 <script> 목록에 <script src="assets/subscribe.js" defer></script> 를 추가한다.
+     CSS(.subf ~)는 assets/site.css 끝에 이미 들어 있다. -->
+<section id="subscribe"><div class="wrap">
+<div class="kicker reveal"><span>Alert</span><span>공모 알림 받기</span></div>
+<form class="subf reveal" id="subf" novalidate>
+  <div class="subf-t"><b>조건에 맞는 공모를 매주 월요일 아침 메일로</b><small>이번 주 마감 · 새로 올라온 공모</small></div>
+  <div class="subf-row">
+    <label>이메일<input id="sbEmail" type="email" name="email" autocomplete="email" required placeholder="예: name@example.com"></label>
+    <label>신청 주체<select id="sbWho"><option value="">상관없음</option><option>개인</option><option>단체</option></select></label>
+    <label>나이 (만)<input id="sbAge" type="number" min="14" max="99" inputmode="numeric" placeholder="예: 28"></label>
+    <label>분야<select id="sbTag"><option value="전체">분야 상관없음</option><option value="시각">시각예술 (회화 · 조각 · 공예 · 사진 · 설치)</option><option value="콘텐츠">미디어 · 콘텐츠 · 디자인</option><option value="공연">공연 (음악 · 연극 · 무용)</option><option value="문학">문학</option><option value="교육">문화예술교육 · 기획</option></select></label>
+    <label>사는 곳<select id="sbReg"><option value="all">전국</option><option value="seoul">서울</option><option value="busan">부산</option><option value="daegu">대구</option><option value="incheon">인천</option><option value="gwangju">광주</option><option value="daejeon">대전</option><option value="ulsan">울산</option><option value="sejong">세종</option><option value="gyeonggi">경기</option><option value="gangwon">강원</option><option value="chungbuk">충북</option><option value="chungnam">충남</option><option value="jeonbuk">전북</option><option value="jeonnam">전남</option><option value="gyeongbuk">경북</option><option value="gyeongnam">경남</option><option value="jeju">제주</option></select></label>
+  </div>
+  <div class="subf-ac"><button class="btn red" id="sbBtn" type="submit">알림 신청</button><span class="subf-note">이메일과 고른 조건만 저장하며, 모든 메일에 수신 거부 링크가 있습니다.</span></div>
+  <div class="subf-out" id="sbOut" aria-live="polite"></div>
+</form>
+</div></section>

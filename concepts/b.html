@@ -1,0 +1,62 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>디자인 B안 · Nocturne · 다크 시네마틱 | KCAP</title><meta name="robots" content="noindex"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Archivo+Black&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;overflow-x:clip}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
+.w{max-width:1320px;margin:0 auto;padding:0 40px}@media(max-width:760px){.w{padding:0 20px}}.cbar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:99;display:flex;gap:14px;align-items:center;background:#111;color:#fff;font:600 13px Pretendard;padding:10px 18px;border-radius:99px;box-shadow:0 8px 30px rgba(0,0,0,.3)}.cbar a{opacity:.7}
+body{background:#07090c;color:#e9edf2;font-family:Pretendard,sans-serif;-webkit-font-smoothing:antialiased}
+.hd{position:fixed;inset:0 0 auto;z-index:30;mix-blend-mode:difference}.hd .w{display:flex;justify-content:space-between;align-items:center;height:84px}
+.logo{font-family:'Archivo Black',sans-serif;font-size:22px;letter-spacing:.02em;color:#fff}.hd nav{display:flex;gap:30px;font-size:13.5px;font-weight:600;color:#fff}
+.hero{position:relative;height:100vh;min-height:680px;overflow:hidden;display:flex;align-items:flex-end}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 18s ease-in-out infinite alternate;opacity:.85}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.14)}}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,transparent 20%,#07090c 85%),linear-gradient(transparent 50%,#07090c)}
+.hero .c{position:relative;z-index:2;width:100%;padding-bottom:80px}
+.hero .tag{font-size:12px;letter-spacing:.34em;color:#7fb4ff;font-weight:700;margin-bottom:26px}
+.hero h1{font-family:'Archivo Black',Pretendard,sans-serif;font-size:clamp(56px,11vw,190px);line-height:.88;letter-spacing:-.04em;text-transform:uppercase}
+.hero h1 span{display:block;-webkit-text-stroke:1.5px rgba(233,237,242,.8);color:transparent}
+.hero .kr{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-top:40px;flex-wrap:wrap}.hero .kr p{max-width:470px;font-size:17px;line-height:1.7;color:#aab4c0}
+.glow{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:99px;background:#2f7bff;color:#fff;font-weight:700;font-size:14.5px;box-shadow:0 0 40px rgba(47,123,255,.55)}
+.ghost{display:inline-flex;padding:16px 26px;border-radius:99px;border:1px solid rgba(255,255,255,.3);font-weight:600;font-size:14.5px;margin-left:8px}
+.sec{padding:150px 0}.lab{font-size:12px;letter-spacing:.3em;color:#7fb4ff;font-weight:700;margin-bottom:22px}
+.big{font-size:clamp(30px,3.6vw,56px);font-weight:300;line-height:1.35;letter-spacing:-.04em;max-width:1100px}.big b{font-weight:700;color:#fff;background:linear-gradient(90deg,#7fb4ff,#c7a6ff);-webkit-background-clip:text;color:transparent}
+.stat{display:grid;grid-template-columns:repeat(4,1fr);margin-top:90px;border-top:1px solid #1d232b}
+.stat div{padding:34px 0}.stat b{font-family:'Archivo Black',sans-serif;font-size:clamp(46px,5vw,84px);letter-spacing:-.03em;line-height:1}.stat small{font-size:16px;color:#7fb4ff;margin-left:4px}.stat span{display:block;color:#7d8794;font-size:13.5px;margin-top:10px}
+.panel{position:relative;height:88vh;min-height:560px;overflow:hidden;display:flex;align-items:flex-end;border-top:1px solid #1d232b}
+.panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;transition:opacity .8s,transform 1.4s}.panel:hover img{opacity:.8;transform:scale(1.03)}
+.panel:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,#07090c)}
+.panel .c{position:relative;z-index:2;width:100%;padding-bottom:70px;display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:end}
+.panel .y{font-family:'Archivo Black',sans-serif;font-size:clamp(70px,10vw,170px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px #7fb4ff}
+.panel h3{font-size:clamp(26px,2.8vw,42px);font-weight:700;letter-spacing:-.035em;line-height:1.2}.panel p{color:#aab4c0;margin-top:12px}
+.pres{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
+.pres .ph{position:relative;aspect-ratio:4/5;border-radius:4px;overflow:hidden}.pres .ph img{width:100%;height:100%;object-fit:cover}
+.pres .ph:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(127,180,255,.3),0 0 80px rgba(47,123,255,.25)}
+.pres h2{font-family:'Archivo Black',Pretendard;font-size:clamp(60px,8vw,130px);letter-spacing:-.03em;line-height:.9}
+.pres q{display:block;font-size:24px;font-weight:300;line-height:1.6;color:#cfd6df;margin:30px 0;quotes:none}
+.fx{display:flex;gap:44px;margin:30px 0 40px}.fx b{font-family:'Archivo Black';font-size:40px}.fx span{display:block;font-size:12.5px;color:#7d8794}
+.plan{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1d232b;border:1px solid #1d232b;margin-top:50px}
+.plan a{background:#07090c;padding:40px 32px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;transition:background .4s}.plan a:hover{background:#0f1622}
+.plan b{font-family:'Archivo Black';color:#2f7bff;font-size:15px}.plan span{font-size:21px;font-weight:600;letter-spacing:-.025em;line-height:1.4}
+.pr a{display:flex;justify-content:space-between;gap:30px;padding:30px 0;border-bottom:1px solid #1d232b;font-size:19px;font-weight:500;letter-spacing:-.02em;transition:color .3s}.pr a:hover{color:#7fb4ff}
+.pr small{display:block;font-size:12.5px;color:#7d8794;margin-bottom:8px;letter-spacing:.06em}
+.cta{text-align:center;padding:180px 0;background:radial-gradient(circle at 50% 50%,rgba(47,123,255,.25),transparent 60%)}
+.cta h2{font-family:'Archivo Black',Pretendard;font-size:clamp(50px,8vw,140px);letter-spacing:-.04em;line-height:.95;margin-bottom:40px}
+.ft{border-top:1px solid #1d232b;padding:40px 0;font-size:12.5px;color:#5d6773}.ft .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:900px){.hd nav{display:none}.stat{grid-template-columns:1fr 1fr}.panel .c,.pres{grid-template-columns:1fr;gap:20px}.plan{grid-template-columns:1fr}.ghost{margin:10px 0 0}}
+</style></head><body>
+<div class="cbar"><a href="index.html">← 5안 비교</a><b>B안 · Nocturne · 다크 시네마틱</b></div>
+<header class="hd"><div class="w"><a class="logo" href="../index.html">KCAP</a><nav><a href="../president.html">협회장</a><a href="../about.html">협회소개</a><a href="../activities.html">활동</a><a href="../plan.html">사업계획</a><a href="../press.html">언론보도</a><a href="../join.html">참여·후원</a></nav></div></header>
+<section class="hero"><img src="../works/2024-kim-sejin-2.jpg" alt=""><div class="w c"><div class="tag">사단법인 한국청년문화예술인협회 · SINCE 2018</div>
+<h1>Breath<span>Together</span></h1><div class="kr"><p>혼자서는 버티기 어려운 시간을 함께 건너왔습니다. 청년 예술가 30인, 작품 317점, 그리고 다음 이야기.</p><div><a class="glow" href="../activities.html">활동 보기 →</a><a class="ghost" href="../plan.html">사업계획</a></div></div></div></section>
+<section class="sec"><div class="w"><div class="lab rv">MANIFESTO</div><p class="big rv">우리는 청년 예술가가 <b>지역을 떠나지 않고</b> 계속 작업할 수 있는 울타리를 만듭니다. 기후와 공존, 그리고 함께 숨 쉬는 법을 작품으로 묻습니다.</p>
+<div class="stat"><div class="rv"><b>50</b><small>건</small><span>언론 보도</span></div><div class="rv"><b>30</b><small>인</small><span>전시 참여 작가</span></div><div class="rv"><b>317</b><small>점</small><span>출품 작품</span></div><div class="rv"><b>4</b><small>회</small><span>기획전 · 아트페어</span></div></div></div></section>
+<a class="panel" href="../activities.html#y2024"><img src="../works/2024-kim-sejin-1.jpg" alt="" loading="lazy"><div class="w c rv"><div class="y">2024</div><div><h3>함께 숨쉬기 프로젝트 — 더 나은 공존</h3><p>11.04–11.29 · GIST 오룡아트홀 초대전 · 13인 47점</p></div></div></a><a class="panel" href="../activities.html#y2023"><img src="../works/2024-lee-sehyun-2.jpg" alt="" loading="lazy"><div class="w c rv"><div class="y">2023</div><div><h3>블루 아트 페스티벌 — 함께 숨쉬기</h3><p>12.11–12.17 · 나주 천연염색박물관 · 20인 50여 점</p></div></div></a><a class="panel" href="../activities.html#y2022"><img src="../works/2022-lee-sunwoo-2.jpg" alt="" loading="lazy"><div class="w c rv"><div class="y">2022</div><div><h3>아트페어 ‘함께 숨쉬기(Breath Together)’</h3><p>11.28–12.16 · 한국전력거래소 로비 · 14인 177점</p></div></div></a><a class="panel" href="../activities.html#y2021"><img src="../works/2022-na-jisu-2.jpg" alt="" loading="lazy"><div class="w c rv"><div class="y">2021</div><div><h3>기획전 ‘지금, 우리’</h3><p>06.15–06.30 · 나주나빌레라문화센터 · 14인 43점</p></div></div></a>
+<section class="sec"><div class="w pres"><div class="ph rv"><img src="../assets/president.jpg" alt="김세진 회장"></div><div class="rv"><div class="lab">PRESIDENT</div><h2>KIM<br>SE-JIN</h2><q>“청년들의 열정으로 문화예술에 새로운 활력을 불러일으키겠습니다.”</q><p style="color:#7d8794">조각가 · 미디어아트 작가 · 미술학 박사. U.DOK STUDIO 대표. 2021년부터 협회를 이끌고 있습니다.</p>
+<div class="fx"><div><b>6</b><span>개인전</span></div><div><b>70+</b><span>단체전</span></div><div><b>9</b><span>작품 소장처</span></div></div><a class="glow" href="../president.html">포트폴리오 →</a></div></div></section>
+<section class="sec" style="padding-top:0"><div class="w"><div class="lab rv">PLAN 2027–2029</div><p class="big rv">다음 3년, <b>판을 키웁니다.</b></p>
+<div class="plan"><a class="rv" href="../plan.html#p1"><b>01</b><span>기후·공존 연속 기획전 「함께 숨쉬기」</span></a><a class="rv" href="../plan.html#p2"><b>02</b><span>첫 발표 플랫폼 「퍼스트 스테이지」</span></a><a class="rv" href="../plan.html#p3"><b>03</b><span>혁신도시 아트페어 · 기관 협업</span></a><a class="rv" href="../plan.html#p4"><b>04</b><span>강진 청자촌 청년 스튜디오</span></a><a class="rv" href="../plan.html#p5"><b>05</b><span>찾아가는 문화예술교육</span></a><a class="rv" href="../plan.html#p6"><b>06</b><span>청년 예술인 성장 지원</span></a></div></div></section>
+<section class="sec" style="padding-top:0"><div class="w"><div class="lab rv">IN THE PRESS · 50</div>
+<div class="pr"><a class="rv" href="https://www.jnilbo.com/news/articleView.html?idxno=76120578699" target="_blank" rel="noopener"><div><small>전남일보 · 2025.02.11</small>조각 예술 사제간의 전통과 혁신을 아우르다</div><span>↗</span></a><a class="rv" href="http://www.jndn.com/article.php?aid=1731923389398694115" target="_blank" rel="noopener"><div><small>전남매일 · 2024.11.18</small>기후위기 시대 자연과 인간 ‘함께 숨쉬기 프로젝트’ 해법찾기</div><span>↗</span></a><a class="rv" href="https://www.sedaily.com/NewsView/2DGSXQDVGU" target="_blank" rel="noopener"><div><small>서울경제 · 2024.11.11</small>&#x27;열린 문화예술 공간&#x27; GIST 오룡아트홀서 열리는 여섯 번째 초대전…&#x27;공존&#x27;</div><span>↗</span></a><a class="rv" href="https://www.veritas-a.com/news/articleView.html?idxno=528526" target="_blank" rel="noopener"><div><small>베리타스알파 · 2024.11.11</small>GIST 오룡아트홀 초대전 &#x27;더 나은 공존&#x27;</div><span>↗</span></a><a class="rv" href="https://www.namdonews.com/news/articleView.html?idxno=751455" target="_blank" rel="noopener"><div><small>남도일보 · 2023.12.16</small>㈔한국청년문화예술인협회 주관 ‘블루 아트페스티벌’ 진행</div><span>↗</span></a></div></div></section>
+<section class="cta"><div class="w rv"><h2>JOIN<br>THE BREATH</h2><a class="glow" href="../join.html">회원 가입 · 후원 →</a></div></section>
+<footer class="ft"><div class="w"><span>© KCAP 사단법인 한국청년문화예술인협회 · 회장 김세진</span><span>전남 강진군 대구면 청자촌길 20-14 · kcapp@naver.com</span></div></footer><script>(function(){var e=document.querySelectorAll('.rv');if(!('IntersectionObserver' in window)){e.forEach(function(x){x.classList.add('in')});return}
+var o=new IntersectionObserver(function(a){a.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');o.unobserve(x.target)}})},{threshold:.12});e.forEach(function(x){o.observe(x)})})();</script></body></html>
