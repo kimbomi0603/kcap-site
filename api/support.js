@@ -27,8 +27,6 @@ const REGIONS = {
   gyeongnam: { names: ['경상남도', '경남'], zip: ['48'] },
   jeju: { names: ['제주'], zip: ['50'] },
 };
-// 예술인에게 의미 있는 결과만 남기기 위한 단어
-const ARTS = /예술|문화|창작|공연|전시|미술|작가|공예|콘텐츠|디자인|음악|연극|무용|영상|레지던시/;
 
 // 신청기한 문자열에서 마지막 날짜(마감일)를 YYYY-MM-DD로 뽑는다. 없으면 '' ('상시' 등)
 function lastDate(s) {
@@ -54,63 +52,143 @@ async function getJSON(url, ms = 9000) {
 }
 
 // 1) 정부24 공공서비스(중앙부처 + 지자체) — 서비스명 검색
+//   검색어가 없으면 서비스명에 '예술 · 창작 · 공연'이 들어간 사업은 모두, '문화'가 들어간 사업은
+//   설명에 예술 활동 단어가 있는 것만 남긴다 ('다문화 가족', '기업문화' 같은 사업이 섞이지 않게).
+const GOV_URL = 'https://api.odcloud.kr/api/gov24/v3/serviceList';
+const GOV_NOT = /다문화|기업문화|조직문화|직장문화|가족문화|음주문화|교통문화|안전문화|장례문화|음식문화|식문화|선거문화|기부문화|문화누리|통합문화이용권/;
+const GOV_ARTS = /예술|창작|공연|전시|미술|작가|공예|음악|연극|무용|국악|레지던시|콘텐츠|영상|출판|문학|웹툰|만화|애니메이션|사진|디자인|공방/;
+async function gov24Page(key, term, page, ms) {
+  const u = new URL(GOV_URL);
+  u.searchParams.set('page', String(page));
+  u.searchParams.set('perPage', '100');
+  u.searchParams.set('returnType', 'JSON');
+  u.searchParams.set('serviceKey', key);
+  u.searchParams.set('cond[서비스명::LIKE]', term);
+  const j = await getJSON(u, ms);
+  return { list: j.data || [], total: +(j.matchCount != null ? j.matchCount : j.totalCount) || 0 };
+}
+async function gov24Term(key, term, maxPages, deadline) {
+  const left = () => Math.max(1500, deadline - Date.now());
+  const first = await gov24Page(key, term, 1, left());
+  const pages = Math.min(maxPages, Math.ceil(first.total / 100) || 1);
+  const rest = await Promise.allSettled(Array.from({ length: pages - 1 }, (_, i) => gov24Page(key, term, i + 2, left())));
+  return first.list.concat(...rest.filter((x) => x.status === 'fulfilled').map((x) => x.value.list));
+}
 async function gov24(q, region) {
   let key = (process.env.DATA_GO_KR_KEY || process.env.GOV24_KEY || '').trim();
   if (!key) return { configured: false, items: [] };
   if (/%[0-9A-Fa-f]{2}/.test(key)) key = decodeURIComponent(key); // URLSearchParams가 다시 인코딩하므로
-  const terms = q ? [q] : ['예술', '문화'];
-  const seen = new Set(); const items = [];
-  for (const term of terms) {
-    const u = new URL('https://api.odcloud.kr/api/gov24/v3/serviceList');
-    u.searchParams.set('page', '1');
-    u.searchParams.set('perPage', '100');
-    u.searchParams.set('returnType', 'JSON');
-    u.searchParams.set('serviceKey', key);
-    u.searchParams.set('cond[서비스명::LIKE]', term);
-    const j = await getJSON(u);
-    for (const d of j.data || []) {
-      if (seen.has(d['서비스ID'])) continue;
-      seen.add(d['서비스ID']);
+  const deadline = Date.now() + 7500;
+  const terms = q ? [q] : ['예술', '문화', '창작', '공연'];
+  const got = await Promise.allSettled(terms.map((t) => gov24Term(key, t, t === '문화' ? 4 : 2, deadline)));
+  if (got.every((x) => x.status === 'rejected')) throw got[0].reason;
+  const t = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+  const qNot = q && GOV_NOT.test(q); // '다문화'처럼 직접 찾는 경우는 막지 않는다
+  const seen = new Set(); const items = []; let pool = 0;
+  got.forEach((x) => {
+    if (x.status !== 'fulfilled') return;
+    for (const d of x.value) {
+      if (!d || seen.has(d['서비스ID'])) continue;
+      seen.add(d['서비스ID']); pool++;
+      const name = String(d['서비스명'] || '');
+      if (!qNot && GOV_NOT.test(name)) continue;
+      if (!q && !/예술|창작|공연/.test(name) && !GOV_ARTS.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원내용'] || ''} ${d['지원대상'] || ''}`)) continue;
       const org = `${d['소관기관명'] || ''} ${d['접수기관'] || ''}`;
       if (region.names.length && !region.names.some((n) => org.includes(n))) continue;
+      const end = lastDate(d['신청기한']);
+      if (end && end < t) continue; // 신청 기간이 끝난 사업은 뺀다
       items.push({
         src: 'gov24',
-        title: clip(d['서비스명'], 80),
+        title: clip(name, 80),
         org: clip(d['소관기관명'], 40),
         orgType: clip(d['소관기관유형'], 20),
         summary: clip(d['서비스목적요약'] || d['지원내용'], 160),
         target: clip(d['지원대상'], 120),
         period: clip(d['신청기한'], 60),
-        end: lastDate(d['신청기한']),
+        end,
         url: d['상세조회URL'] || `https://www.gov.kr/portal/rcvfvrSvc/dtlEx/${d['서비스ID']}`,
         updated: clip(d['수정일시'], 10),
+        arts: /예술|창작|공연/.test(name),
       });
     }
-  }
-  items.sort((a, b) => (b.updated || '').localeCompare(a.updated || ''));
-  return { configured: true, items: items.slice(0, 60) };
+  });
+  items.sort((a, b) => (b.arts - a.arts) || (b.updated || '').localeCompare(a.updated || ''));
+  return { configured: true, items: items.slice(0, 60), stats: { pool, matched: items.length } };
 }
 
-// 2) 온통청년 청년정책 — 전국 + 지자체 청년정책 중 문화·예술 관련
+// 2) 온통청년 청년정책 — 예술인에게 맞는 정책만 골라 낸다
+//   ① 정책중분류 '예술인지원' 전부  ② '문화활동 및 생활지원' 가운데 제목에 예술 단어가 있는 것
+//   ③ 정책명에 예술 · 창작 · 공연이 들어간 정책. 마감이 지난 정책은 뺀다.
+//   (온통청년 OPEN API 제공목록: mclsfNm·plcyNm 요청 파라미터, zipCd = 5자리 법정시군구코드)
+const YOUTH_URL = 'https://www.youthcenter.go.kr/go/ythip/getPlcy';
+const ARTS_CAT = '예술인지원';
+const CULTURE_CAT = '문화활동 및 생활지원';
+const ARTS_TITLE = /예술|창작|공연|전시|작가|미술|음악|연극|무용|국악|공예|레지던시|아트|갤러리|뮤지컬|밴드|버스킹|웹툰|애니메이션|영화|사진|디자인|문학|출판/;
+const NOT_ARTS = /기업문화|조직문화|직장문화|가족친화|음식|급식|아침밥|식비|이스포츠|e스포츠|박람회|수출|무역/;
+const YOUTH_TTL = 30 * 60 * 1000; // 같은 서버 인스턴스에서는 30분 동안 받아 둔 목록을 다시 쓴다
+let youthCache = { at: 0, pool: null };
+
+async function youthPage(key, params, pageNum, ms) {
+  const u = new URL(YOUTH_URL);
+  u.searchParams.set('apiKeyNm', key);
+  u.searchParams.set('rtnType', 'json');
+  u.searchParams.set('pageType', '1');
+  u.searchParams.set('pageNum', String(pageNum));
+  u.searchParams.set('pageSize', '100');
+  for (const [k, v] of Object.entries(params)) u.searchParams.set(k, v);
+  const j = await getJSON(u, ms);
+  const r = j.result || j;
+  return { list: r.youthPolicyList || r.policyList || [], total: +((r.pagging && r.pagging.totCount) || 0) };
+}
+// 조건 하나를 끝까지(최대 maxPages쪽) 받아 온다
+async function youthAll(key, params, maxPages, deadline) {
+  const left = () => Math.max(1500, deadline - Date.now()); // 함수 제한 시간(10초) 안에 끝내도록
+  const first = await youthPage(key, params, 1, left());
+  const pages = Math.min(maxPages, Math.ceil(first.total / 100) || 1);
+  const rest = await Promise.allSettled(Array.from({ length: pages - 1 }, (_, i) => youthPage(key, params, i + 2, left())));
+  return first.list.concat(...rest.filter((x) => x.status === 'fulfilled').map((x) => x.value.list));
+}
+// 지역: 정책거주지역코드(zipCd)가 고른 시도로 시작하거나, 지역 제한이 없는(전국) 정책
+function youthInRegion(p, region) {
+  if (!region.zip.length && !region.names.length) return true;
+  const zips = String(p.zipCd || '').split(',').map((x) => x.trim()).filter(Boolean);
+  if (!zips.length || zips.length > 200) return true; // 전국 대상
+  if (zips.some((c) => region.zip.some((pre) => c.startsWith(pre)))) return true;
+  const org = `${p.rgtrHghrkInstCdNm || ''} ${p.sprvsnInstCdNm || ''} ${p.rgtrInstCdNm || ''}`;
+  return region.names.some((n) => org.includes(n));
+}
+
 async function youth(q, region) {
   let key = process.env.YOUTH_KEY;
   if (!key) return { configured: false, items: [] };
   if (/%[0-9A-Fa-f]{2}/.test(key)) key = decodeURIComponent(key);
-  const u = new URL('https://www.youthcenter.go.kr/go/ythip/getPlcy');
-  u.searchParams.set('apiKeyNm', key);
-  u.searchParams.set('rtnType', 'json');
-  u.searchParams.set('pageNum', '1');
-  u.searchParams.set('pageSize', '100');
-  u.searchParams.set('pageType', '1');
-  if (q) u.searchParams.set('plcyNm', q);
-  if (region.zip.length) u.searchParams.set('zipCd', region.zip.join(','));
-  const j = await getJSON(u);
-  const r = j.result || j;
-  const list = r.youthPolicyList || r.policyList || [];
-  const re = q ? new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')) : ARTS;
-  const items = list
+  let pool = youthCache.pool && Date.now() - youthCache.at < YOUTH_TTL ? youthCache.pool : null;
+  if (!pool) {
+    const deadline = Date.now() + 7500;
+    const jobs = [
+      youthAll(key, { mclsfNm: ARTS_CAT }, 5, deadline),
+      youthAll(key, { mclsfNm: CULTURE_CAT }, 3, deadline),
+      ...['예술', '창작', '공연'].map((w) => youthAll(key, { plcyNm: w }, 2, deadline)),
+    ];
+    const got = await Promise.allSettled(jobs);
+    if (got.every((x) => x.status === 'rejected')) throw got[0].reason;
+    const seen = new Set(); pool = [];
+    got.forEach((x) => { if (x.status === 'fulfilled') x.value.forEach((p) => { const id = p && (p.plcyNo || p.plcyNm); if (id && !seen.has(id)) { seen.add(id); pool.push(p); } }); });
+    if (got.every((x) => x.status === 'fulfilled')) youthCache = { at: Date.now(), pool };
+  }
+
+  const t = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+  const words = String(q || '').toLowerCase().split(/\s+/).filter(Boolean); // 띄어 쓴 단어가 모두 들어 있어야 한다
+  const items = pool
     .filter((p) => p && p.plcyNm)
-    .filter((p) => re.test(`${p.plcyNm} ${p.plcyKywdNm || ''} ${p.plcyExplnCn || ''} ${p.plcySprtCn || ''} ${p.mclsfNm || ''}`))
+    .filter((p) => {
+      const cat = String(p.mclsfNm || '');
+      const name = `${p.plcyNm} ${p.plcyKywdNm || ''}`;
+      if (NOT_ARTS.test(name)) return false;
+      return cat.includes(ARTS_CAT) || ARTS_TITLE.test(name);
+    })
+    .filter((p) => youthInRegion(p, region))
+    .filter((p) => { if (!words.length) return true; const h = `${p.plcyNm} ${p.plcyKywdNm || ''} ${p.plcyExplnCn || ''} ${p.plcySprtCn || ''}`.toLowerCase(); return words.every((w) => h.includes(w)); })
     .map((p) => ({
       src: 'youth',
       title: clip(p.plcyNm, 80),
@@ -122,8 +200,11 @@ async function youth(q, region) {
       end: lastDate(p.aplyYmd || p.bizPrdEndYmd),
       url: p.aplyUrlAddr || p.refUrlAddr1 || (p.plcyNo ? `https://www.youthcenter.go.kr/youthPolicy/ythPlcyTotalSearch/ythPlcyDetail/${p.plcyNo}` : 'https://www.youthcenter.go.kr/youthPolicy/ythPlcyTotalSearch'),
       updated: clip(p.lastMdfcnDt || p.frstRegDt, 10),
-    }));
-  return { configured: true, items: items.slice(0, 60) };
+      arts: String(p.mclsfNm || '').includes(ARTS_CAT),
+    }))
+    .filter((it) => !it.end || it.end >= t) // 마감 지난 정책 제외
+    .sort((a, b) => (b.arts - a.arts) || (a.end || '9999').localeCompare(b.end || '9999'));
+  return { configured: true, items: items.slice(0, 80), stats: { pool: pool.length, matched: items.length } };
 }
 
 module.exports = async (req, res) => {

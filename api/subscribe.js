@@ -3,6 +3,7 @@
 //        → KV에 저장(미확인 상태) 후 확인 메일 발송. 응답 {ok:true, sent:true}
 //   GET  ?confirm=<token>&k=<key>      → 구독 확인(confirmed:true), 한국어 안내 페이지
 //   GET  ?unsubscribe=<token>&k=<key>  → 구독 삭제, 안내 페이지
+//   GET  ?status=1                     → {ok, configured} 메일 알림 준비 여부
 // 필요한 환경변수 (Vercel 프로젝트 → Settings → Environment Variables)
 //   KV_REST_API_URL, KV_REST_API_TOKEN : Upstash Redis(Vercel KV) REST 주소·토큰
 //   RESEND_API_KEY : resend.com 발송 키
@@ -129,6 +130,8 @@ module.exports = async (req, res) => {
 
   // ---------- GET: 확인 / 수신 중단 ----------
   if (method === 'GET') {
+    // 화면이 처음 열릴 때 메일 알림을 받을 수 있는 상태인지 묻는다 (설정 값 자체는 알려 주지 않는다)
+    if (q.status !== undefined) return sendJSON(res, 200, { ok: true, configured: !!kvEnv() && !!(process.env.RESEND_API_KEY || '').trim() });
     const key = String(q.k || '');
     const token = String(q.confirm || q.unsubscribe || '');
     const isUnsub = !!q.unsubscribe;
