@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /design/
+
+Sitemap: https://kcap.vercel.app/sitemap.xml

@@ -1,0 +1,4 @@
+# 배포(공개 사이트)에서 뺄 내부 파일 — 저장소에는 그대로 남는다
+/HANDOVER.md
+/scripts
+/.github
