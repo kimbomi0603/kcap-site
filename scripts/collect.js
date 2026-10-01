@@ -59,15 +59,36 @@ async function main() {
 
   // 같은 공고가 여러 기관 게시판에 올라오는 경우(제목이 같고 마감이 같음) 하나만 남긴다. 협회 확인 > ARKO > 나머지 순으로 우선.
   const PRIO = { kcap: 0, arko: 1, ncas: 2, kawf: 3, gokams: 4, arte: 5, kocca: 6 };
-  const normTitle = (t) => String(t || '').replace(/[\[\(（【][^\]\)）】]*[\]\)）】]/g, '').replace(/[^\w가-힣]/g, '').toLowerCase();
+  // 괄호 안(기간 · 시각 · 기관명 등)은 빼고 비교한다. '(~10.2.(금) 16:00)'처럼 겹친 괄호도 안쪽부터 지운다.
+  const normTitle = (t) => {
+    let s = String(t || ''), prev;
+    do { prev = s; s = s.replace(/[\[\(（【][^\[\]\(\)（）【】]*[\]\)）】]/g, ''); } while (s !== prev);
+    return s.replace(/[^\w가-힣]/g, '').toLowerCase();
+  };
   const byTitle = new Map();
   for (const it of merged.values()) {
     const key = normTitle(it.title) + '|' + (it.end || '');
     const prev = byTitle.get(key);
     if (!prev || (PRIO[it.source] ?? 9) < (PRIO[prev.source] ?? 9)) byTitle.set(key, it);
   }
+  // 2차: 마감일이 같고 한 제목이 다른 제목을 그대로 품고 있으면 같은 공고로 본다
+  // (예: '예술산업보증 10월(7차) 공모' ↔ '2026 예술산업보증 10월(7차) 공모 안내(10.1.~10.12.)').
+  // 우선순위가 높은 출처를, 같으면 제목이 짧은 쪽을 남긴다.
+  const pool = [...byTitle.values()];
+  const drop = new Set();
+  const rank = (x) => [(PRIO[x.source] ?? 9), x.title.length];
+  for (let i = 0; i < pool.length; i++) {
+    for (let j = i + 1; j < pool.length; j++) {
+      const a = pool[i], b = pool[j];
+      if (!a.end || a.end !== b.end || drop.has(a) || drop.has(b)) continue;
+      const na = normTitle(a.title), nb = normTitle(b.title);
+      if (Math.min(na.length, nb.length) < 8 || !(na.includes(nb) || nb.includes(na))) continue;
+      const [ra, rb] = [rank(a), rank(b)];
+      drop.add(ra[0] < rb[0] || (ra[0] === rb[0] && ra[1] <= rb[1]) ? b : a);
+    }
+  }
   const cutoff = Date.now() - KEEP_PAST_DAYS * DAY;
-  const items = [...byTitle.values()]
+  const items = pool.filter((x) => !drop.has(x))
     .filter((it) => {
       if (!it.end || it.source === 'kcap') return true;
       const t = Date.parse(it.end + 'T23:59:59+09:00');
