@@ -161,6 +161,15 @@ function youthInRegion(p, region) {
   return region.names.some((n) => org.includes(n));
 }
 
+// 나이 조건: 0 · 빈칸은 제한 없음, 99세 이상은 상한 없음으로 본다
+function ageText(min, max) {
+  const a = +min || 0, b = +max || 0, hasMax = b > 0 && b < 99;
+  if (!a && !hasMax) return '';
+  if (a && hasMax) return `만 ${a}~${b}세`;
+  return a ? `만 ${a}세 이상` : `만 ${b}세 이하`;
+}
+// 20261008 → 2026.10.08
+const ymdText = (s) => String(s || '').replace(/(20\d{2})(\d{2})(\d{2})/g, '$1.$2.$3').replace(/\s*~\s*/g, ' ~ ').trim();
 async function youth(q, region) {
   let key = process.env.YOUTH_KEY;
   if (!key) return { configured: false, items: [] };
@@ -199,8 +208,8 @@ async function youth(q, region) {
       org: clip(p.sprvsnInstCdNm || p.rgtrInstCdNm || p.operInstCdNm, 40),
       orgType: clip(p.mclsfNm || p.lclsfNm, 20),
       summary: clip(p.plcyExplnCn || p.plcySprtCn, 160),
-      target: [p.sprtTrgtMinAge && `만 ${p.sprtTrgtMinAge}세`, p.sprtTrgtMaxAge && `~${p.sprtTrgtMaxAge}세`].filter(Boolean).join(' '),
-      period: clip(p.aplyYmd || (p.bizPrdBgngYmd ? `${p.bizPrdBgngYmd}~${p.bizPrdEndYmd || ''}` : ''), 60),
+      target: ageText(p.sprtTrgtMinAge, p.sprtTrgtMaxAge),
+      period: clip(ymdText(p.aplyYmd || (p.bizPrdBgngYmd ? `${p.bizPrdBgngYmd}~${p.bizPrdEndYmd || ''}` : '')), 60),
       end: lastDate(p.aplyYmd || p.bizPrdEndYmd),
       url: p.aplyUrlAddr || p.refUrlAddr1 || (p.plcyNo ? `https://www.youthcenter.go.kr/youthPolicy/ythPlcyTotalSearch/ythPlcyDetail/${p.plcyNo}` : 'https://www.youthcenter.go.kr/youthPolicy/ythPlcyTotalSearch'),
       updated: clip(p.lastMdfcnDt || p.frstRegDt, 10),
