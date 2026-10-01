@@ -96,7 +96,7 @@
     if (!sv) return;
     var a = K.saved.all();
     $('#savedN').textContent = a.length ? a.length + '건' : '';
-    if (!a.length) { sv.innerHTML = '<p class="none">전시 캘린더와 지원사업 찾기에서 ♡ 관심을 누르면 여기에 모입니다. 로그인 없이 이 브라우저에 저장됩니다.</p>'; $('#savedIcs').hidden = true; return; }
+    if (!a.length) { sv.innerHTML = '<p class="none">공모 마감 · 전시 캘린더 · 지원사업 찾기에서 ♡를 누르면 여기에 모입니다. 로그인 없이 이 브라우저에 저장됩니다.</p>'; $('#savedIcs').hidden = true; return; }
     $('#savedIcs').hidden = !a.some(function (x) { return x.end; });
     sv.innerHTML = a.map(function (x, i) {
       var b = x.end ? K.badge(x.start, x.end, x.type === '전시' ? '' : 'apply') : null, href = x.link || x.url || '#';

@@ -4,7 +4,7 @@
   var K = w.KCAP = w.KCAP || {}, $ = function (s) { return document.querySelector(s); };
   var REG_NAME = { all: '', seoul: '서울', busan: '부산', daegu: '대구', incheon: '인천', gwangju: '광주', daejeon: '대전', ulsan: '울산', sejong: '세종', gyeonggi: '경기', gangwon: '강원', chungbuk: '충북', chungnam: '충남', jeonbuk: '전북', jeonnam: '전남', gyeongbuk: '경북', gyeongnam: '경남', jeju: '제주', jn: '광주', gangjin: '전남' };
   var SRC = { kcap: '협회 확인', arko: '한국문화예술위원회', ncas: '국가문화예술지원시스템', kawf: '한국예술인복지재단', gokams: '예술경영지원센터', arte: '한국문화예술교육진흥원', kocca: '한국콘텐츠진흥원' };
-  var ready;
+  var ready, byId = {};
 
   K.calls = {
     load: function () {
@@ -38,9 +38,13 @@
     },
     row: function (it) {
       var b = K.calls.badge(it), meta = [it.org, it.end ? '마감 ' + it.end.replace(/-/g, '.') : (it.when || ''), it.reg && it.reg !== '전국' ? it.reg : ''].filter(Boolean).join(' · ');
-      return '<a class="crow' + (it.source === 'kcap' ? ' pick' : '') + '" data-tag="' + K.esc((it.tags || [])[0] || '전체') + '" href="call.html?id=' + encodeURIComponent(it.id) + '">' +
+      var on = !!(K.saved && K.saved.has(it.id));
+      byId[it.id] = it;
+      // 줄 전체는 상세로 가는 링크, 오른쪽 ♡는 관심 목록 담기 (링크 밖에 두어 눌러도 이동하지 않는다)
+      return '<div class="crow-w"><a class="crow' + (it.source === 'kcap' ? ' pick' : '') + '" data-tag="' + K.esc((it.tags || [])[0] || '전체') + '" href="call.html?id=' + encodeURIComponent(it.id) + '">' +
         '<span class="bdg ' + b.cls + '">' + K.esc(b.txt) + '</span>' + (it.source === 'kcap' ? '<span class="bdg new">협회 확인</span>' : '') +
-        '<b>' + K.esc(it.title) + '</b><small>' + K.esc(meta) + '</small></a>';
+        '<b>' + K.esc(it.title) + '</b><small>' + K.esc(meta) + '</small></a>' +
+        '<button type="button" class="crow-sv' + (on ? ' on' : '') + '" data-csave="' + K.esc(it.id) + '" aria-pressed="' + on + '" aria-label="관심 목록에 담기" title="관심 목록에 담기">' + (on ? '♥' : '♡') + '</button></div>';
     },
     // 대시보드 숫자: 접수 중 · 이번 주 마감 · 다음 주 마감 · 내 조건
     stats: function (items, pf) {
@@ -139,5 +143,18 @@
     // 비슷한 공모
     var rel = d.items.filter(function (x) { return x.id !== it.id && K.calls.open(x) && (x.tags || []).some(function (g) { return (it.tags || []).indexOf(g) > -1 && g !== '전체'; }); }).sort(K.calls.sortByEnd).slice(0, 5);
     var r = $('#callRelated'); if (r) r.innerHTML = rel.length ? rel.map(K.calls.row).join('') : '<p class="none">비슷한 분야의 접수 중 공모가 없습니다.</p>';
+  });
+
+  // 공모 줄의 ♡: 관심 목록(이 브라우저 localStorage)에 담고 빼기. 정보마당 「관심 목록」에서 모아 보고 캘린더(.ics)로 옮길 수 있다.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest && e.target.closest('[data-csave]'); if (!btn) return;
+    e.preventDefault();
+    var it = byId[btn.getAttribute('data-csave')]; if (!it || !K.saved) return;
+    var on = K.saved.toggle({ id: it.id, type: '공모', title: it.title, sub: it.org + (it.end ? ' · 마감 ' + it.end : ''), start: it.start, end: it.end, url: it.url, link: 'call.html?id=' + encodeURIComponent(it.id) });
+    [].forEach.call(document.querySelectorAll('[data-csave]'), function (x) {
+      if (x.getAttribute('data-csave') !== it.id) return;
+      x.classList.toggle('on', on); x.textContent = on ? '♥' : '♡'; x.setAttribute('aria-pressed', on);
+    });
+    if (K.toast) K.toast(on ? '관심 목록에 담았습니다' : '관심 목록에서 뺐습니다');
   });
 })(window);
