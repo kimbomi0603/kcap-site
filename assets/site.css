@@ -767,3 +767,12 @@ input,select,textarea{border-radius:0!important}
 @media(max-width:720px){.cta-band{grid-template-columns:1fr!important;gap:22px!important}}
 .xcard .yr{overflow:visible}
 .bdg.past{color:#5e5e57}
+/* 공모 줄 ♡ 관심 담기 (2026-10-01) */
+.crow-w{position:relative}
+.crow-w>.crow{padding-right:50px}
+.crow-sv{position:absolute;top:50%;right:0;transform:translateY(-50%);width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);background:var(--white);color:var(--red);font-size:16px;line-height:1;cursor:pointer;border-radius:0;font-family:inherit}
+.crow-sv:hover{border-color:var(--red)}
+.crow-sv.on{background:var(--red);border-color:var(--red);color:#fff}
+.crow-sv:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+.dash-list .crow-sv{background:transparent;border-color:rgba(255,255,255,.3);color:#fff}
+.dash-list .crow-sv.on{background:#ff4d52;border-color:#ff4d52}
