@@ -1,5 +1,21 @@
 {
   "crons": [
-    { "path": "/api/notify", "schedule": "0 23 * * 0" }
+    {
+      "path": "/api/notify",
+      "schedule": "0 23 * * 0"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/:page(about|activities|artists|calendar|call|calls|en|guide|history|info|join|places|plan|president|press|privacy|programs|support|tools)",
+      "destination": "/:page.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:page(about|activities|artists|calendar|call|calls|en|guide|history|info|join|places|plan|president|press|privacy|programs|support|tools)/",
+      "destination": "/:page",
+      "permanent": true
+    }
   ]
 }
