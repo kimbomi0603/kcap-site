@@ -24,6 +24,11 @@
   };
   function show(cls, text) { out.className = 'subf-out ' + cls; out.textContent = text; }
 
+  // 메일 발송이 아직 연결되지 않았으면 미리 알리고 버튼을 잠근다 (빈칸을 다 채운 뒤에 알게 되지 않도록)
+  fetch('/api/subscribe?status=1').then(function (r) { return r.json(); }).then(function (j) {
+    if (j && j.configured === false) { show('wait', MSG.notReady); btn.disabled = true; }
+  }).catch(function () {});
+
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     var email = (F.email.value || '').trim();
