@@ -55,8 +55,9 @@ async function getJSON(url, ms = 9000) {
 //   검색어가 없으면 서비스명에 '예술 · 창작 · 공연'이 들어간 사업은 모두, '문화'가 들어간 사업은
 //   설명에 예술 활동 단어가 있는 것만 남긴다 ('다문화 가족', '기업문화' 같은 사업이 섞이지 않게).
 const GOV_URL = 'https://api.odcloud.kr/api/gov24/v3/serviceList';
-const GOV_NOT = /다문화|기업문화|조직문화|직장문화|가족문화|음주문화|교통문화|안전문화|장례문화|음식문화|식문화|선거문화|기부문화|문화누리|통합문화이용권/;
-const GOV_ARTS = /예술|창작|공연|전시|미술|작가|공예|음악|연극|무용|국악|레지던시|콘텐츠|영상|출판|문학|웹툰|만화|애니메이션|사진|디자인|공방/;
+const GOV_NOT = /다문화|기업문화|조직문화|직장문화|가족문화|음주문화|교통문화|안전문화|장례문화|음식문화|식문화|선거문화|기부문화|문화누리|통합문화이용권|티켓\s*할인|입장료/;
+const GOV_TITLE = /예술|창작|(?<!공)공연/; // '공공연구'의 '공연'은 빼고 본다
+const GOV_ARTS = /예술|창작|(?<!공)공연|전시|미술|작가|공예|음악|연극|무용|국악|레지던시|콘텐츠|영상|출판|문학|웹툰|만화|애니메이션|사진|디자인|공방/;
 async function gov24Page(key, term, page, ms) {
   const u = new URL(GOV_URL);
   u.searchParams.set('page', String(page));
@@ -92,7 +93,7 @@ async function gov24(q, region) {
       seen.add(d['서비스ID']); pool++;
       const name = String(d['서비스명'] || '');
       if (!qNot && GOV_NOT.test(name)) continue;
-      if (!q && !/예술|창작|공연/.test(name) && !GOV_ARTS.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원내용'] || ''} ${d['지원대상'] || ''}`)) continue;
+      if (!q && !GOV_TITLE.test(name) && !GOV_ARTS.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원내용'] || ''} ${d['지원대상'] || ''}`)) continue;
       const org = `${d['소관기관명'] || ''} ${d['접수기관'] || ''}`;
       if (region.names.length && !region.names.some((n) => org.includes(n))) continue;
       const end = lastDate(d['신청기한']);
@@ -108,7 +109,7 @@ async function gov24(q, region) {
         end,
         url: d['상세조회URL'] || `https://www.gov.kr/portal/rcvfvrSvc/dtlEx/${d['서비스ID']}`,
         updated: clip(d['수정일시'], 10),
-        arts: /예술|창작|공연/.test(name),
+        arts: GOV_TITLE.test(name),
       });
     }
   });
@@ -123,8 +124,10 @@ async function gov24(q, region) {
 const YOUTH_URL = 'https://www.youthcenter.go.kr/go/ythip/getPlcy';
 const ARTS_CAT = '예술인지원';
 const CULTURE_CAT = '문화활동 및 생활지원';
-const ARTS_TITLE = /예술|창작|공연|전시|작가|미술|음악|연극|무용|국악|공예|레지던시|아트|갤러리|뮤지컬|밴드|버스킹|웹툰|애니메이션|영화|사진|디자인|문학|출판/;
+const ARTS_TITLE = /예술|창작|(?<!공)공연|전시|작가|미술|음악|연극|무용|국악|공예|레지던시|아트|갤러리|뮤지컬|밴드|버스킹|웹툰|애니메이션|영화|사진|디자인|문학|출판/;
 const NOT_ARTS = /기업문화|조직문화|직장문화|가족친화|음식|급식|아침밥|식비|이스포츠|e스포츠|박람회|수출|무역/;
+// 온통청년 분류가 '예술인지원'이어도 제목·설명에 예술 활동이 없으면 뺀다 (예: 청년농 미디어커머스, 해외배낭연수, 정책 상담)
+const ARTS_SIGNAL = /예술|창작|(?<!공)공연|전시|작가|미술|음악|연극|무용|국악|공예|레지던시|아트|갤러리|뮤지컬|밴드|버스킹|웹툰|애니메이션|영화|사진|디자인|문학|출판|인디|뮤지션|k-?pop|케이팝|오페라|성악|청년문화|문화공간/i;
 const YOUTH_TTL = 30 * 60 * 1000; // 같은 서버 인스턴스에서는 30분 동안 받아 둔 목록을 다시 쓴다
 let youthCache = { at: 0, pool: null };
 
@@ -185,7 +188,8 @@ async function youth(q, region) {
       const cat = String(p.mclsfNm || '');
       const name = `${p.plcyNm} ${p.plcyKywdNm || ''}`;
       if (NOT_ARTS.test(name)) return false;
-      return cat.includes(ARTS_CAT) || ARTS_TITLE.test(name);
+      if (cat.includes(ARTS_CAT)) return ARTS_SIGNAL.test(`${name} ${p.plcyExplnCn || ''}`);
+      return ARTS_TITLE.test(name);
     })
     .filter((p) => youthInRegion(p, region))
     .filter((p) => { if (!words.length) return true; const h = `${p.plcyNm} ${p.plcyKywdNm || ''} ${p.plcyExplnCn || ''} ${p.plcySprtCn || ''}`.toLowerCase(); return words.every((w) => h.includes(w)); })
@@ -203,6 +207,7 @@ async function youth(q, region) {
       arts: String(p.mclsfNm || '').includes(ARTS_CAT),
     }))
     .filter((it) => !it.end || it.end >= t) // 마감 지난 정책 제외
+    .filter((it, i, arr) => arr.findIndex((x) => x.title === it.title && x.org === it.org) === i) // 같은 제목·기관은 하나만
     .sort((a, b) => (b.arts - a.arts) || (a.end || '9999').localeCompare(b.end || '9999'));
   return { configured: true, items: items.slice(0, 80), stats: { pool: pool.length, matched: items.length } };
 }
