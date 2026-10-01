@@ -1,65 +1,7 @@
 {
-  "updated": "2026-09-29T04:37:06.583Z",
-  "count": 140,
+  "updated": "2026-10-01T07:33:09.915Z",
+  "count": 135,
   "items": [
-    {
-      "id": "gokams-50748",
-      "title": "[경기아트센터] 2026 대한민국 피아노페스티벌 <피아노페스티벌 영 아티스트 콘서트> 참가자 모집",
-      "org": "(재)경기아트센터",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50748&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
-      "posted": "",
-      "start": "2026-08-18",
-      "end": "2026-08-31",
-      "who": [
-        "개인"
-      ],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "경기",
-      "summary": "(재)경기아트센터 · 공모 기금 · 2026-08-18 ~ 08-31",
-      "source": "gokams",
-      "kind": "공모"
-    },
-    {
-      "id": "gokams-4554",
-      "title": "2026 공연예술 관람료 지원 사업 2차 발행 안내",
-      "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4554&page=2&txtKeyword=&ddlKeyfield=T",
-      "posted": "2026-08-31",
-      "start": "",
-      "end": "2026-08-31",
-      "who": [],
-      "age": null,
-      "tags": [
-        "공연"
-      ],
-      "reg": "전국",
-      "summary": "파일 공연 관람료 할인 지원 사업 공연 관람 활성화를 위해 공연 티켓 구매 시 1만 원을 지원하는 사업입니다. 1차 할인 지원 기간 2026년 5월 22일 금요일부터 8월 31일 월요일까지 2차 할인 지원 기간 2026년 9월 1일 화요일부터 11월 30일 월요일까지 온라인 할인 쿠폰…",
-      "source": "gokams",
-      "kind": "공모"
-    },
-    {
-      "id": "ncas-1010",
-      "title": "우수예술-무용(개인)",
-      "org": "부산문화재단",
-      "url": "https://www.bscf.or.kr/view.do?pageIndex=1&pgMode=show&sv=&sw=&no=1010&nowUrl=%2Fview.do%3Fno%3D1010&siteId=SITE003&pbancSn=2400&_csrf=d4201ede-65a2-4242-b720-443db1bf021b",
-      "posted": "",
-      "start": "2026-08-18",
-      "end": "2026-08-31",
-      "who": [
-        "개인"
-      ],
-      "age": null,
-      "tags": [
-        "공연"
-      ],
-      "reg": "전국",
-      "summary": "부산문화재단 · 대상 개인 · 분야 무용 · 마감",
-      "source": "ncas",
-      "kind": "공모"
-    },
     {
       "id": "gokams-50751",
       "title": "2026 대한민국 피아노페스티벌 「아마추어 피아니스트 연주회 <Stage for You>」 참가자 모집",
@@ -249,7 +191,7 @@
       "id": "gokams-50761",
       "title": "2026 부평 문화예술교육 학습공동체(CoP) 모집 공고",
       "org": "(재)부평구문화재",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50761&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50761&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-08-28",
       "end": "2026-09-10",
@@ -412,7 +354,7 @@
       "id": "gokams-50911",
       "title": "[천안시립미술관] 2026 천안시립미술관 소장품 수집 공고 ~9월 18일(금)까지 🔥",
       "org": "천안시립미술관",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50911&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50911&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-08-31",
       "end": "2026-09-18",
@@ -453,7 +395,7 @@
       "id": "gokams-50777",
       "title": "2027 해외 우수 콘텐츠 지역 네트워크 사업 공모 안내",
       "org": "한국문화예술회관연합회",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50777&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50777&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-08-24",
       "end": "2026-09-18",
@@ -607,26 +549,6 @@
       "kind": "공모"
     },
     {
-      "id": "kocca-326D00108002",
-      "title": "<2026년 콘솔게임 공동관> 참가기업 추가 모집공고",
-      "org": "한국콘텐츠진흥원",
-      "url": "https://www.kocca.kr/kocca/pims/view.do?intcNo=326D00108002&menuNo=204104&recptSt=&category=&pageIndex=1&search=&searchWrd=",
-      "posted": "2026-09-17",
-      "start": "2026-09-17",
-      "end": "2026-09-29",
-      "who": [
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "콘텐츠"
-      ],
-      "reg": "전국",
-      "summary": "한국콘텐츠진흥원 지원공고 · 모집공모",
-      "source": "kocca",
-      "kind": "공모"
-    },
-    {
       "id": "arko-2301170002",
       "title": "2026년 대한민국 예술과 기업 동반성장 대상(공고연장)",
       "org": "한국문화예술위원회",
@@ -665,26 +587,6 @@
       "kind": "공모"
     },
     {
-      "id": "ncas-CRL3582",
-      "title": "대한민국 예술과 기업 동반성장 대상",
-      "org": "한국문화예술위원회",
-      "url": "https://artnuri.or.kr/crawler/info/view.do?docid=CRL3582&source=%ED%95%9C%EA%B5%AD%EB%AC%B8%ED%99%94%EC%98%88%EC%88%A0%EC%9C%84%EC%9B%90%ED%9A%8C&seNo=001&key=2301170002",
-      "posted": "",
-      "start": "2026-07-20",
-      "end": "2026-09-30",
-      "who": [
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "전국",
-      "summary": "한국문화예술위원회 · 대상 단체 · 분야 문화일반 · 진행중",
-      "source": "ncas",
-      "kind": "공모"
-    },
-    {
       "id": "ncas-20416",
       "title": "제주 예술인 창작준비금 지원사업",
       "org": "제주문화예술재단",
@@ -702,7 +604,7 @@
         "문학"
       ],
       "reg": "제주",
-      "summary": "제주문화예술재단 · 대상 개인 · 분야 예술일반/시각예술/무용/다원예술/문학/연극/음악/전통예술 · 진행중",
+      "summary": "제주문화예술재단 · 대상 개인 · 분야 예술일반/시각예술/무용/다원예술/문학/연극/음악/전통예술 · 마감",
       "source": "ncas",
       "kind": "공모"
     },
@@ -745,24 +647,6 @@
       "reg": "전국",
       "summary": "예술경영지원센터 · 대상 단체 · 분야 예술일반 · 진행중",
       "source": "ncas",
-      "kind": "공모"
-    },
-    {
-      "id": "gokams-4564",
-      "title": "2026 예술산업 금융지원 시범사업(융자) 5차 공모(~10.2.(금) 16:00)",
-      "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4564&page=1&txtKeyword=&ddlKeyfield=T",
-      "posted": "2026-09-11",
-      "start": "",
-      "end": "2026-10-02",
-      "who": [],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "전국",
-      "summary": "2026 예술산업 금융지원 시범사업(융자) 5차 공모(~10.2.(금) 16:00)",
-      "source": "gokams",
       "kind": "공모"
     },
     {
@@ -823,7 +707,7 @@
       "id": "gokams-50918",
       "title": "2027년 한국잡월드 나래울극장 공동공연 공모",
       "org": "한국잡월드",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50918&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50918&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-09-04",
       "end": "2026-10-02",
@@ -919,21 +803,43 @@
       "kind": "공모"
     },
     {
-      "id": "gokams-4573",
-      "title": "[공지]2026 예술산업보증 10월(7차) 공모 안내(10.1.(목)~10.12.(월), 16:00)",
+      "id": "gokams-4574",
+      "title": "2026 예술산업아카데미 <예술창업 모닝 살롱 Vol.5> 수강생 모집",
       "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4573&page=2&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4574&page=1&txtKeyword=&ddlKeyfield=T",
       "posted": "2026-09-29",
       "start": "2026-10-01",
       "end": "2026-10-12",
-      "who": [],
+      "who": [
+        "개인"
+      ],
+      "age": null,
+      "tags": [
+        "교육"
+      ],
+      "reg": "전국",
+      "summary": "파일 문의(재)예술경영지원센터 예술경제본부 인재개발팀 전화02-708-2299 이메일academy@gokams.or.kr 이전글이 없습니다. 2026 예술산업보증 10월(7차) 공모 안내(10.1.(목)~10.12.(월), 16:00) HOME 알림/소식 공지사항 2026 예술산업아카…",
+      "source": "gokams",
+      "kind": "공모"
+    },
+    {
+      "id": "ncas-4573",
+      "title": "예술산업보증 10월(7차) 공모",
+      "org": "예술경영지원센터",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4573&page=2&txtKeyword=&ddlKeyfield=T",
+      "posted": "",
+      "start": "2026-10-01",
+      "end": "2026-10-12",
+      "who": [
+        "단체"
+      ],
       "age": null,
       "tags": [
         "전체"
       ],
       "reg": "전국",
-      "summary": "[공지]2026 예술산업보증 10월(7차) 공모 안내(10.1.(목)~10.12.(월), 16:00)",
-      "source": "gokams",
+      "summary": "예술경영지원센터 · 대상 단체 · 분야 예술일반 · 진행중",
+      "source": "ncas",
       "kind": "공모"
     },
     {
@@ -952,24 +858,6 @@
       "reg": "전국",
       "summary": "한국문화예술위원회는한국 공연예술 분야의 전문가 역량 강화, 네트워크 확장을 위해 국제현대공연예술네트워크(IETM, International network for contempora...",
       "source": "arko",
-      "kind": "공모"
-    },
-    {
-      "id": "gokams-50683",
-      "title": "인스타그램 콘텐츠 공모전 'Flip'",
-      "org": "MnJ문화복지재단",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50683&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
-      "posted": "",
-      "start": "2026-07-29",
-      "end": "2026-10-15",
-      "who": [],
-      "age": null,
-      "tags": [
-        "콘텐츠"
-      ],
-      "reg": "전국",
-      "summary": "MnJ문화복지재단 · 공모 기금 · 2026-07-29 ~ 10-15",
-      "source": "gokams",
       "kind": "공모"
     },
     {
@@ -1025,6 +913,48 @@
       ],
       "reg": "전국",
       "summary": "우란문화재단 · 공모 기금 · 2026-09-28 ~ 10-21",
+      "source": "gokams",
+      "kind": "공모"
+    },
+    {
+      "id": "ncas-236090",
+      "title": "2027 청년예술활동지원",
+      "org": "(재)인천문화재단",
+      "url": "https://ifac.or.kr/bbs/view.do?bbsSn=236090&key=m2501152808232&pageIndex=1&bbsCtgrySn=&sw=",
+      "posted": "",
+      "start": "2026-10-01",
+      "end": "2026-10-21",
+      "who": [
+        "개인",
+        "단체"
+      ],
+      "age": null,
+      "tags": [
+        "시각",
+        "공연"
+      ],
+      "reg": "전국",
+      "summary": "(재)인천문화재단 · 대상 단체/개인 · 분야 음악/시각예술/전통예술/연극/무용 · 진행중",
+      "source": "ncas",
+      "kind": "공모"
+    },
+    {
+      "id": "gokams-51012",
+      "title": "2026 종로구립 미술관 작품 수집 공고",
+      "org": "종로문화재단",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51012&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "posted": "",
+      "start": "2026-09-29",
+      "end": "2026-10-23",
+      "who": [
+        "단체"
+      ],
+      "age": null,
+      "tags": [
+        "시각"
+      ],
+      "reg": "전국",
+      "summary": "종로문화재단 · 공모 기금 · 2026-09-29 ~ 10-23",
       "source": "gokams",
       "kind": "공모"
     },
@@ -1114,6 +1044,26 @@
       "kind": "공모"
     },
     {
+      "id": "gokams-50995",
+      "title": "2027바다미술제 전시감독 공개모집",
+      "org": "부산비엔날레조직위원",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50995&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "posted": "",
+      "start": "2026-09-21",
+      "end": "2026-10-31",
+      "who": [
+        "개인"
+      ],
+      "age": null,
+      "tags": [
+        "시각"
+      ],
+      "reg": "부산",
+      "summary": "부산비엔날레조직위원 · 공모 기금 · 2026-09-21 ~ 10-31",
+      "source": "gokams",
+      "kind": "공모"
+    },
+    {
       "id": "gokams-50982",
       "title": "제23회 안산거리극축제 거리예술제작지원사업 '안산리서치' 공모",
       "org": "안산문화재단",
@@ -1164,24 +1114,6 @@
       ],
       "reg": "전국",
       "summary": "한국드로잉 공모대전 운영위원 · 공모 기금 · 2026-11-02 ~ 11-13",
-      "source": "gokams",
-      "kind": "공모"
-    },
-    {
-      "id": "gokams-50970",
-      "title": "[부산광역시] 을숙도 대지·생태예술 국제공모 〈찰나의 우리, 오래 흐르는 대지〉 ~11월 22일(일)까지",
-      "org": "부산광역시",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50970&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
-      "posted": "",
-      "start": "2026-09-21",
-      "end": "2026-11-22",
-      "who": [],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "부산",
-      "summary": "부산광역시 · 공모 기금 · 2026-09-21 ~ 11-22",
       "source": "gokams",
       "kind": "공모"
     },
@@ -1259,6 +1191,65 @@
       "reg": "전국",
       "summary": "아트센터 화이트블럭 · 공모 기금 · 2026-09-04 ~ 2027-12-31",
       "source": "gokams",
+      "kind": "공모"
+    },
+    {
+      "id": "kawf-19682",
+      "title": "[공고] 한국예술인복지재단 퇴직연금 사업자 선정 공고",
+      "org": "한국예술인복지재단",
+      "url": "https://www.kawf.kr/notice/sub01View.do?selIdx=19682",
+      "posted": "2026-10-01",
+      "start": "",
+      "end": "",
+      "who": [
+        "개인",
+        "단체"
+      ],
+      "age": null,
+      "tags": [
+        "전체"
+      ],
+      "reg": "전국",
+      "summary": "[공고] 한국예술인복지재단 퇴직연금 사업자 선정 공고",
+      "source": "kawf",
+      "kind": "공지"
+    },
+    {
+      "id": "kawf-19681",
+      "title": "[공고] 2026년 제6차 한국예술인복지재단 직원 채용 면접전형 합격자 공고",
+      "org": "한국예술인복지재단",
+      "url": "https://www.kawf.kr/notice/sub01View.do?selIdx=19681",
+      "posted": "2026-09-30",
+      "start": "",
+      "end": "",
+      "who": [
+        "개인"
+      ],
+      "age": null,
+      "tags": [
+        "전체"
+      ],
+      "reg": "전국",
+      "summary": "[공고] 2026년 제6차 한국예술인복지재단 직원 채용 면접전형 합격자 공고",
+      "source": "kawf",
+      "kind": "공지"
+    },
+    {
+      "id": "arte-BRD_ID0083820",
+      "title": "2026 문화다양성을 위한 '작은 영화제' 지원 공모",
+      "org": "한국문화예술교육진흥원",
+      "url": "https://arte.or.kr/information/notice/Notice_BoardView.do?board_id=BRD_ID0083820",
+      "posted": "2026-09-30",
+      "start": "",
+      "end": "",
+      "who": [],
+      "age": null,
+      "tags": [
+        "콘텐츠"
+      ],
+      "reg": "전국",
+      "summary": "한국문화예술교육진흥원 공지 · 문화국제협력팀",
+      "source": "arte",
       "kind": "공모"
     },
     {
@@ -1467,7 +1458,7 @@
       "id": "gokams-4558",
       "title": "2026 예술산업아카데미 <예술기업 자금전략 로드맵> 수강생 모집",
       "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4558&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4558&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "2026-09-04",
       "start": "",
       "end": "",
@@ -1488,7 +1479,7 @@
       "id": "gokams-4559",
       "title": "2026 예술산업아카데미 <예술산업 HR 커뮤니티 Connect - 4회차> 수강생 모집",
       "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4559&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4559&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "2026-09-04",
       "start": "",
       "end": "",
@@ -1949,42 +1940,6 @@
       "kind": "공지"
     },
     {
-      "id": "kawf-19591",
-      "title": "[공고]「2026~2028 회계연도 외부 회계감사 용역」우선협상대상자 공고",
-      "org": "한국예술인복지재단",
-      "url": "https://www.kawf.kr/notice/sub01View.do?selIdx=19591",
-      "posted": "2026-08-03",
-      "start": "",
-      "end": "",
-      "who": [],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "전국",
-      "summary": "[공고]「2026~2028 회계연도 외부 회계감사 용역」우선협상대상자 공고",
-      "source": "kawf",
-      "kind": "공지"
-    },
-    {
-      "id": "kawf-19590",
-      "title": "[안내]2026년 전세자금 융자 사업 추가 안내(상시운영)",
-      "org": "한국예술인복지재단",
-      "url": "https://www.kawf.kr/notice/sub01View.do?selIdx=19590",
-      "posted": "2026-08-03",
-      "start": "",
-      "end": "",
-      "who": [],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "전국",
-      "summary": "[안내]2026년 전세자금 융자 사업 추가 안내(상시운영)",
-      "source": "kawf",
-      "kind": "공지"
-    },
-    {
       "id": "kawf-19589",
       "title": "[안내] 2026년 「예술인 국민연금 보험료 지원」사업 신청 접수 마감 안내",
       "org": "한국예술인복지재단",
@@ -2281,24 +2236,6 @@
       "kind": "공모"
     },
     {
-      "id": "arte-BRD_ID0083481",
-      "title": "2026 학교예술강사 지원사업 학교 추가 접수 신청 안내",
-      "org": "한국문화예술교육진흥원",
-      "url": "https://arte.or.kr/information/notice/Notice_BoardView.do?board_id=BRD_ID0083481",
-      "posted": "2026-06-08",
-      "start": "",
-      "end": "",
-      "who": [],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "전국",
-      "summary": "한국문화예술교육진흥원 공지 · 학교교육팀",
-      "source": "arte",
-      "kind": "공모"
-    },
-    {
       "id": "kawf-19446",
       "title": "[공고] 2026년 『예술활동준비금지원사업』 결과 발표",
       "org": "한국예술인복지재단",
@@ -2368,24 +2305,6 @@
       "reg": "전국",
       "summary": "[안내] 신속한 심의를 위한 예술활동증명 제도 운영 안내",
       "source": "kawf",
-      "kind": "공지"
-    },
-    {
-      "id": "gokams-4334",
-      "title": "2026 아트코리아랩 비즈센터 아트부스트 강연 안내",
-      "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4334&page=2&txtKeyword=&ddlKeyfield=T",
-      "posted": "2026-02-10",
-      "start": "",
-      "end": "",
-      "who": [],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "전국",
-      "summary": "2026 아트코리아랩 비즈센터 아트부스트 강연 안내",
-      "source": "gokams",
       "kind": "공지"
     },
     {
@@ -2470,7 +2389,7 @@
         "교육"
       ],
       "reg": "전국",
-      "summary": "공공기관 · 비영리단체 · 2026년 3–4월 공모",
+      "summary": "공공기관 · 비영리단체 · 매년 3–4월 공모",
       "source": "kcap",
       "kind": "공모",
       "months": [
@@ -2478,7 +2397,7 @@
         4
       ],
       "confirmed": true,
-      "when": "2026년 3–4월 공모"
+      "when": "매년 3–4월 공모"
     },
     {
       "id": "kcap-gokams",
@@ -2520,7 +2439,7 @@
         "교육"
       ],
       "reg": "전국",
-      "summary": "민간 문화예술단체 · 2026년 2–3월 공모",
+      "summary": "민간 문화예술단체 · 매년 2–3월 공모",
       "source": "kcap",
       "kind": "공모",
       "months": [
@@ -2528,7 +2447,7 @@
         3
       ],
       "confirmed": true,
-      "when": "2026년 2–3월 공모"
+      "when": "매년 2–3월 공모"
     },
     {
       "id": "kcap-arko-visual",
