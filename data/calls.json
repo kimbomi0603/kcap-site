@@ -1,50 +1,7 @@
 {
-  "updated": "2026-10-01T07:33:09.915Z",
-  "count": 135,
+  "updated": "2026-10-02T00:02:20.507Z",
+  "count": 121,
   "items": [
-    {
-      "id": "gokams-50751",
-      "title": "2026 대한민국 피아노페스티벌 「아마추어 피아니스트 연주회 <Stage for You>」 참가자 모집",
-      "org": "경기아트센터",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50751&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
-      "posted": "",
-      "start": "2026-08-18",
-      "end": "2026-09-01",
-      "who": [
-        "개인"
-      ],
-      "age": null,
-      "tags": [
-        "공연"
-      ],
-      "reg": "경기",
-      "summary": "경기아트센터 · 공모 기금 · 2026-08-18 ~ 09-01",
-      "source": "gokams",
-      "kind": "공모"
-    },
-    {
-      "id": "ncas-ed79448542",
-      "title": "(교육) 2026 충남문화예술교육 거점공간 운영사업",
-      "org": "충남문화관광재단",
-      "url": "https://www.ncas.or.kr/",
-      "posted": "",
-      "start": "2026-08-26",
-      "end": "2026-09-04",
-      "who": [
-        "개인",
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "시각",
-        "공연",
-        "문학"
-      ],
-      "reg": "충남",
-      "summary": "충남문화관광재단 · 대상 단체/개인 · 분야 문학/전통예술/다원예술/음악/연극/시각예술/예술교류/무용 · 마감",
-      "source": "ncas",
-      "kind": "공모"
-    },
     {
       "id": "arko-CRL3570",
       "title": "2026년 지역중심 예술과 기업 동반성장 지원사업 유형②<대한민국 예술과 기업 동반성장 대상>",
@@ -127,49 +84,6 @@
       "kind": "공모"
     },
     {
-      "id": "ncas-2026080513373658328",
-      "title": "창작공간 대관료 지원사업 추가공모",
-      "org": "충남문화관광재단",
-      "url": "https://www.cacf.or.kr/site/board/index.php?fn=view&no=2026080513373658328&table_nm=tbl_culture",
-      "posted": "",
-      "start": "2026-08-05",
-      "end": "2026-09-07",
-      "who": [
-        "개인",
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "시각",
-        "공연",
-        "문학"
-      ],
-      "reg": "전국",
-      "summary": "충남문화관광재단 · 대상 단체/개인 · 분야 전통예술/무용/다원예술/음악/시각예술/연극/문학/예술교류 · 마감",
-      "source": "ncas",
-      "kind": "공모"
-    },
-    {
-      "id": "ncas-4544",
-      "title": "2026 대형 뮤지컬 낭독공연 지원 2차 공모",
-      "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4544",
-      "posted": "",
-      "start": "2026-08-18",
-      "end": "2026-09-08",
-      "who": [
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "공연"
-      ],
-      "reg": "전국",
-      "summary": "예술경영지원센터 · 대상 단체 · 분야 연극 · 마감",
-      "source": "ncas",
-      "kind": "공모"
-    },
-    {
       "id": "gokams-50820",
       "title": "성남금토 A-4BL 및 의왕월암 A-1BL 공동주택 미술작품 공모 선정 결과 공고",
       "org": "경기도",
@@ -206,26 +120,6 @@
       "kind": "공모"
     },
     {
-      "id": "ncas-4552",
-      "title": "예술산업보증 9월(6차) 공모",
-      "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4552&page=1&txtKeyword=&ddlKeyfield=T",
-      "posted": "",
-      "start": "2026-09-01",
-      "end": "2026-09-10",
-      "who": [
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "전국",
-      "summary": "예술경영지원센터 · 대상 단체 · 분야 예술일반 · 마감",
-      "source": "ncas",
-      "kind": "공모"
-    },
-    {
       "id": "gokams-50875",
       "title": "2026 예술지원 매칭펀드",
       "org": "한국메세나협회",
@@ -243,28 +137,6 @@
       "reg": "전국",
       "summary": "한국메세나협회 · 공모 기금 · 2026-08-18 ~ 09-11",
       "source": "gokams",
-      "kind": "공모"
-    },
-    {
-      "id": "ncas-20128",
-      "title": "제주예술인 도외활동 교통비 지원 사업",
-      "org": "제주문화예술재단",
-      "url": "https://www.jfac.kr/notification/notice/20128",
-      "posted": "",
-      "start": "2026-09-07",
-      "end": "2026-09-11",
-      "who": [
-        "개인"
-      ],
-      "age": null,
-      "tags": [
-        "시각",
-        "공연",
-        "문학"
-      ],
-      "reg": "제주",
-      "summary": "제주문화예술재단 · 대상 개인 · 분야 연극/예술일반/시각예술/다원예술/문학/음악/무용/전통예술 · 마감",
-      "source": "ncas",
       "kind": "공모"
     },
     {
@@ -330,27 +202,6 @@
       "kind": "공모"
     },
     {
-      "id": "ncas-CRL3578",
-      "title": "공연예술대관료지원 공모-2차",
-      "org": "공연예술대관료지원사업추진단",
-      "url": "https://artnuri.or.kr/crawler/info/view.do?docid=CRL3578&source=%ED%95%9C%EA%B5%AD%EB%AC%B8%ED%99%94%EC%98%88%EC%88%A0%EC%9C%84%EC%9B%90%ED%9A%8C&pageSetting=&sc_seNo=&key=2301170002&sc_orderBy=&recordCountPerPage=10&pageIndex=1&sc_hash=&sc_list=&seNo=001&sw=%EB%8C%80%EA%B4%80%EB%A3%8C&sc_genre=&sc_target=&sc_local=&sc_field=&sc_isDo=",
-      "posted": "",
-      "start": "2026-09-02",
-      "end": "2026-09-16",
-      "who": [
-        "개인",
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "공연"
-      ],
-      "reg": "전국",
-      "summary": "공연예술대관료지원사업추진단 · 대상 단체/개인 · 분야 전통예술/음악/다원예술/연극/무용 · 마감",
-      "source": "ncas",
-      "kind": "공모"
-    },
-    {
       "id": "gokams-50911",
       "title": "[천안시립미술관] 2026 천안시립미술관 소장품 수집 공고 ~9월 18일(금)까지 🔥",
       "org": "천안시립미술관",
@@ -368,27 +219,6 @@
       "reg": "전국",
       "summary": "천안시립미술관 · 공모 기금 · 2026-08-31 ~ 09-18",
       "source": "gokams",
-      "kind": "공모"
-    },
-    {
-      "id": "ncas-236038",
-      "title": "2026 인천미술은행 소장품 구입 공모",
-      "org": "(재)인천문화재단",
-      "url": "https://ifac.or.kr/bbs/view.do?key=m2501152808232&bbsSn=236038",
-      "posted": "",
-      "start": "2026-08-28",
-      "end": "2026-09-18",
-      "who": [
-        "개인",
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "시각"
-      ],
-      "reg": "인천",
-      "summary": "(재)인천문화재단 · 대상 단체/개인 · 분야 시각예술 · 마감",
-      "source": "ncas",
       "kind": "공모"
     },
     {
@@ -428,26 +258,6 @@
       "kind": "공모"
     },
     {
-      "id": "ncas-a83b3d0120",
-      "title": "2026 지역문화 전문인력 양성사업(A트랙) 질문이, 메롱 헤롱 멜론",
-      "org": "충남문화관광재단",
-      "url": "https://www.ncas.or.kr/",
-      "posted": "",
-      "start": "2026-09-18",
-      "end": "2026-09-21",
-      "who": [
-        "개인"
-      ],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "전국",
-      "summary": "충남문화관광재단 · 대상 개인 · 분야 예술교류 · 마감",
-      "source": "ncas",
-      "kind": "공모"
-    },
-    {
       "id": "gokams-50901",
       "title": "2026 서울국제예술포럼 SAFT 서포터즈 2기 모집 공모",
       "org": "서울문화재단",
@@ -463,26 +273,6 @@
       "reg": "서울",
       "summary": "서울문화재단 · 공모 기금 · 2026-09-09 ~ 09-22",
       "source": "gokams",
-      "kind": "공모"
-    },
-    {
-      "id": "ncas-236051",
-      "title": "콘텐츠 유통활성화",
-      "org": "(재)인천문화재단",
-      "url": "https://ifac.or.kr/bbs/view.do?key=m2501152808232&bbsSn=236051",
-      "posted": "",
-      "start": "2026-09-03",
-      "end": "2026-09-23",
-      "who": [
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "공연"
-      ],
-      "reg": "전국",
-      "summary": "(재)인천문화재단 · 대상 단체 · 분야 무용/전통예술/연극/음악 · 마감",
-      "source": "ncas",
       "kind": "공모"
     },
     {
@@ -503,29 +293,6 @@
       "reg": "전국",
       "summary": "(사)한국소극장협회 · 공모 기금 · 2026-09-14 ~ 09-27",
       "source": "gokams",
-      "kind": "공모"
-    },
-    {
-      "id": "ncas-202411256304",
-      "title": "2026년 울산 예술과 기업 동반성장 대상 : Artership Awards 지원사업(추가공모)",
-      "org": "울산문화관광재단",
-      "url": "https://www.uctf.or.kr/board/notice/view/202411256304",
-      "posted": "",
-      "start": "2026-09-21",
-      "end": "2026-09-28",
-      "who": [
-        "개인",
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "시각",
-        "공연",
-        "문학"
-      ],
-      "reg": "울산",
-      "summary": "울산문화관광재단 · 대상 단체/개인 · 분야 연극/문학/문화일반/시각예술/무용/다원예술/음악/전통예술 · 마감",
-      "source": "ncas",
       "kind": "공모"
     },
     {
@@ -587,28 +354,6 @@
       "kind": "공모"
     },
     {
-      "id": "ncas-20416",
-      "title": "제주 예술인 창작준비금 지원사업",
-      "org": "제주문화예술재단",
-      "url": "https://www.jfac.kr/notification/notice/20416?page=1",
-      "posted": "",
-      "start": "2026-09-01",
-      "end": "2026-09-30",
-      "who": [
-        "개인"
-      ],
-      "age": null,
-      "tags": [
-        "시각",
-        "공연",
-        "문학"
-      ],
-      "reg": "제주",
-      "summary": "제주문화예술재단 · 대상 개인 · 분야 예술일반/시각예술/무용/다원예술/문학/연극/음악/전통예술 · 마감",
-      "source": "ncas",
-      "kind": "공모"
-    },
-    {
       "id": "gokams-4555",
       "title": "<2026년 미술저작권 기초ㆍ실무 교육> 2차 수강생 모집",
       "org": "예술경영지원센터",
@@ -630,23 +375,21 @@
       "kind": "공모"
     },
     {
-      "id": "ncas-4564",
-      "title": "2026 예술산업 금융지원 시범사업(융자) 5차 공모",
+      "id": "gokams-4564",
+      "title": "2026 예술산업 금융지원 시범사업(융자) 5차 공모(~10.2.(금) 16:00)",
       "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4564",
-      "posted": "",
-      "start": "2026-09-14",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4564&page=1&txtKeyword=&ddlKeyfield=T",
+      "posted": "2026-09-11",
+      "start": "",
       "end": "2026-10-02",
-      "who": [
-        "단체"
-      ],
+      "who": [],
       "age": null,
       "tags": [
         "전체"
       ],
       "reg": "전국",
-      "summary": "예술경영지원센터 · 대상 단체 · 분야 예술일반 · 진행중",
-      "source": "ncas",
+      "summary": "2026 예술산업 금융지원 시범사업(융자) 5차 공모(~10.2.(금) 16:00)",
+      "source": "gokams",
       "kind": "공모"
     },
     {
@@ -803,6 +546,24 @@
       "kind": "공모"
     },
     {
+      "id": "gokams-4573",
+      "title": "2026 예술산업보증 10월(7차) 공모 안내(10.1.(목)~10.12.(월), 16:00)",
+      "org": "예술경영지원센터",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4573&page=1&txtKeyword=&ddlKeyfield=T",
+      "posted": "2026-09-29",
+      "start": "2026-10-01",
+      "end": "2026-10-12",
+      "who": [],
+      "age": null,
+      "tags": [
+        "전체"
+      ],
+      "reg": "전국",
+      "summary": "2026 예술산업보증 10월(7차) 공모 안내(10.1.(목)~10.12.(월), 16:00)",
+      "source": "gokams",
+      "kind": "공모"
+    },
+    {
       "id": "gokams-4574",
       "title": "2026 예술산업아카데미 <예술창업 모닝 살롱 Vol.5> 수강생 모집",
       "org": "예술경영지원센터",
@@ -823,26 +584,6 @@
       "kind": "공모"
     },
     {
-      "id": "ncas-4573",
-      "title": "예술산업보증 10월(7차) 공모",
-      "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4573&page=2&txtKeyword=&ddlKeyfield=T",
-      "posted": "",
-      "start": "2026-10-01",
-      "end": "2026-10-12",
-      "who": [
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "전국",
-      "summary": "예술경영지원센터 · 대상 단체 · 분야 예술일반 · 진행중",
-      "source": "ncas",
-      "kind": "공모"
-    },
-    {
       "id": "arko-CRL3581",
       "title": "2027년 해외레지던시참가지원(지정) IETM 국제현대공연예술네트워크 글로벌 커넥트 및 정기총회 초청 프로그램",
       "org": "한국문화예술위원회",
@@ -850,7 +591,9 @@
       "posted": "",
       "start": "2026-09-15",
       "end": "2026-10-15",
-      "who": [],
+      "who": [
+        "개인"
+      ],
       "age": null,
       "tags": [
         "공연"
@@ -914,28 +657,6 @@
       "reg": "전국",
       "summary": "우란문화재단 · 공모 기금 · 2026-09-28 ~ 10-21",
       "source": "gokams",
-      "kind": "공모"
-    },
-    {
-      "id": "ncas-236090",
-      "title": "2027 청년예술활동지원",
-      "org": "(재)인천문화재단",
-      "url": "https://ifac.or.kr/bbs/view.do?bbsSn=236090&key=m2501152808232&pageIndex=1&bbsCtgrySn=&sw=",
-      "posted": "",
-      "start": "2026-10-01",
-      "end": "2026-10-21",
-      "who": [
-        "개인",
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "시각",
-        "공연"
-      ],
-      "reg": "전국",
-      "summary": "(재)인천문화재단 · 대상 단체/개인 · 분야 음악/시각예술/전통예술/연극/무용 · 진행중",
-      "source": "ncas",
       "kind": "공모"
     },
     {
@@ -1018,29 +739,6 @@
       "reg": "전국",
       "summary": "한국문화예술교육진흥원 공지 · 인문문화확산팀",
       "source": "arte",
-      "kind": "공모"
-    },
-    {
-      "id": "ncas-202411239195",
-      "title": "2026년 예술인 창작안정 대출이자 지원사업 공모",
-      "org": "울산문화관광재단",
-      "url": "https://uctf.or.kr/board/notice/view/202411239195",
-      "posted": "",
-      "start": "2026-10-15",
-      "end": "2026-10-30",
-      "who": [
-        "개인",
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "시각",
-        "공연",
-        "문학"
-      ],
-      "reg": "전국",
-      "summary": "울산문화관광재단 · 대상 단체/개인 · 분야 무용/시각예술/연극/음악/문학/문화일반/다원예술/전통예술 · 예정",
-      "source": "ncas",
       "kind": "공모"
     },
     {
