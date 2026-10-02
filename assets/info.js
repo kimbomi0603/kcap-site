@@ -106,7 +106,7 @@
   if (sv) {
     sv.addEventListener('click', function (e) { var b = e.target.closest('[data-rm]'); if (!b) return; var x = K.saved.all()[+b.dataset.rm]; K.saved.toggle(x); paint(); });
     $('#savedIcs').addEventListener('click', function () {
-      K.ics(K.saved.all().filter(function (x) { return x.end; }).map(function (x) { return { id: x.id, title: (x.type === '전시' ? '' : '[마감] ') + x.title, start: x.type === '전시' ? x.start : x.end, end: x.end, sub: x.sub, link: /^https?:/.test(x.link || '') ? x.link : location.origin + (x.link || '') }; }), 'KCAP 관심 목록');
+      K.ics(K.saved.all().filter(function (x) { return x.end; }).map(function (x) { return { id: x.id, title: (x.type === '전시' ? '' : '[마감] ') + x.title, start: x.type === '전시' ? x.start : x.end, end: x.end, sub: x.sub, link: x.link ? new URL(x.link, location.href).href : (x.url || '') }; }), 'KCAP 관심 목록');
     });
     document.addEventListener('kcap:saved', paint); paint();
   }

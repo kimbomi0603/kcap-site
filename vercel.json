@@ -13,6 +13,11 @@
   ],
   "redirects": [
     {
+      "source": "/index",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/:page(about|activities|artists|calendar|call|calls|en|guide|history|info|join|places|plan|president|press|privacy|programs|support|tools)/",
       "destination": "/:page",
       "permanent": true

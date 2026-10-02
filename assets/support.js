@@ -45,7 +45,11 @@
     if (pf.proof === 'n' || pf.proof === '') tip = ' <a class="tip" href="https://www.kawfartist.kr/" target="_blank" rel="noopener">예술로 · 창작준비금은 예술활동증명이 먼저 필요합니다 → 신청하기 ↗</a>';
     if (pf.age && +pf.age <= 34 && pf.who !== '단체') tip += ' <span class="tip2">만 34세 이하 대상인 「청년예술가도약지원」도 살펴보세요.</span>';
     out.innerHTML = '<b>' + ok + '건</b>이 조건에 맞습니다.' + tip + ' <button type="button" id="pfReset">조건 지우기</button>';
-    $('#pfReset').onclick = function () { pf = {}; setPf(pf); F.who.value = ''; F.age.value = ''; F.tag.value = '전체'; F.reg.value = 'all'; F.proof.value = ''; $('#pkOnly').checked = false; applyPf(); filt(); };
+    $('#pfReset').onclick = function () {
+      pf = {}; setPf(pf); F.who.value = ''; F.age.value = ''; F.tag.value = '전체'; F.reg.value = 'all'; F.proof.value = ''; $('#pkOnly').checked = false; applyPf(); filt();
+      // 실시간 검색 지역도 전국으로 되돌리고 다시 찾는다
+      var lr = $('#lsr'); if (lr && lr.value !== 'all') { lr.value = 'all'; lr.dispatchEvent(new Event('change')); }
+    };
   }
   Object.keys(F).forEach(function (k) {
     if (!F[k]) return;
@@ -86,8 +90,10 @@
   if (!form) return;
   var src = 'gov24', last = [];
   if (pf.reg && $('#lsr')) $('#lsr').value = pf.reg;
+  function pressSrc(cur) { [].forEach.call(document.querySelectorAll('.seg button[data-src]'), function (x) { var on = x === cur; x.classList.toggle('on', on); x.setAttribute('aria-pressed', on); }); }
+  pressSrc(document.querySelector('.seg button[data-src].on'));
   [].forEach.call(document.querySelectorAll('.seg button[data-src]'), function (b) {
-    b.addEventListener('click', function () { src = b.getAttribute('data-src'); [].forEach.call(document.querySelectorAll('.seg button[data-src]'), function (x) { x.classList.toggle('on', x === b); }); run(); });
+    b.addEventListener('click', function () { src = b.getAttribute('data-src'); pressSrc(b); run(); });
   });
   function fallback(msg) {
     out.innerHTML = '<div class="lsmsg"><b>' + msg + '</b><p>아래 포털에서 바로 검색하실 수 있습니다.</p><div class="lsfb">' +

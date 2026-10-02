@@ -99,11 +99,17 @@
   }
 
   // 상세 창
-  var md = $('#md');
+  var md = $('#md'), back = null, pushed = false;
   function openItem(id) {
     var it = byId(id); if (!it) return;
     fill(it);
+    if (md.hidden) {
+      back = document.activeElement; // 닫으면 누른 자리로 초점을 돌려준다
+      // 휴대폰 '뒤로' 버튼으로 창만 닫히도록 기록을 하나 남긴다
+      if (!pushed) { try { history.pushState({ kcapMd: 1 }, '', location.href); pushed = true; } catch (e) {} }
+    }
     md.hidden = false; document.body.classList.add('md-open');
+    var x = md.querySelector('.md-x'); if (x) x.focus();
     if (!it.detail && it.src !== 'kcap') fetch('/api/exhibitions?seq=' + encodeURIComponent(id)).then(function (r) { return r.json(); }).then(function (j) {
       if (j.item) { ['price', 'free', 'url', 'addr', 'phone'].forEach(function (k) { if (j.item[k] !== undefined) it[k] = j.item[k]; }); if (!it.thumb && j.item.thumb) it.thumb = j.item.thumb; it.detail = true; if (!md.hidden && md.dataset.id === String(id)) fill(it); }
     }).catch(function () {});
@@ -125,8 +131,18 @@
       '<p class="md-src">자료: 한국문화정보원 문화포털' + (it.src === 'kcap' ? ' · 협회 등록' : '') + '</p></div>';
   }
   function ev(it) { return { id: 'ex-' + it.id, title: it.title, start: it.start, end: it.end, place: it.place, sub: it.place, link: location.origin + '/calendar.html?id=' + encodeURIComponent(it.id) }; }
-  function closeMd() { md.hidden = true; document.body.classList.remove('md-open'); }
+  function hideMd() { md.hidden = true; document.body.classList.remove('md-open'); if (back && document.contains(back)) back.focus(); back = null; }
+  function closeMd() { if (pushed) { pushed = false; history.back(); } else hideMd(); }
+  window.addEventListener('popstate', function () { pushed = false; if (!md.hidden) hideMd(); });
   md.addEventListener('click', function (e) { if (e.target === md || e.target.closest('.md-x')) closeMd(); });
+  // 창이 열린 동안 Tab 이동이 창 안에서만 돌게 한다
+  md.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+    var f = [].filter.call(md.querySelectorAll('a[href],button'), function (n) { return n.offsetParent !== null; });
+    if (!f.length) return;
+    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+    else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+  });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !md.hidden) closeMd(); });
 
   // 버튼들 (목록 · 지도 · 상세 창 공통)
@@ -145,10 +161,11 @@
   sel.addEventListener('change', function () { S.r = sel.value; S.shown = 24; render(); });
   $('#cq').value = S.q;
   $('#cq').addEventListener('input', function () { S.q = this.value.trim(); S.shown = 24; render(); });
+  function press(sel, cur) { [].forEach.call(document.querySelectorAll(sel), function (x) { var on = x === cur; x.classList.toggle('on', on); x.setAttribute('aria-pressed', on); }); }
   [].forEach.call(document.querySelectorAll('#cw button'), function (b) {
-    b.classList.toggle('on', b.dataset.w === S.w);
+    if (b.dataset.w === S.w) press('#cw button', b);
     b.addEventListener('click', function () {
-      S.w = b.dataset.w; [].forEach.call(document.querySelectorAll('#cw button'), function (x) { x.classList.toggle('on', x === b); });
+      S.w = b.dataset.w; press('#cw button', b);
       $('#cd').hidden = S.w !== 'date'; if (S.w === 'date' && !S.date) { S.date = K.today(); $('#cd').value = S.date; }
       S.shown = 24; render();
     });
@@ -168,10 +185,11 @@
   });
   [].forEach.call(document.querySelectorAll('#cv button'), function (b) {
     b.addEventListener('click', function () {
-      S.view = b.dataset.v; [].forEach.call(document.querySelectorAll('#cv button'), function (x) { x.classList.toggle('on', x === b); });
+      S.view = b.dataset.v; press('#cv button', b);
       $('#cm').hidden = S.view !== 'map'; render();
     });
   });
+  press('#cv button', document.querySelector('#cv button.on'));
   more.addEventListener('click', function () { S.shown += 24; render(); });
   document.addEventListener('kcap:saved', function () { var n = K.saved.all().filter(function (x) { return x.type === '전시'; }).length; $('#cminen').textContent = n ? ' (' + n + ')' : ''; });
   document.dispatchEvent(new CustomEvent('kcap:saved'));

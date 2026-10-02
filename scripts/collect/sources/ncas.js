@@ -38,7 +38,8 @@ function whoFromTarget(target) {
 
 async function collect() {
   const year = new Date().getFullYear();
-  const $ = await L.fetchHtml(meta.homepage + '/');
+  // 첫 화면이 무겁고 해외(수집 서버)에서 느릴 때가 있어 기다리는 시간을 늘린다
+  const $ = await L.fetchHtml(meta.homepage + '/', { timeout: 30000, retries: 2 });
   const items = new Map();
 
   // 세 탭 모두 훑되 '전체' 탭(tab1_03)이 가장 넓다. 같은 사업은 URL로 중복 제거.

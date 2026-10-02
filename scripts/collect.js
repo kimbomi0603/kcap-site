@@ -57,6 +57,17 @@ async function main() {
     }
   });
 
+  // 어느 기관이 하루 실패해도(사이트 점검 · 응답 지연) 그 기관 공고가 목록에서 통째로 사라지지 않도록
+  // 직전 calls.json 에 있던 그 기관 공고를 그대로 이어 쓴다. 화면에는 '직전 자료'로 표시된다.
+  let prev = [];
+  try { prev = JSON.parse(fs.readFileSync(CALLS, 'utf8')).items || []; } catch { prev = []; }
+  for (const st of statuses) {
+    if (st.ok) continue;
+    const old = prev.filter((it) => it.source === st.key && isValidItem(it));
+    for (const it of old) if (!merged.has(it.id)) merged.set(it.id, it);
+    if (old.length) { st.stale = true; st.count = old.length; }
+  }
+
   // 같은 공고가 여러 기관 게시판에 올라오는 경우(제목이 같고 마감이 같음) 하나만 남긴다. 협회 확인 > ARKO > 나머지 순으로 우선.
   const PRIO = { kcap: 0, arko: 1, ncas: 2, kawf: 3, gokams: 4, arte: 5, kocca: 6 };
   // 괄호 안(기간 · 시각 · 기관명 등)은 빼고 비교한다. '(~10.2.(금) 16:00)'처럼 겹친 괄호도 안쪽부터 지운다.
