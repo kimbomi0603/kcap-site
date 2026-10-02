@@ -96,9 +96,10 @@
   // 조작
   function seg(el, key) {
     if (!el) return;
+    [].forEach.call(el.querySelectorAll('button'), function (x) { x.setAttribute('aria-pressed', x.classList.contains('on')); });
     el.addEventListener('click', function (e) {
       var b = e.target.closest('button'); if (!b) return;
-      [].forEach.call(el.querySelectorAll('button'), function (x) { x.classList.toggle('on', x === b); });
+      [].forEach.call(el.querySelectorAll('button'), function (x) { var on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-pressed', on); });
       S[key] = b.getAttribute('data-v'); render();
     });
   }

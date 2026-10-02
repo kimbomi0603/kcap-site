@@ -776,3 +776,15 @@ input,select,textarea{border-radius:0!important}
 .crow-sv:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
 .dash-list .crow-sv{background:transparent;border-color:rgba(255,255,255,.3);color:#fff}
 .dash-list .crow-sv.on{background:#ff4d52;border-color:#ff4d52}
+
+/* 전수 점검 보정 2026-10-02 */
+.lsi{min-width:0}
+.lsi .m{flex-wrap:wrap;row-gap:4px}
+.lsi .m b{overflow-wrap:anywhere}
+.cstatus .stale::before{content:'●';color:#b7791f;margin-right:4px}
+.lb-x{position:fixed;top:14px;right:14px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.92);color:#111;font-size:28px;line-height:1;cursor:pointer}
+.lb-x:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.gal img:focus-visible,.works img:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+details.more summary .op{display:none}
+details.more[open] summary .op{display:inline}
+details.more[open] summary .cl{display:none}

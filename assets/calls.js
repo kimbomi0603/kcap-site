@@ -1,9 +1,9 @@
 /* 공모 데이터(data/calls.json) 공통 — 홈 마감 대시보드 · 공모 목록(calls.html) · 공모 상세(call.html)
-   데이터: 협회 확인 공모(data/picks.csv → source 'kcap') + 주요 기관 자동 수집. 매일 05:30 GitHub Actions 가 갱신한다. */
+   데이터: 협회 추천 공모(data/picks.csv → source 'kcap') + 주요 기관 자동 수집. 매일 05:30 GitHub Actions 가 갱신한다. */
 (function (w) {
   var K = w.KCAP = w.KCAP || {}, $ = function (s) { return document.querySelector(s); };
   var REG_NAME = { all: '', seoul: '서울', busan: '부산', daegu: '대구', incheon: '인천', gwangju: '광주', daejeon: '대전', ulsan: '울산', sejong: '세종', gyeonggi: '경기', gangwon: '강원', chungbuk: '충북', chungnam: '충남', jeonbuk: '전북', jeonnam: '전남', gyeongbuk: '경북', gyeongnam: '경남', jeju: '제주', jn: '광주', gangjin: '전남' };
-  var SRC = { kcap: '협회 확인', arko: '한국문화예술위원회', ncas: '국가문화예술지원시스템', kawf: '한국예술인복지재단', gokams: '예술경영지원센터', arte: '한국문화예술교육진흥원', kocca: '한국콘텐츠진흥원' };
+  var SRC = { kcap: '협회 추천', arko: '한국문화예술위원회', ncas: '국가문화예술지원시스템', kawf: '한국예술인복지재단', gokams: '예술경영지원센터', arte: '한국문화예술교육진흥원', kocca: '한국콘텐츠진흥원' };
   var ready, byId = {};
 
   K.calls = {
@@ -42,7 +42,7 @@
       byId[it.id] = it;
       // 줄 전체는 상세로 가는 링크, 오른쪽 ♡는 관심 목록 담기 (링크 밖에 두어 눌러도 이동하지 않는다)
       return '<div class="crow-w"><a class="crow' + (it.source === 'kcap' ? ' pick' : '') + '" data-tag="' + K.esc((it.tags || [])[0] || '전체') + '" href="call.html?id=' + encodeURIComponent(it.id) + '">' +
-        '<span class="bdg ' + b.cls + '">' + K.esc(b.txt) + '</span>' + (it.source === 'kcap' ? '<span class="bdg new">협회 확인</span>' : '') +
+        '<span class="bdg ' + b.cls + '">' + K.esc(b.txt) + '</span>' + (it.source === 'kcap' ? '<span class="bdg new">협회 추천</span>' : '') +
         '<b>' + K.esc(it.title) + '</b><small>' + K.esc(meta) + '</small></a>' +
         '<button type="button" class="crow-sv' + (on ? ' on' : '') + '" data-csave="' + K.esc(it.id) + '" aria-pressed="' + on + '" aria-label="관심 목록에 담기" title="관심 목록에 담기">' + (on ? '♥' : '♡') + '</button></div>';
     },
@@ -99,7 +99,7 @@
       }).sort(K.calls.sortByEnd);
       cl.innerHTML = a.length ? a.map(K.calls.row).join('') : '<p class="none">조건에 맞는 공모가 없습니다. 조건을 넓혀 보세요.</p>';
       $('#callMeta').textContent = a.length + '건' + (S.mine ? ' · 내 조건' : '');
-      [].forEach.call(document.querySelectorAll('#cw button'), function (b) { b.classList.toggle('on', b.dataset.w === S.w); });
+      [].forEach.call(document.querySelectorAll('#cw button'), function (b) { var on = b.dataset.w === S.w; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
       var mine = $('#cmine'); if (mine) mine.checked = S.mine;
       var u = new URLSearchParams(); if (S.w !== 'open') u.set('w', S.w); if (S.mine) u.set('mine', '1'); if (S.q) u.set('q', S.q); if (S.src) u.set('src', S.src); if (S.tag) u.set('tag', S.tag); if (S.reg) u.set('reg', S.reg);
       history.replaceState(null, '', location.pathname + (u.toString() ? '?' + u : ''));
@@ -107,7 +107,7 @@
     K.calls.load().then(function (d) {
       all = d.items; var u = $('#callUpd'); if (u) u.textContent = K.calls.updatedText(d.updated);
       var srcSel = $('#csrc'); if (srcSel) { var keys = {}; all.forEach(function (it) { keys[it.source] = 1; }); srcSel.innerHTML = '<option value="">모든 기관</option>' + Object.keys(keys).map(function (k) { return '<option value="' + k + '"' + (k === S.src ? ' selected' : '') + '>' + K.esc(K.calls.srcName(k)) + '</option>'; }).join(''); }
-      var st = $('#cstatus'); if (st) fetch('data/collect-status.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (j) { st.innerHTML = (j.sources || []).map(function (s) { return '<span class="' + (s.ok ? 'ok' : 'bad') + '">' + K.esc(s.name) + ' ' + (s.ok ? s.count + '건' : '실패') + '</span>'; }).join(''); }).catch(function () {});
+      var st = $('#cstatus'); if (st) fetch('data/collect-status.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (j) { st.innerHTML = (j.sources || []).map(function (s) { return '<span class="' + (s.ok ? 'ok' : s.stale ? 'stale' : 'bad') + '"' + (s.stale ? ' title="오늘 수집에 실패해 직전 자료를 그대로 보여 줍니다"' : '') + '>' + K.esc(s.name) + ' ' + (s.ok ? s.count + '건' : s.stale ? '직전 자료 ' + s.count + '건' : '실패') + '</span>'; }).join(''); }).catch(function () {});
       if ($('#cq')) $('#cq').value = S.q; if ($('#ctag')) $('#ctag').value = S.tag; if ($('#creg')) $('#creg').value = S.reg;
       apply();
     });
@@ -123,13 +123,14 @@
     var id = new URLSearchParams(location.search).get('id'), it = d.items.filter(function (x) { return x.id === id; })[0];
     if (!it) { cd.innerHTML = '<p class="none">이 공모를 찾을 수 없습니다. 접수가 끝나 목록에서 내려갔을 수 있습니다. <a href="calls.html">공모 전체 →</a></p>'; return; }
     document.title = it.title + ' | (사)한국청년문화예술인협회';
-    var b = K.calls.badge(it), t = K.today(), dday = it.end && it.end >= t ? 'D-' + K.diff(t, it.end) : '';
-    var sub = it.org + (it.end ? ' · 마감 ' + it.end : '');
+    var b = K.calls.badge(it), t = K.today(), left = it.end && it.end >= t ? K.diff(t, it.end) : -1, dday = left === 0 ? 'D-day' : left > 0 ? 'D-' + left : '';
+    var dot = function (d) { return (d || '').replace(/-/g, '.'); };
+    var sub = it.org + (it.end ? ' · 마감 ' + dot(it.end) : '');
     var saved = K.saved.has(it.id);
-    cd.innerHTML = '<div class="cd-top"><span class="bdg ' + b.cls + '">' + K.esc(b.txt) + '</span>' + (it.source === 'kcap' ? '<span class="bdg new">협회 확인</span>' : '<span class="bdg">자동 수집 · ' + K.esc(K.calls.srcName(it.source)) + '</span>') + '</div>' +
+    cd.innerHTML = '<div class="cd-top"><span class="bdg ' + b.cls + '">' + K.esc(b.txt) + '</span>' + (it.source === 'kcap' ? '<span class="bdg new">협회 추천</span>' : '<span class="bdg">자동 수집 · ' + K.esc(K.calls.srcName(it.source)) + '</span>') + '</div>' +
       '<h1 class="cd-title">' + K.esc(it.title) + '</h1>' +
       '<dl class="dl cd-dl"><dt>주관</dt><dd>' + K.esc(it.org || '-') + '</dd>' +
-      '<dt>접수</dt><dd>' + (it.start || it.end ? K.esc((it.start || '') + (it.end ? ' ~ ' + it.end : '')) + (dday ? ' <b class="cd-dday">' + dday + '</b>' : '') : K.esc(it.when || '공고 확인')) + '</dd>' +
+      '<dt>접수</dt><dd>' + (it.start || it.end ? K.esc(dot(it.start) + (it.end ? ' ~ ' + dot(it.end) : '')) + (dday ? ' <b class="cd-dday">' + dday + '</b>' : '') : K.esc(it.when || '공고 확인')) + '</dd>' +
       '<dt>대상</dt><dd>' + K.esc((it.who && it.who.length ? it.who.join(' · ') : '공고 확인') + (it.age ? ' (만 ' + it.age + '세 이하)' : '')) + '</dd>' +
       '<dt>분야</dt><dd>' + K.esc((it.tags || []).join(' · ') || '전체') + '</dd><dt>지역</dt><dd>' + K.esc(it.reg || '전국') + '</dd></dl>' +
       (it.summary ? '<p class="cd-sum">' + K.esc(it.summary) + '</p>' : '') +
@@ -150,7 +151,7 @@
     var btn = e.target.closest && e.target.closest('[data-csave]'); if (!btn) return;
     e.preventDefault();
     var it = byId[btn.getAttribute('data-csave')]; if (!it || !K.saved) return;
-    var on = K.saved.toggle({ id: it.id, type: '공모', title: it.title, sub: it.org + (it.end ? ' · 마감 ' + it.end : ''), start: it.start, end: it.end, url: it.url, link: 'call.html?id=' + encodeURIComponent(it.id) });
+    var on = K.saved.toggle({ id: it.id, type: '공모', title: it.title, sub: it.org + (it.end ? ' · 마감 ' + it.end.replace(/-/g, '.') : ''), start: it.start, end: it.end, url: it.url, link: 'call.html?id=' + encodeURIComponent(it.id) });
     [].forEach.call(document.querySelectorAll('[data-csave]'), function (x) {
       if (x.getAttribute('data-csave') !== it.id) return;
       x.classList.toggle('on', on); x.textContent = on ? '♥' : '♡'; x.setAttribute('aria-pressed', on);

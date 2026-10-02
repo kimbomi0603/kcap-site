@@ -26,7 +26,11 @@
 
   // 메일 발송이 아직 연결되지 않았으면 미리 알리고 버튼을 잠근다 (빈칸을 다 채운 뒤에 알게 되지 않도록)
   fetch('/api/subscribe?status=1').then(function (r) { return r.json(); }).then(function (j) {
-    if (j && j.configured === false) { show('wait', MSG.notReady); btn.disabled = true; }
+    if (j && j.configured === false) {
+      show('wait', MSG.notReady); btn.disabled = true;
+      // 다른 곳의 '메일로 받기' 버튼도 준비 중임을 알린다
+      [].forEach.call(document.querySelectorAll('[data-sub-cta]'), function (a) { a.textContent = '메일 알림 (준비 중)'; });
+    }
   }).catch(function () {});
 
   form.addEventListener('submit', function (ev) {

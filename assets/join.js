@@ -51,4 +51,9 @@
     if (!ok) { e.preventDefault(); return; }
     var b = f.querySelector('.jf-send'); b.disabled = true; b.firstChild.nodeValue = '보내는 중… ';
   });
+  // 보낸 뒤 '뒤로'로 돌아오면 브라우저가 이전 화면을 그대로 보여 줄 수 있다. 그때 잠긴 버튼을 다시 켠다
+  var send = f.querySelector('.jf-send'), label = send && send.firstChild.nodeValue;
+  window.addEventListener('pageshow', function () {
+    if (send && send.disabled) { send.disabled = false; send.firstChild.nodeValue = label; }
+  });
 })();
