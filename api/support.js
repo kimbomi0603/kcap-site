@@ -42,19 +42,18 @@ function lastDate(s) {
 const clip = (s, n) => (s ? String(s).replace(/\s+/g, ' ').trim().slice(0, n) : '');
 
 // 장르 단어로 찾을 때 함께 볼 단어. 정부 사업 · 청년정책 이름에는 '미술' 같은 장르 이름이 드물어서
-// '미술'로 찾으면 0건이 나오곤 했다. 묶음 안의 단어가 하나라도 있으면 찾은 것으로 본다.
+// '미술'로 찾으면 0건이 나오곤 했다. terms = 정부24 서비스명 검색어, re = 찾은 사업이 그 장르인지 보는 기준.
+// '전시'는 '대전시' · '안전시설' 같은 말에도 들어 있어, 찾은 뒤에 앞뒤 글자를 보고 한 번 더 가린다.
 const GENRES = [
-  ['미술', '시각', '시각예술', '전시', '작가', '갤러리', '회화', '조각', '공예'],
-  ['음악', '밴드', '뮤지션', '인디', '버스킹', '작곡', '연주'],
-  ['공연', '연극', '무용', '뮤지컬', '극단', '공연예술'],
-  ['문학', '출판', '작가', '웹소설', '시인', '소설'],
-  ['영상', '영화', '미디어', '애니메이션', '웹툰', '콘텐츠'],
-  ['디자인', '공예', '사진'],
+  { alias: ['미술', '시각', '시각예술', '전시'], terms: ['미술', '시각예술', '전시', '작가', '갤러리', '공예'], re: /미술|시각예술|(?<![대안발사])전시(?!설)|작가|갤러리|회화|조각|공예/ },
+  { alias: ['음악', '밴드'], terms: ['음악', '밴드', '뮤지션', '인디', '버스킹'], re: /음악|밴드|뮤지션|인디|버스킹|작곡|연주/ },
+  { alias: ['공연', '연극', '무용', '뮤지컬'], terms: ['공연', '연극', '무용', '뮤지컬', '극단'], re: /(?<!공)공연|연극|무용|뮤지컬|극단/ },
+  { alias: ['문학', '출판'], terms: ['문학', '출판', '웹소설'], re: /문학|출판|작가|웹소설|시인|소설/ },
+  { alias: ['영상', '영화', '미디어'], terms: ['영상', '영화', '애니메이션', '웹툰'], re: /영상|영화|미디어|애니메이션|웹툰/ },
 ];
-function expandWord(w) {
-  const g = GENRES.find((list) => list[0] === w || (list.indexOf(w) > 0 && w.length > 1 && ['시각', '시각예술', '밴드', '연극', '무용', '출판'].includes(w)));
-  return g ? g : [w];
-}
+const genreOf = (w) => GENRES.find((g) => g.alias.includes(w)) || null;
+// 청년정책 · 정부 사업 설명에서 낱말 하나를 찾는다 (장르 단어면 묶음 기준으로)
+const hasWord = (h, w) => { const g = genreOf(w); return g ? g.re.test(h) : h.includes(w); };
 
 async function getJSON(url, ms = 9000) {
   const ctl = new AbortController();
@@ -70,7 +69,7 @@ async function getJSON(url, ms = 9000) {
 //   검색어가 없으면 서비스명에 '예술 · 창작 · 공연'이 들어간 사업은 모두, '문화'가 들어간 사업은
 //   설명에 예술 활동 단어가 있는 것만 남긴다 ('다문화 가족', '기업문화' 같은 사업이 섞이지 않게).
 const GOV_URL = 'https://api.odcloud.kr/api/gov24/v3/serviceList';
-const GOV_NOT = /다문화|기업문화|조직문화|직장문화|가족문화|음주문화|교통문화|안전문화|장례문화|음식문화|식문화|선거문화|기부문화|문화누리|통합문화이용권|티켓\s*할인|입장료/;
+const GOV_NOT = /다문화|기업문화|조직문화|직장문화|가족문화|음주문화|교통문화|안전문화|장례문화|음식문화|식문화|선거문화|기부문화|문화누리|통합문화이용권|티켓\s*할인|입장료|관람료/;
 const GOV_TITLE = /예술|창작|(?<!공)공연/; // '공공연구'의 '공연'은 빼고 본다
 const GOV_EXPAND_NOT = /수출|무역|박람회|해외\s*전시회|전시회\s*참가|산업전|기업|창업|농업|어업|축산|관광객|소상공인/;
 const GOV_ARTS = /예술|창작|(?<!공)공연|전시|미술|작가|공예|음악|연극|무용|국악|레지던시|콘텐츠|영상|출판|문학|웹툰|만화|애니메이션|사진|디자인|공방/;
@@ -96,9 +95,9 @@ async function gov24(q, region) {
   if (!key) return { configured: false, items: [] };
   if (/%[0-9A-Fa-f]{2}/.test(key)) key = decodeURIComponent(key); // URLSearchParams가 다시 인코딩하므로
   const deadline = Date.now() + 7500;
-  const expanded = q && !/\s/.test(q) ? expandWord(q) : null;
-  const terms = expanded && expanded.length > 1 ? expanded.slice(0, 5) : q ? [q] : ['예술', '문화', '창작', '공연'];
-  const got = await Promise.allSettled(terms.map((t) => gov24Term(key, t, t === '문화' ? 4 : expanded && expanded.length > 1 ? 1 : 2, deadline)));
+  const genre = q && !/\s/.test(q) ? genreOf(q) : null;
+  const terms = genre ? genre.terms : q ? [q] : ['예술', '문화', '창작', '공연'];
+  const got = await Promise.allSettled(terms.map((t) => gov24Term(key, t, t === '문화' ? 4 : genre ? 1 : 2, deadline)));
   if (got.every((x) => x.status === 'rejected')) throw got[0].reason;
   const t = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
   const qNot = q && GOV_NOT.test(q); // '다문화'처럼 직접 찾는 경우는 막지 않는다
@@ -111,8 +110,8 @@ async function gov24(q, region) {
       const name = String(d['서비스명'] || '');
       if (!qNot && GOV_NOT.test(name)) continue;
       if (!q && !GOV_TITLE.test(name) && !GOV_ARTS.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원내용'] || ''} ${d['지원대상'] || ''}`)) continue;
-      // 장르 묶음으로 넓혀 찾은 경우: '전시회 참가(수출)'처럼 예술과 무관한 사업은 뺀다
-      if (expanded && expanded.length > 1 && name.indexOf(q) < 0 && (GOV_EXPAND_NOT.test(name) || !GOV_ARTS.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원내용'] || ''}`))) continue;
+      // 장르 묶음으로 넓혀 찾은 경우: 창업 · 수출처럼 예술가 지원이 아닌 사업과, 장르에 맞지 않는 사업은 뺀다
+      if (genre && (GOV_EXPAND_NOT.test(name) || !genre.re.test(name))) continue;
       const org = `${d['소관기관명'] || ''} ${d['접수기관'] || ''}`;
       if (region.names.length && !region.names.some((n) => org.includes(n))) continue;
       const end = lastDate(d['신청기한']);
@@ -220,7 +219,7 @@ async function youth(q, region) {
       return ARTS_TITLE.test(name);
     })
     .filter((p) => youthInRegion(p, region))
-    .filter((p) => { if (!words.length) return true; const h = `${p.plcyNm} ${p.plcyKywdNm || ''} ${p.plcyExplnCn || ''} ${p.plcySprtCn || ''}`.toLowerCase(); return words.every((w) => expandWord(w).some((x) => h.includes(x))); })
+    .filter((p) => { if (!words.length) return true; const h = `${p.plcyNm} ${p.plcyKywdNm || ''} ${p.plcyExplnCn || ''} ${p.plcySprtCn || ''}`.toLowerCase(); return words.every((w) => hasWord(h, w)); })
     .map((p) => ({
       src: 'youth',
       title: clip(p.plcyNm, 80),
@@ -255,4 +254,4 @@ module.exports = async (req, res) => {
     res.status(200).send(JSON.stringify({ ok: false, src, configured: true, error: String(e.message || e), items: [] }));
   }
 };
-module.exports._test = { gov24, youth, REGIONS, lastDate, expandWord };
+module.exports._test = { gov24, youth, REGIONS, lastDate, genreOf, hasWord };
