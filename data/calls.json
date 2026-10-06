@@ -1,47 +1,7 @@
 {
-  "updated": "2026-10-06T01:22:23.068Z",
-  "count": 134,
+  "updated": "2026-10-06T23:58:25.866Z",
+  "count": 129,
   "items": [
-    {
-      "id": "gokams-50750",
-      "title": "[(재)인천광역시부평구문화재단] 2026 <음악문화공간 지음 및 사운드 스튜디오 활성화를 위한 공모> 참여 예술인(단체) 모집",
-      "org": "(재)인천광역시부평구문화재단",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50750&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
-      "posted": "",
-      "start": "2026-08-19",
-      "end": "2026-09-06",
-      "who": [
-        "개인",
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "공연"
-      ],
-      "reg": "인천",
-      "summary": "(재)인천광역시부평구문화재단 · 공모 기금 · 2026-08-19 ~ 09-06",
-      "source": "gokams",
-      "kind": "공모"
-    },
-    {
-      "id": "gokams-50759",
-      "title": "[한국연극인복지재단] <2026 프로젝트 워크숍 ; 이음과 과정> 연출 공모 (~9/6 까지)",
-      "org": "(재)한국연극인복지재단",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50759&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
-      "posted": "",
-      "start": "2026-07-24",
-      "end": "2026-09-06",
-      "who": [],
-      "age": null,
-      "tags": [
-        "공연",
-        "교육"
-      ],
-      "reg": "전국",
-      "summary": "(재)한국연극인복지재단 · 공모 기금 · 2026-07-24 ~ 09-06",
-      "source": "gokams",
-      "kind": "공모"
-    },
     {
       "id": "ncas-2026080513373658328",
       "title": "창작공간 대관료 지원사업 추가공모",
@@ -201,6 +161,27 @@
       "reg": "전국",
       "summary": "중남미 최대 규모의 공연예술 국제축제인 칠레 테아트로아밀축제 및 공연예술 전문가 주간(플라테아아밀) 참가 프로그래머 모집 및 지원(2027년 1월)",
       "source": "arko",
+      "kind": "공모"
+    },
+    {
+      "id": "gokams-4531",
+      "title": "2026 서울아트마켓 부스참가 및 개인등록 안내",
+      "org": "예술경영지원센터",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4531&page=2&txtKeyword=&ddlKeyfield=T",
+      "posted": "2026-08-05",
+      "start": "",
+      "end": "2026-09-15",
+      "who": [
+        "개인"
+      ],
+      "age": null,
+      "tags": [
+        "공연",
+        "콘텐츠"
+      ],
+      "reg": "서울",
+      "summary": "파일 .se-contents .stb-left-cell p, .stb-right-cell p { margin: 0px !important; }.se-contents .stb-container table.munged { width: 100% !important; table-layout:…",
+      "source": "gokams",
       "kind": "공모"
     },
     {
@@ -619,27 +600,6 @@
       "kind": "공모"
     },
     {
-      "id": "kocca-326D00092012",
-      "title": "2026 월드 웹툰 페스티벌 전시 참가자 모집공고",
-      "org": "한국콘텐츠진흥원",
-      "url": "https://www.kocca.kr/kocca/pims/view.do?intcNo=326D00092012&menuNo=204104&recptSt=&category=&pageIndex=1&search=&searchWrd=",
-      "posted": "2026-09-17",
-      "start": "2026-09-17",
-      "end": "2026-10-06",
-      "who": [
-        "개인"
-      ],
-      "age": null,
-      "tags": [
-        "시각",
-        "콘텐츠"
-      ],
-      "reg": "전국",
-      "summary": "한국콘텐츠진흥원 지원공고 · 모집공모",
-      "source": "kocca",
-      "kind": "공모"
-    },
-    {
       "id": "kocca-326D00089011",
       "title": "세계적인 남성복/유니섹스 수주회인 Pitti Uomo 111 CODE KOREA 참여 브랜드 모집",
       "org": "한국콘텐츠진흥원",
@@ -796,7 +756,7 @@
       "id": "gokams-50959",
       "title": "[우란문화재단] 2027년 1월~3월 공연장지원사업 신청 안내",
       "org": "우란문화재단",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50959&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50959&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-09-28",
       "end": "2026-10-21",
@@ -940,6 +900,46 @@
       "kind": "공모"
     },
     {
+      "id": "gokams-51041",
+      "title": "Art&Sharing 전시 《 위치 정보 수집을 허용하시겠습니까? *가제 》 작가 공모",
+      "org": "아트앤쉐어링",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51041&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "posted": "",
+      "start": "2026-10-05",
+      "end": "2026-10-30",
+      "who": [
+        "개인"
+      ],
+      "age": null,
+      "tags": [
+        "시각"
+      ],
+      "reg": "전국",
+      "summary": "아트앤쉐어링 · 공모 기금 · 2026-10-05 ~ 10-30",
+      "source": "gokams",
+      "kind": "공모"
+    },
+    {
+      "id": "gokams-51037",
+      "title": "[2027 시각 예술 작가 공모] 프로젝트 스페이스, 언더 레이어 《PS, On View》",
+      "org": "프로젝트 스페이스, 언더 레이어",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51037&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "posted": "",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "who": [
+        "개인"
+      ],
+      "age": null,
+      "tags": [
+        "시각"
+      ],
+      "reg": "전국",
+      "summary": "프로젝트 스페이스, 언더 레이어 · 공모 기금 · 2026-10-01 ~ 10-31",
+      "source": "gokams",
+      "kind": "공모"
+    },
+    {
       "id": "gokams-50995",
       "title": "2027바다미술제 전시감독 공개모집",
       "org": "부산비엔날레조직위원",
@@ -992,42 +992,6 @@
       ],
       "reg": "전국",
       "summary": "안산문화재단 · 공모 기금 · 2026-09-28 ~ 10-31",
-      "source": "gokams",
-      "kind": "공모"
-    },
-    {
-      "id": "gokams-51024",
-      "title": "PS, On View: OPEN CALL FOR ARTISTS 2027",
-      "org": "프로젝트 스페이스, 언더 레이어",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51024&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
-      "posted": "",
-      "start": "2026-10-01",
-      "end": "2026-10-31",
-      "who": [],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "전국",
-      "summary": "프로젝트 스페이스, 언더 레이어 · 공모 기금 · 2026-10-01 ~ 10-31",
-      "source": "gokams",
-      "kind": "공모"
-    },
-    {
-      "id": "gokams-50732",
-      "title": "2026 제7회 한국드로잉 공모대전",
-      "org": "한국드로잉 공모대전 운영위원",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50732&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
-      "posted": "",
-      "start": "2026-11-02",
-      "end": "2026-11-13",
-      "who": [],
-      "age": null,
-      "tags": [
-        "시각"
-      ],
-      "reg": "전국",
-      "summary": "한국드로잉 공모대전 운영위원 · 공모 기금 · 2026-11-02 ~ 11-13",
       "source": "gokams",
       "kind": "공모"
     },
@@ -1093,7 +1057,7 @@
       "id": "gokams-50842",
       "title": "[아트센터 화이트블럭] 2027년 대관 공고",
       "org": "아트센터 화이트블럭",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50842&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50842&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-09-04",
       "end": "2027-12-31",
@@ -1106,6 +1070,24 @@
       "summary": "아트센터 화이트블럭 · 공모 기금 · 2026-09-04 ~ 2027-12-31",
       "source": "gokams",
       "kind": "공모"
+    },
+    {
+      "id": "gokams-4577",
+      "title": "2026 대형 뮤지컬 낭독공연 지원사업 2차 공모 최종 심의 결과 안내",
+      "org": "예술경영지원센터",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4577&page=1&txtKeyword=&ddlKeyfield=T",
+      "posted": "2026-10-06",
+      "start": "",
+      "end": "",
+      "who": [],
+      "age": null,
+      "tags": [
+        "공연"
+      ],
+      "reg": "전국",
+      "summary": "2026 대형 뮤지컬 낭독공연 지원사업 2차 공모 최종 심의 결과 안내",
+      "source": "gokams",
+      "kind": "공지"
     },
     {
       "id": "arte-BRD_ID0083826",
@@ -1142,7 +1124,7 @@
         "교육"
       ],
       "reg": "전국",
-      "summary": "파일 문의(재)예술경영지원센터 예술경제본부 인재개발팀 전화02-708-2299 이메일academy@gokams.or.kr 이전글이 없습니다. 2026 예술산업아카데미 예술산업 입직을 위한 진로 및 취업상담(11월) 수강생 모집 HOME 알림/소식 공지사항 2026 예술산업아카데미 <예…",
+      "summary": "파일 문의(재)예술경영지원센터 예술경제본부 인재개발팀 전화02-708-2299 이메일academy@gokams.or.kr 2026 대형 뮤지컬 낭독공연 지원사업 2차 공모 최종 심의 결과 안내 2026 예술산업아카데미 예술산업 입직을 위한 진로 및 취업상담(11월) 수강생 모집 HOM…",
       "source": "gokams",
       "kind": "공모"
     },
@@ -1339,7 +1321,7 @@
       "id": "gokams-4571",
       "title": "2026 대형 뮤지컬 낭독공연 지원사업 2차 공모 서류심의 결과 안내",
       "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4571&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4571&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "2026-09-17",
       "start": "",
       "end": "",
@@ -1444,26 +1426,6 @@
       "summary": "2026 아트코리아랩 AI+기술융합 오픈이노베이션(2차) 1차 서류심의 결과",
       "source": "gokams",
       "kind": "공지"
-    },
-    {
-      "id": "gokams-4561",
-      "title": "2026 예술산업아카데미 <예술창업 모닝 살롱 Vol.4> 수강생 모집",
-      "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4561&page=2&txtKeyword=&ddlKeyfield=T",
-      "posted": "2026-09-04",
-      "start": "",
-      "end": "",
-      "who": [
-        "개인"
-      ],
-      "age": null,
-      "tags": [
-        "교육"
-      ],
-      "reg": "전국",
-      "summary": "파일 문의(재)예술경영지원센터 예술경제본부 인재개발팀 전화02-708-2299 이메일academy@gokams.or.kr [9월 아트코리아랩 아트부스트] \"키네틱 비주얼과 모션그래픽 알고리즘의 창작 활용\" [특강+1:1컨설팅] 2026 예술산업아카데미 예술산업 입직을 위한 진로 및 취…",
-      "source": "gokams",
-      "kind": "공모"
     },
     {
       "id": "arte-BRD_ID0083751",
@@ -1850,26 +1812,6 @@
       "kind": "공지"
     },
     {
-      "id": "gokams-4531",
-      "title": "2026 서울아트마켓 부스참가 및 개인등록 안내",
-      "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4531&page=2&txtKeyword=&ddlKeyfield=T",
-      "posted": "2026-08-05",
-      "start": "",
-      "end": "",
-      "who": [
-        "개인"
-      ],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "서울",
-      "summary": "2026 서울아트마켓 부스참가 및 개인등록 안내",
-      "source": "gokams",
-      "kind": "공모"
-    },
-    {
       "id": "kawf-19593",
       "title": "[공고]「2026년 예술인생활안정자금(융자)사업 시스템 기능개선 및 고도화 용역」입찰 공고",
       "org": "한국예술인복지재단",
@@ -1925,25 +1867,6 @@
       "reg": "전국",
       "summary": "한국문화예술교육진흥원 공지 · 문예교육사운영팀",
       "source": "arte",
-      "kind": "공모"
-    },
-    {
-      "id": "gokams-4524",
-      "title": "2026 공연예술 관람료 지원 사업 현장할인 참여 문예회관 모집(2차)",
-      "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4524&page=2&txtKeyword=&ddlKeyfield=T",
-      "posted": "2026-07-30",
-      "start": "",
-      "end": "",
-      "who": [],
-      "age": null,
-      "tags": [
-        "공연",
-        "문학"
-      ],
-      "reg": "전국",
-      "summary": "2026 공연예술 관람료 지원 사업 현장할인 참여 문예회관 모집(2차)",
-      "source": "gokams",
       "kind": "공모"
     },
     {
@@ -2071,24 +1994,6 @@
       "summary": "한국문화예술교육진흥원 공지 · 법무 · 정보화팀",
       "source": "arte",
       "kind": "공지"
-    },
-    {
-      "id": "gokams-4513",
-      "title": "미술 서비스업 신고제 안내자료 및 Q&A접수",
-      "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4513&page=2&txtKeyword=&ddlKeyfield=T",
-      "posted": "2026-07-16",
-      "start": "",
-      "end": "",
-      "who": [],
-      "age": null,
-      "tags": [
-        "시각"
-      ],
-      "reg": "전국",
-      "summary": "미술 서비스업 신고제 안내자료 및 Q&A접수",
-      "source": "gokams",
-      "kind": "공모"
     },
     {
       "id": "arte-BRD_ID0083624",
