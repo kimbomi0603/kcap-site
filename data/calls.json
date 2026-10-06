@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-04T23:28:57.782Z",
-  "count": 132,
+  "updated": "2026-10-06T01:22:23.068Z",
+  "count": 134,
   "items": [
     {
       "id": "gokams-50750",
@@ -201,27 +201,6 @@
       "reg": "전국",
       "summary": "중남미 최대 규모의 공연예술 국제축제인 칠레 테아트로아밀축제 및 공연예술 전문가 주간(플라테아아밀) 참가 프로그래머 모집 및 지원(2027년 1월)",
       "source": "arko",
-      "kind": "공모"
-    },
-    {
-      "id": "gokams-4531",
-      "title": "2026 서울아트마켓 부스참가 및 개인등록 안내",
-      "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4531&page=2&txtKeyword=&ddlKeyfield=T",
-      "posted": "2026-08-05",
-      "start": "",
-      "end": "2026-09-15",
-      "who": [
-        "개인"
-      ],
-      "age": null,
-      "tags": [
-        "공연",
-        "콘텐츠"
-      ],
-      "reg": "서울",
-      "summary": "파일 .se-contents .stb-left-cell p, .stb-right-cell p { margin: 0px !important; }.se-contents .stb-container table.munged { width: 100% !important; table-layout:…",
-      "source": "gokams",
       "kind": "공모"
     },
     {
@@ -1871,6 +1850,26 @@
       "kind": "공지"
     },
     {
+      "id": "gokams-4531",
+      "title": "2026 서울아트마켓 부스참가 및 개인등록 안내",
+      "org": "예술경영지원센터",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4531&page=2&txtKeyword=&ddlKeyfield=T",
+      "posted": "2026-08-05",
+      "start": "",
+      "end": "",
+      "who": [
+        "개인"
+      ],
+      "age": null,
+      "tags": [
+        "전체"
+      ],
+      "reg": "서울",
+      "summary": "2026 서울아트마켓 부스참가 및 개인등록 안내",
+      "source": "gokams",
+      "kind": "공모"
+    },
+    {
       "id": "kawf-19593",
       "title": "[공고]「2026년 예술인생활안정자금(융자)사업 시스템 기능개선 및 고도화 용역」입찰 공고",
       "org": "한국예술인복지재단",
@@ -1926,6 +1925,25 @@
       "reg": "전국",
       "summary": "한국문화예술교육진흥원 공지 · 문예교육사운영팀",
       "source": "arte",
+      "kind": "공모"
+    },
+    {
+      "id": "gokams-4524",
+      "title": "2026 공연예술 관람료 지원 사업 현장할인 참여 문예회관 모집(2차)",
+      "org": "예술경영지원센터",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4524&page=2&txtKeyword=&ddlKeyfield=T",
+      "posted": "2026-07-30",
+      "start": "",
+      "end": "",
+      "who": [],
+      "age": null,
+      "tags": [
+        "공연",
+        "문학"
+      ],
+      "reg": "전국",
+      "summary": "2026 공연예술 관람료 지원 사업 현장할인 참여 문예회관 모집(2차)",
+      "source": "gokams",
       "kind": "공모"
     },
     {
@@ -2053,6 +2071,24 @@
       "summary": "한국문화예술교육진흥원 공지 · 법무 · 정보화팀",
       "source": "arte",
       "kind": "공지"
+    },
+    {
+      "id": "gokams-4513",
+      "title": "미술 서비스업 신고제 안내자료 및 Q&A접수",
+      "org": "예술경영지원센터",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4513&page=2&txtKeyword=&ddlKeyfield=T",
+      "posted": "2026-07-16",
+      "start": "",
+      "end": "",
+      "who": [],
+      "age": null,
+      "tags": [
+        "시각"
+      ],
+      "reg": "전국",
+      "summary": "미술 서비스업 신고제 안내자료 및 Q&A접수",
+      "source": "gokams",
+      "kind": "공모"
     },
     {
       "id": "arte-BRD_ID0083624",
