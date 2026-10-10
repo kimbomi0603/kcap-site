@@ -788,3 +788,12 @@ input,select,textarea{border-radius:0!important}
 details.more summary .op{display:none}
 details.more[open] summary .op{display:inline}
 details.more[open] summary .cl{display:none}
+/* 2026-10 자료 보완: 전시 현장 사진, 인사말 인용, 영상 작품 */
+.gal-h{margin:26px 0 -8px;font-size:12.5px;font-weight:800;letter-spacing:.08em;color:var(--muted)}
+.evq{margin:20px 0 6px;padding:4px 0 4px 18px;border-left:3px solid var(--red);font-family:var(--serif);font-size:17px;line-height:1.7;font-weight:700}
+.evq cite{display:block;margin-top:6px;font-family:inherit;font-style:normal;font-size:12.5px;font-weight:500;color:var(--muted)}
+.evs{margin-top:10px;font-size:13.5px;line-height:1.7;color:var(--muted)}.evs b{color:var(--ink);margin-right:8px}
+.w-e{grid-column:span 12;aspect-ratio:20/9}
+.works figure video{width:100%;height:100%;object-fit:cover;display:block}
+.works figure.w-e figcaption{pointer-events:none}
+@media(max-width:760px){.w-e{aspect-ratio:16/9}}
