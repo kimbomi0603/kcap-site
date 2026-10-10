@@ -797,3 +797,178 @@ details.more[open] summary .cl{display:none}
 .works figure video{width:100%;height:100%;object-fit:cover;display:block}
 .works figure.w-e figcaption{pointer-events:none}
 @media(max-width:760px){.w-e{aspect-ratio:16/9}}
+
+/* ===================== 디자인 v3: ‘함께 숨쉬기 프로젝트’ 도록에서 가져온 페이지별 분위기 (2026-10) =====================
+   m-breath  : 2023 블루 아트 페스티벌 포스터 — 검정 바탕, 파랑 세리프 ‘Breath Together’
+   m-coexist : 2024 ‘더 나은 공존’ 포스터 — 거친 회색 입자, 주황 고리 두 개
+   m-green   : 2023 도록 ‘초록별 몬스터’ — 흰 바탕, 왼쪽 초록 띠, 굵은 초록 제목
+   m-leaflet : 2024 리플릿 — 흰 종이, 굵은 검정 글자, 흑백 사진
+   m-book    : 전시 도록 서가 — 세 권의 색을 한 줄에 */
+:root{--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --c-blue:#2f5fc8;--c-blue2:#6f95e6;--c-orange:#e9803f;--c-green:#078a2c;--c-gray:#d2d2ce;--c-coal:#262626}
+.hd .pill.red{background:#e82024;border-color:#e82024}
+.m-breath{--acc:var(--c-blue)}.m-coexist{--acc:var(--c-orange)}.m-green{--acc:var(--c-green)}.m-leaflet{--acc:#111}.m-book{--acc:var(--c-orange)}
+body[class*="m-"] .kicker span:first-child::before{color:var(--acc)}
+body[class*="m-"] .tabs a.on{border-color:var(--acc);color:var(--ink)}
+.shero .wrap{z-index:3}
+
+/* m-breath */
+.m-breath .shero{background:#08090c}
+.m-breath .shero .bgimg{opacity:.12}
+.m-breath .shero::after{content:"Breath Together";position:absolute;right:-1vw;bottom:-3.2vw;font-family:Georgia,'Times New Roman',serif;font-size:clamp(70px,13vw,190px);line-height:.8;letter-spacing:-.04em;color:var(--c-blue);white-space:nowrap;pointer-events:none;z-index:1;opacity:.9}
+.m-breath .shero h1{font-family:var(--serif)}
+.m-breath .shero p{color:#a8b0bf}
+.m-breath .mhero{background:#08090c}
+.m-breath .mhero .ov{background:linear-gradient(90deg,#08090c 0,#08090c 46%,rgba(8,9,12,.2) 62%,rgba(8,9,12,0) 100%)}
+.m-breath .mhero h1 em{color:var(--c-blue2)}
+.m-breath .marq span:after{color:var(--c-blue)}
+.m-breath .mani p.big mark{border-bottom-color:var(--c-blue)}
+.m-breath .pfeat{background:#08090c}
+@media(max-width:720px){.m-breath .mhero .ov{background:rgba(8,9,12,.88)}}
+
+/* m-coexist */
+.m-coexist .shero{background:var(--c-gray) var(--grain);color:var(--c-coal)}
+.m-coexist .shero .bgimg{opacity:.16;mix-blend-mode:multiply}
+.m-coexist .shero h1{font-family:Pretendard;font-weight:900;letter-spacing:-.065em}
+.m-coexist .shero p{color:#4a4a48}
+.m-coexist .shero .crumb,.m-coexist .shero .crumb a{color:#555}
+.m-coexist .shero::before,.m-coexist .shero::after{content:"";position:absolute;top:50%;width:clamp(90px,11vw,150px);aspect-ratio:1;border:clamp(10px,1.2vw,16px) solid var(--c-orange);border-radius:50%;transform:translateY(-50%);z-index:1}
+.m-coexist .shero::before{right:calc(6% + clamp(60px,7vw,100px))}
+.m-coexist .shero::after{right:6%}
+.m-coexist .yearblock .yy small{color:var(--c-orange)}
+
+/* m-green */
+.m-green .shero{background:#fff;color:#1d1d1d;box-shadow:inset 18px 0 0 var(--c-green);border-bottom:1px solid var(--c-coal)}
+.m-green .shero .bgimg{display:none}
+.m-green .shero h1{font-family:Pretendard;font-weight:900;color:var(--c-green);letter-spacing:-.06em}
+.m-green .shero p{color:#3a3a3a}
+.m-green .shero .crumb,.m-green .shero .crumb a{color:#666}
+.m-green .shero::after{content:"함께 숨쉬기 프로젝트";position:absolute;right:32px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-weight:900;font-size:clamp(15px,1.6vw,20px);letter-spacing:.35em;color:var(--c-coal)}
+.m-green .artist{border-color:var(--c-coal)}
+.m-green .artist .im.noimg{background:#fff;color:var(--c-green);border-bottom:1px solid var(--line)}
+
+/* m-leaflet (협회장·언론보도) */
+.m-leaflet .shero{background:#fff;color:#111;border-bottom:1px solid #111}
+.m-leaflet .shero .bgimg{left:auto;right:0;width:46%;opacity:1;filter:grayscale(1) contrast(1.05)}
+.m-leaflet .shero h1{font-family:Pretendard;font-weight:900;font-size:clamp(48px,7vw,96px);letter-spacing:-.07em}
+.m-leaflet .shero p{color:#333;max-width:46%}
+.m-leaflet .shero .crumb,.m-leaflet .shero .crumb a{color:#666}
+.m-leaflet .phero{background:#fff;color:#111;border-bottom:1px solid #111}
+.m-leaflet .phero .bg{left:auto;right:0;width:58%;opacity:1;filter:grayscale(1) contrast(1.05)}
+.m-leaflet .phero:after{background:linear-gradient(90deg,#fff 0,#fff 42%,rgba(255,255,255,0) 60%)}
+.m-leaflet .phero .role{color:#111}
+.m-leaflet .phero .en{color:#111}
+.m-leaflet .phero .chips span{border-color:#111;border-radius:0}
+.m-leaflet .phero .port{border-color:#111;filter:grayscale(1)}
+.m-leaflet .phero .port:hover{filter:none}
+@media(max-width:760px){.m-leaflet .shero .bgimg{width:100%;opacity:.14}.m-leaflet .shero p{max-width:none}.m-leaflet .phero .bg{width:100%;opacity:.25}.m-leaflet .phero:after{background:rgba(255,255,255,.55)}}
+
+/* m-book 히어로: 세 권의 색 */
+.m-book .shero{background:#0b0b0d}
+.m-book .shero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:linear-gradient(90deg,var(--c-gray) 0 33.3%,var(--c-green) 33.3% 66.6%,var(--c-blue) 66.6% 100%);z-index:1}
+
+/* 연도별 활동: 해마다 그 해 도록의 색 */
+#y2024 .yy{color:var(--c-orange)}#y2023 .yy{color:var(--c-blue)}#y2023 .yy small{color:var(--c-green)}#y2022 .yy{color:#1f3f8a}
+.bk-link{display:inline-block;margin-top:14px;font-weight:800;font-size:14px;border-bottom:2px solid currentColor;padding-bottom:1px}
+#y2024 .bk-link{color:var(--c-orange)}#y2023 .bk-link{color:var(--c-green)}#y2022 .bk-link{color:var(--c-blue)}
+
+/* ---------- 전시 도록 서가 ---------- */
+.shelf{padding:70px 0 50px}
+.shelf-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.sp{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:340px;padding:26px 24px;overflow:hidden;border:1px solid var(--c-coal)}
+.sp:hover .t{text-decoration:underline;text-decoration-thickness:2px}
+.sp .y{position:absolute;top:22px;left:24px;font-weight:900;font-size:15px;letter-spacing:.08em}
+.sp .t{font-weight:900;font-size:clamp(30px,3.2vw,44px);letter-spacing:-.06em;line-height:1.05}
+.sp .s{margin-top:8px;font-size:14px;font-weight:600}
+.sp .n{margin-top:18px;font-size:12.5px;font-weight:800;letter-spacing:.04em;opacity:.75}
+.sp.b2024{background:var(--c-gray) var(--grain);color:var(--c-coal)}
+.sp.b2024::before,.sp.b2024::after{content:"";position:absolute;top:36px;width:84px;aspect-ratio:1;border:11px solid var(--c-orange);border-radius:50%}
+.sp.b2024::before{right:78px}.sp.b2024::after{right:24px}
+.sp.b2023{background:#fff;color:var(--c-coal);box-shadow:inset 14px 0 0 var(--c-green);padding-left:38px}
+.sp.b2023 .y{left:38px}.sp.b2023 .t{color:var(--c-green)}
+.sp.b2022{background:#08090c;color:#e9eaee}
+.sp.b2022 .t{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-style:italic;color:var(--c-blue2)}
+.shelf-note{margin-top:22px;font-size:14px;color:var(--muted)}.shelf-note a{border-bottom:1px solid}
+
+/* ---------- 도록 한 권 ---------- */
+.bk{padding:90px 0 70px;border-top:1px solid var(--c-coal)}
+.bk.b2024{--acc:var(--c-orange);background:var(--c-gray) var(--grain);color:var(--c-coal);--line:rgba(0,0,0,.18);--muted:#4b4b48}
+.bk.b2023{--acc:var(--c-green);background:#fff;color:#1d1d1d;box-shadow:inset 18px 0 0 var(--c-green)}
+.bk.b2022{--acc:var(--c-blue2);background:#08090c;color:#e7e8ec;--line:rgba(255,255,255,.18);--muted:#a3a8b4}
+.bk-hd{display:grid;grid-template-columns:150px 1fr 340px;gap:30px;align-items:end;padding-bottom:30px;border-bottom:2px solid currentColor}
+.bk-yr{font-weight:900;font-size:clamp(44px,5vw,70px);letter-spacing:-.06em;line-height:.85;color:var(--acc)}
+.bk-se{font-size:13px;font-weight:800;letter-spacing:.3em}
+.bk-hd h2{font-weight:900;font-size:clamp(46px,7.4vw,108px);letter-spacing:-.07em;line-height:.95;margin:8px 0 6px}
+.b2023 .bk-hd h2{color:var(--c-green)}
+.b2022 .bk-hd h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-style:italic;letter-spacing:-.04em;color:var(--c-blue2)}
+.bk-sub{font-size:16px;font-weight:700}
+.bk-when{display:grid;grid-template-columns:44px 1fr;gap:6px 10px;font-size:13.5px;line-height:1.55}
+.bk-when dt{font-weight:800;color:var(--acc)}
+.bk-cv{display:grid;grid-template-columns:5fr 7fr;gap:48px;padding:44px 0;border-bottom:1px solid var(--line)}
+.bk-cover{display:block;margin:0}
+.bk-cover img{width:100%;height:auto;max-height:620px;object-fit:contain;aspect-ratio:auto;background:rgba(0,0,0,.05)}
+.bk-colo h3{font-size:13px;font-weight:900;letter-spacing:.2em;margin:0 0 14px;color:var(--acc)}
+.bk-colo h3+dl+h3,.bk-colo dl+h3{margin-top:34px}
+.bk-colo dl{display:grid;grid-template-columns:96px 1fr;border-top:1px solid currentColor}
+.bk-colo dt,.bk-colo dd{padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.6}
+.bk-colo dt{font-weight:800}
+.bk-idx{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:16px;font-weight:700}
+.bk-idx a{border-bottom:1px solid currentColor}.bk-idx a:hover{color:var(--acc)}
+.bk-text{display:grid;grid-template-columns:240px 1fr;gap:40px;padding:50px 0;border-bottom:1px solid var(--line)}
+.bk-tl span{display:block;font-size:13px;font-weight:900;letter-spacing:.2em;color:var(--acc)}
+.bk-tl h3{font-weight:900;font-size:26px;letter-spacing:-.04em;line-height:1.3;margin-top:10px}
+.bk-tb{max-width:780px}
+.bk-tb p{font-family:var(--serif);font-size:17px;line-height:2;margin-bottom:1.1em}
+.bk-tb p.by,.bk-es p.by{font-family:Pretendard;font-size:14px;font-weight:800;margin-top:18px}
+.bk-arts{counter-reset:art}
+.bk-a{display:grid;grid-template-columns:190px 1fr 340px;gap:34px;padding:36px 0;border-bottom:1px solid var(--line);scroll-margin-top:90px}
+.bk-an b{display:block;font-weight:900;font-size:28px;letter-spacing:-.05em;line-height:1.1}
+.bk-an small{display:block;margin-top:6px;font-size:13px;font-weight:700;color:var(--muted)}
+.bk-tag{display:inline-block;margin-top:10px;padding:2px 8px;border:1px solid var(--acc);color:var(--acc);font-size:11.5px;font-weight:800;letter-spacing:.06em}
+.bk-bio{list-style:none;font-size:14px;line-height:1.75;color:var(--muted)}
+.bk-bio li+li{margin-top:6px}
+.bk-wk{list-style:none;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.bk-wk li{font-size:15px;font-weight:700;line-height:1.6}
+.bk-wk li::before{content:"";display:inline-block;width:14px;height:2px;background:var(--acc);vertical-align:middle;margin-right:10px}
+.bk-es{margin-top:22px}
+.bk-es h4{font-size:15px;font-weight:900;margin-bottom:8px;color:var(--acc)}
+.bk-es p{font-family:var(--serif);font-size:15.5px;line-height:1.95;margin-bottom:.9em}
+.bk-im.gal{grid-template-columns:1fr 1fr;gap:6px;margin-top:0;align-content:start}
+.bk-im.gal img:only-child{grid-column:span 2;aspect-ratio:4/3}
+.bk-im.gal img{background:rgba(0,0,0,.06)}
+.bk .gal-h{color:var(--acc);margin-top:44px}
+.bk-back{display:flex;justify-content:space-between;margin-top:40px;font-size:14px;font-weight:800}
+.bk-back a{border-bottom:1px solid currentColor}
+@media(max-width:900px){
+  .shelf-row{grid-template-columns:1fr}.sp{min-height:220px}
+  .bk-hd{grid-template-columns:1fr;gap:12px}.bk-cv{grid-template-columns:1fr;gap:28px}
+  .bk-text{grid-template-columns:1fr;gap:14px}.bk-a{grid-template-columns:1fr;gap:16px}
+  .bk.b2023{box-shadow:inset 8px 0 0 var(--c-green)}
+  .m-coexist .shero::before,.m-coexist .shero::after{top:auto;bottom:18px;transform:none;width:64px;border-width:8px}
+  .m-coexist .shero::before{right:66px}.m-coexist .shero::after{right:20px}
+  .m-green .shero::after{display:none}.m-green .shero{box-shadow:inset 10px 0 0 var(--c-green)}
+}
+/* v3 보정 */
+.bk.b2024{--acc:#a9481a}
+.m-coexist{--acc:#c45f24}
+.bk-im.none{display:none}
+.bk-a:has(.bk-im.none){grid-template-columns:190px 1fr}
+.b2022 .bk-arts{display:grid;grid-template-columns:repeat(4,1fr);gap:34px 22px;padding-top:36px}
+.b2022 .bk-a{grid-template-columns:1fr;gap:10px;padding:0;border:0}
+.b2022 .bk-a .bk-an b{font-size:22px}
+.b2022 .bk-ab:empty{display:none}
+.b2022 .bk-wk{margin-top:0;padding-top:0;border:0}.b2022 .bk-wk li{font-size:13.5px}
+.b2022 .bk-im.gal{order:-1}
+.b2022 .bk-cover img{max-height:520px}
+.m-green .shero::after{white-space:nowrap}
+.m-breath .shero::after{font-size:clamp(60px,10vw,150px);bottom:-2.4vw;opacity:.85}
+@media(max-width:900px){.bk-a:has(.bk-im.none){grid-template-columns:1fr}.b2022 .bk-arts{grid-template-columns:1fr 1fr}}
+.m-green .shero::after{font-size:13px;letter-spacing:.12em}
+body.m-breath .h2 em,body.m-coexist .h2 em,body.m-green .h2 em{color:var(--acc)}
+.b2022 .bk-hd h2,.sp.b2022 .t{font-family:var(--serif);font-style:normal;font-weight:800;letter-spacing:-.05em}
+@media(max-width:900px){
+  .sp.b2024::before,.sp.b2024::after{top:18px;width:52px;border-width:7px}.sp.b2024::before{right:62px}
+  .m-coexist .shero::before,.m-coexist .shero::after{top:22px;bottom:auto;width:46px;border-width:6px}
+  .m-coexist .shero::before{right:56px}.m-coexist .shero::after{right:20px}
+  .m-breath .shero::after{font-size:52px;bottom:-8px;opacity:.6}
+}
