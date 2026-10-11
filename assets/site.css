@@ -972,3 +972,8 @@ body.m-breath .h2 em,body.m-coexist .h2 em,body.m-green .h2 em{color:var(--acc)}
   .m-coexist .shero::before{right:56px}.m-coexist .shero::after{right:20px}
   .m-breath .shero::after{font-size:52px;bottom:-8px;opacity:.6}
 }
+/* 회원 가입 신청서: 파일 선택 버튼 */
+.jf input[type=file]{font-size:14px;color:var(--muted)}
+.jf input[type=file]::file-selector-button{border:1px solid var(--ink);background:var(--white);color:var(--ink);padding:8px 14px;margin-right:12px;font:700 13.5px Pretendard,sans-serif;cursor:pointer}
+.jf input[type=file]::file-selector-button:hover{background:var(--ink);color:#fff}
+.jf .lt small{font-weight:500;color:var(--muted);margin-left:4px}
