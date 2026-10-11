@@ -1,49 +1,7 @@
 {
-  "updated": "2026-10-10T23:43:04.577Z",
-  "count": 147,
+  "updated": "2026-10-11T23:50:24.027Z",
+  "count": 145,
   "items": [
-    {
-      "id": "gokams-50875",
-      "title": "2026 예술지원 매칭펀드",
-      "org": "한국메세나협회",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50875&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
-      "posted": "",
-      "start": "2026-08-18",
-      "end": "2026-09-11",
-      "who": [
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "전국",
-      "summary": "한국메세나협회 · 공모 기금 · 2026-08-18 ~ 09-11",
-      "source": "gokams",
-      "kind": "공모"
-    },
-    {
-      "id": "ncas-20128",
-      "title": "제주예술인 도외활동 교통비 지원 사업",
-      "org": "제주문화예술재단",
-      "url": "https://www.jfac.kr/notification/notice/20128",
-      "posted": "",
-      "start": "2026-09-07",
-      "end": "2026-09-11",
-      "who": [
-        "개인"
-      ],
-      "age": null,
-      "tags": [
-        "시각",
-        "공연",
-        "문학"
-      ],
-      "reg": "제주",
-      "summary": "제주문화예술재단 · 대상 개인 · 분야 연극/예술일반/시각예술/다원예술/문학/음악/무용/전통예술 · 마감",
-      "source": "ncas",
-      "kind": "공모"
-    },
     {
       "id": "ncas-CRL3577",
       "title": "2027년 해외레지던시및프로그램참가지원(칠레 테아트로아밀축제-플라테아아밀)",
