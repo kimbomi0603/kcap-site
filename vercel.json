@@ -7,7 +7,7 @@
   ],
   "rewrites": [
     {
-      "source": "/:page(about|activities|artists|calendar|catalogs|call|calls|en|guide|history|info|join|places|plan|president|press|privacy|programs|support|tools)",
+      "source": "/:page(about|activities|artist|artists|calendar|catalogs|call|calls|en|guide|history|info|join|places|plan|president|press|privacy|programs|support|tools)",
       "destination": "/:page.html"
     }
   ],
@@ -39,7 +39,7 @@
       "permanent": true
     },
     {
-      "source": "/:page(about|activities|artists|calendar|catalogs|call|calls|en|guide|history|info|join|places|plan|president|press|privacy|programs|support|tools)/",
+      "source": "/:page(about|activities|artist|artists|calendar|catalogs|call|calls|en|guide|history|info|join|places|plan|president|press|privacy|programs|support|tools)/",
       "destination": "/:page",
       "permanent": true
     }
