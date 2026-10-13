@@ -75,7 +75,7 @@
     if (P.get('r')) $('#usr').value = P.get('r');
     form.addEventListener('submit', function (e) { e.preventDefault(); search(); });
     [].forEach.call(document.querySelectorAll('.us-hot button'), function (b) { b.addEventListener('click', function () { $('#usq').value = b.textContent; search(); }); });
-    if (P.get('q')) search();
+    if (P.get('q')) { search(); var sec = form.closest('section') || form; setTimeout(function () { sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 150); }
   }
 
   // ---- 지금 볼 수 있는 전시 (지원사업 찾기에서 고른 '사는 곳' 우선, 없으면 전국) ----
