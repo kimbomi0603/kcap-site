@@ -1,9 +1,9 @@
-# 공모 자동 수집 — 매일 05:30(KST) 주요 기관 공고를 읽어 data/calls.json 을 갱신하고 커밋한다.
+# 공모 자동 수집 — 매일 03:00(KST) 예약(GitHub 대기 시간을 감안해 일찍 시작) 주요 기관 공고를 읽어 data/calls.json 을 갱신하고 커밋한다.
 # 커밋이 생기면 Vercel 이 자동으로 다시 배포한다. (schedule 은 기본 브랜치에서만 돈다)
 name: collect-calls
 on:
   schedule:
-    - cron: '30 20 * * *'   # UTC 20:30 = KST 05:30
+    - cron: '0 18 * * *'    # UTC 18:00 = KST 03:00
   workflow_dispatch:
 permissions:
   contents: write
@@ -23,5 +23,5 @@ jobs:
           git config user.email "kcapp@naver.com"
           git add data/
           if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
-          git commit -m "data: 공모 자동 수집 $(date -u +%Y-%m-%d)"
+          git commit -m "data: 공모 자동 수집 $(TZ=Asia/Seoul date +%Y-%m-%d)"
           git push
