@@ -115,8 +115,8 @@ async function gov24(q, region) {
       const name = String(d['서비스명'] || '');
       if (!qNot && GOV_NOT.test(name)) continue;
       if (GOV_LIFE_NOT.test(name) && !/예술인|창작|작가/.test(name)) continue;
-      // 검색어로 찾은 경우(장르 단어 제외)에도 예술 · 문화 활동과 관련된 사업만 남긴다 ('청년'으로 찾으면 청년 주거 · 취업 사업이 섞이던 문제)
-      if (q && !genre && !qNot && !GOV_ARTS.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원내용'] || ''} ${d['지원대상'] || ''}`)) continue;
+      // 검색어로 찾은 경우(장르 단어 제외)에도 예술가를 위한 사업이라는 말이 있는 것만 남긴다 ('청년'으로 찾으면 청년 주거 · 취업 사업이 섞이던 문제)
+      if (q && !genre && !qNot && !ARTIST_SIGNAL.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원내용'] || ''} ${d['지원대상'] || ''}`)) continue;
       if (!q && !GOV_TITLE.test(name) && !GOV_ARTS.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원내용'] || ''} ${d['지원대상'] || ''}`)) continue;
       // 장르 묶음으로 넓혀 찾은 경우: 창업 · 수출처럼 예술가 지원이 아닌 사업과, 장르에 맞지 않는 사업은 뺀다
       if (genre && (GOV_EXPAND_NOT.test(name) || !genre.re.test(name) || !ARTIST_SIGNAL.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원대상'] || ''} ${d['지원내용'] || ''}`))) continue;
