@@ -7,18 +7,29 @@
   ],
   "rewrites": [
     {
-      "source": "/:page(about|activities|artists|calendar|call|calls|en|guide|history|info|join|places|plan|president|press|privacy|programs|support|tools)",
+      "source": "/:page(about|activities|artists|calendar|catalogs|call|calls|en|guide|history|info|join|places|plan|president|press|privacy|programs|support|tools)",
       "destination": "/:page.html"
     }
   ],
   "redirects": [
+    {
+      "source": "/:path((?!api/).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "kcap.vercel.app"
+        }
+      ],
+      "destination": "https://www.xn--3e0bw6eoulc8g38eepcq2oc6r0pbbtmt.kr/:path",
+      "permanent": true
+    },
     {
       "source": "/index",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/:page(about|activities|artists|calendar|call|calls|en|guide|history|info|join|places|plan|president|press|privacy|programs|support|tools)/",
+      "source": "/:page(about|activities|artists|calendar|catalogs|call|calls|en|guide|history|info|join|places|plan|president|press|privacy|programs|support|tools)/",
       "destination": "/:page",
       "permanent": true
     }

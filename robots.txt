@@ -3,4 +3,4 @@ Allow: /
 Disallow: /api/
 Disallow: /design/
 
-Sitemap: https://kcap.vercel.app/sitemap.xml
+Sitemap: https://www.xn--3e0bw6eoulc8g38eepcq2oc6r0pbbtmt.kr/sitemap.xml
