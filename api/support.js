@@ -74,7 +74,7 @@ const GOV_NOT = /다문화|기업문화|조직문화|직장문화|가족문화|�
 const GOV_TITLE = /예술|창작|(?<!공)공연/; // '공공연구'의 '공연'은 빼고 본다
 const GOV_EXPAND_NOT = /수출|무역|박람회|해외\s*전시회|전시회\s*참가|산업전|기업|창업|농업|어업|축산|관광객|소상공인|체험료|관람|이용료|북카페|예식|결혼|무료\s*이용|재활|치료비|보급|돌봄/;
 // 장르 단어로 넓혀 찾은 사업은 이름 · 설명 · 대상 어딘가에 예술가를 위한 사업이라는 말이 있어야 남긴다
-const ARTIST_SIGNAL = /예술|창작|작가|작품|아티스트|공예인|공예가|미술인|음악인|연주자|무용수|배우|극단|뮤지션|문인/;
+const ARTIST_SIGNAL = /예술|창작|작가|작품|아티스트|공예인|공예가|미술인|음악인|연주자|무용수|배우(?!자)|극단|뮤지션|문인/;
 // 이름에 예술가 지원이 아닌 생활 · 체육 · 주거 · 취업 사업임이 드러나면 뺀다 (예: '문화예술회관 스포츠프로그램 수강료 감면', '면접정장 대여')
 const GOV_LIFE_NOT = /스포츠|체육|헬스|수영|요가|수강료|면접|정장|전월세|월세|보증금|대출이자|주거|주택|취업|구직|근속|일자리|교통비|통신비|궁도|이용요금|실버|노인|어르신|동굴|생태관|문화강좌/;
 // ── 예술인 대상 판정 (2026-10-13) ──────────────────────────────────────────────
@@ -85,9 +85,10 @@ const GOV_LIFE_NOT = /스포츠|체육|헬스|수영|요가|수강료|면접|정
 //   ① 사업 이름 자체가 예술인 · 창작자 지원 (NAME_STRONG)
 //   ② 지원대상 칸에 예술인 · 창작자 · 예술단체가 적혀 있음 (WHO_ARTIST)
 //   ③ 이름이 '예술 지원 · 예술 활동' 류이고, 지원대상이 학생 · 주민 · 노인 같은 관객층이 아님 (NAME_WEAK)
-const NAME_STRONG = /예술인|예술가|창작자|작가|청년\s*예술|레지던시|창작\s*(?:지원|활동|공간|준비|기반|인력|소)/;
+const NAME_STRONG = /예술인|예술가|창작자|(?<![경농소])작가|청년\s*예술|레지던시|창작\s*(?:지원|활동|공간|준비|기반|인력|소)/;
 const NAME_WEAK = /예술\s*(?:창작|활동|지원)|청년문화육성/;
-const WHO_ARTIST = /예술인|예술가|창작자|창제작자|작가|아티스트|뮤지션|문학인|문인|미술인|음악인|연주자|무용수|배우|극단|공예인|공예가|디자이너|예술활동증명|예술(?:\(교육\))?\s*단체|예술교육\s*단체|예술교육가|교육예술가|공연\s*단체|예술\s*동호회|문화기획|기획자|활동가/;
+// '배우자' · '경작가' 같은 말에 걸리지 않게 앞뒤 글자를 본다
+const WHO_ARTIST = /예술인|예술가|창작자|창제작자|(?<![경농소])작가|아티스트|뮤지션|문학인|문인|미술인|음악인|연주자|무용수|배우(?!자)|극단|공예인|공예가|디자이너|예술활동증명|예술(?:\(교육\))?\s*단체|예술교육\s*단체|예술교육가|교육예술가|공연\s*단체|예술\s*동호회|문화기획|기획자|활동가/;
 const WHO_AUDIENCE = /학교|학생|초등|중학|고등학|아동|청소년|노인|어르신|장애인|소외|일반\s*(?:도민|시민|주민|인)|구민|이용하는|관람|수급자|환자|주민/;
 // name: 사업 이름, who: 지원대상 문구(비어 있으면 사업 설명)
 function forArtists(name, who) {
@@ -125,7 +126,7 @@ async function gov24(q, region) {
   if (got.every((x) => x.status === 'rejected')) throw got[0].reason;
   const t = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
   const qNot = q && GOV_NOT.test(q); // '다문화'처럼 직접 찾는 경우는 막지 않는다
-  const seen = new Set(); const items = []; let pool = 0;
+  const seen = new Set(); const items = []; const dropped = []; let pool = 0;
   got.forEach((x) => {
     if (x.status !== 'fulfilled') return;
     for (const d of x.value) {
@@ -134,8 +135,6 @@ async function gov24(q, region) {
       const name = String(d['서비스명'] || '');
       if (!qNot && GOV_NOT.test(name)) continue;
       if (GOV_LIFE_NOT.test(name) && !/예술인|창작|작가/.test(name)) continue;
-      // 받는 사람이 예술인 · 창작자 · 예술단체인 사업만 남긴다 (직접 '다문화' 등으로 찾은 경우 제외)
-      if (!qNot && !forArtists(name, d['지원대상'] || d['서비스목적요약'] || d['지원내용'])) continue;
       // 검색어로 찾은 경우(장르 단어 제외)에도 예술가를 위한 사업이라는 말이 있는 것만 남긴다 ('청년'으로 찾으면 청년 주거 · 취업 사업이 섞이던 문제)
       if (q && !genre && !qNot && !ARTIST_SIGNAL.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원내용'] || ''} ${d['지원대상'] || ''}`)) continue;
       if (!q && !GOV_TITLE.test(name) && !GOV_ARTS.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원내용'] || ''} ${d['지원대상'] || ''}`)) continue;
@@ -143,6 +142,8 @@ async function gov24(q, region) {
       if (genre && (GOV_EXPAND_NOT.test(name) || !genre.re.test(name) || !ARTIST_SIGNAL.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원대상'] || ''} ${d['지원내용'] || ''}`))) continue;
       const org = `${d['소관기관명'] || ''} ${d['접수기관'] || ''}`;
       if (region.names.length && !region.names.some((n) => org.includes(n))) continue;
+      // 받는 사람이 예술인 · 창작자 · 예술단체인 사업만 남긴다 (직접 '다문화' 등으로 찾은 경우 제외)
+      if (!qNot && !forArtists(name, d['지원대상'] || d['서비스목적요약'] || d['지원내용'])) { dropped.push(`${clip(name, 50)} ‖ ${clip(d['지원대상'], 60)}`); continue; }
       const end = lastDate(d['신청기한']);
       if (end && end < t) continue; // 신청 기간이 끝난 사업은 뺀다
       items.push({
@@ -161,7 +162,7 @@ async function gov24(q, region) {
     }
   });
   items.sort((a, b) => (b.arts - a.arts) || (b.updated || '').localeCompare(a.updated || ''));
-  return { configured: true, items: items.slice(0, 60), stats: { pool, matched: items.length } };
+  return { configured: true, items: items.slice(0, 60), stats: { pool, matched: items.length, notForArtists: dropped.length }, dropped };
 }
 
 // 2) 온통청년 청년정책 — 예술인에게 맞는 정책만 골라 낸다
@@ -277,6 +278,8 @@ module.exports = async (req, res) => {
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
   try {
     const out = src === 'youth' ? await youth(q, region) : await gov24(q, region);
+    // 예술인 대상이 아니라서 뺀 사업 목록은 점검용(?debug=1)으로만 내보낸다
+    if (qs.debug !== '1') delete out.dropped;
     res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=86400');
     res.status(200).send(JSON.stringify({ ok: true, src, ...out }));
   } catch (e) {
