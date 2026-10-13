@@ -24,6 +24,16 @@
       "permanent": true
     },
     {
+      "source": "/tools",
+      "destination": "/info",
+      "permanent": false
+    },
+    {
+      "source": "/tools.html",
+      "destination": "/info",
+      "permanent": false
+    },
+    {
       "source": "/index",
       "destination": "/",
       "permanent": true
