@@ -48,6 +48,10 @@ async function collectNotices(items, year) {
             // "공지사항 내용 담당부서 X 작성일 YYYY-MM-DD 조회수 N 파일 ..." 머리말 제거
             .replace(/^\s*공지사항\s*내용\s*담당부서.*?조회수\s*\d+\s*/s, '')
             .replace(/^\s*파일(\s+\S+\.(pdf|hwp|hwpx|docx?|xlsx?|zip|jpg|png))+\s*/i, '')
+            .replace(/^\s*파일\s+/, '') // 첨부가 없을 때 남는 '파일' 글자
+            .replace(/[^\n{}]{0,200}\{[^{}]*\}/g, ' ') // 본문에 섞여 들어온 CSS 규칙
+            .replace(/[■□◆◇▶▷●◎※]\s*/g, '') // 글머리 기호
+            .replace(/[ \t]+/g, ' ')
             .trim();
           body = `${title}\n${body}`;
           const rr = L.parseRange(body.slice(0, 3000), { year });
