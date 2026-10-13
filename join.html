@@ -51,6 +51,8 @@
 <div class="jf-grid">
 <label class="w2"><span class="lt">주요 경력 <small>선택</small></span><textarea name="주요 경력" rows="3" maxlength="1500" placeholder="전시, 수상, 프로젝트를 연도와 함께 적어 주세요"></textarea></label>
 <label class="w2"><span class="lt">포트폴리오 · SNS 링크 <small>선택</small></span><input type="url" name="포트폴리오 링크" placeholder="https://" inputmode="url"></label>
+<label class="w2"><span class="lt">작품 사진 <small>선택 · 최대 5장</small></span><input type="file" id="jfWorks" accept="image/*" multiple><small id="jfWorksNote">대표 작품 사진을 골라 주세요. 큰 사진은 자동으로 줄여서 보냅니다.</small><span id="jfWorksBox" hidden></span></label>
+<label class="w2"><span class="lt">도록 · 포트폴리오 파일 <small>선택 · PDF 또는 이미지 1개</small></span><input type="file" name="도록 포트폴리오" id="jfBook" accept="application/pdf,image/*"><small id="jfBookNote">첨부 파일은 모두 합쳐 9MB까지 보낼 수 있습니다. 더 크면 위 링크 칸에 파일 공유 주소를 적어 주세요.</small></label>
 </div></fieldset>
 
 <fieldset><legend>동의</legend>
@@ -58,7 +60,7 @@
 <label class="jf-agree"><input type="checkbox" name="개인정보 수집이용" value="동의" required><span>개인정보 수집 · 이용에 동의합니다. <b>(필수)</b></span></label>
 <details class="jf-terms"><summary>수집 · 이용 내용 보기</summary><ul>
 <li><b>목적</b> 회원 가입 심사, 회원 관리, 협회 활동 안내</li>
-<li><b>항목</b> 필수: 성명, 생년월일, 휴대전화, 이메일, 거주 시·도, 활동 분야, 회원 사진 · 선택: 주요 경력, 포트폴리오 링크</li>
+<li><b>항목</b> 필수: 성명, 생년월일, 휴대전화, 이메일, 거주 시·도, 활동 분야, 회원 사진 · 선택: 주요 경력, 포트폴리오 링크, 작품 사진, 도록 · 포트폴리오 파일</li>
 <li><b>보유 기간</b> 회원 탈퇴 시까지. 가입이 승인되지 않으면 결과를 알린 뒤 바로 파기합니다.</li>
 <li><b>전달 방식</b> 신청서는 이메일 전송 서비스(FormSubmit)를 거쳐 협회 담당자 메일로 전달됩니다.</li>
 <li>동의하지 않을 수 있으나, 이 경우 가입 신청을 받을 수 없습니다. 자세한 내용은 <a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a>을 확인해 주세요.</li></ul></details>
@@ -67,7 +69,7 @@
 <div class="jf-err" id="jfErr" role="alert" hidden></div>
 <button type="submit" class="btn red jf-send">가입 신청서 보내기 <span class="ar">→</span></button>
 </form>
-<script src="assets/join.js?v=9" defer></script></div></section>
+<script src="assets/join.js?v=10" defer></script></div></section>
 <section id="support" class="paper2"><div class="wrap"><div class="kicker reveal"><span>후원</span><span>후원 안내</span></div>
 <h2 class="h2 reveal">꿈 많은 전국 청년들에게<br><em>도약의 날개</em>를</h2>
 <div class="grid g3" style="margin-top:34px"><div class="reveal" style="border-top:2px solid var(--ink);padding-top:16px"><h3 class="h3">예술가 지원</h3><p style="color:var(--muted)">청년 작가의 창작과 발표를 돕습니다.</p></div><div class="reveal" style="border-top:2px solid var(--ink);padding-top:16px"><h3 class="h3">문화예술교육 지원</h3><p style="color:var(--muted)">배우고 가르치는 자리를 넓힙니다.</p></div><div class="reveal" style="border-top:2px solid var(--ink);padding-top:16px"><h3 class="h3">지역사회 문화나눔</h3><p style="color:var(--muted)">예술을 지역 주민과 나눕니다.</p></div></div>
