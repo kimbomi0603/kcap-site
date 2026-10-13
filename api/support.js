@@ -77,6 +77,25 @@ const GOV_EXPAND_NOT = /수출|무역|박람회|해외\s*전시회|전시회\s*�
 const ARTIST_SIGNAL = /예술|창작|작가|작품|아티스트|공예인|공예가|미술인|음악인|연주자|무용수|배우|극단|뮤지션|문인/;
 // 이름에 예술가 지원이 아닌 생활 · 체육 · 주거 · 취업 사업임이 드러나면 뺀다 (예: '문화예술회관 스포츠프로그램 수강료 감면', '면접정장 대여')
 const GOV_LIFE_NOT = /스포츠|체육|헬스|수영|요가|수강료|면접|정장|전월세|월세|보증금|대출이자|주거|주택|취업|구직|근속|일자리|교통비|통신비|궁도|이용요금|실버|노인|어르신|동굴|생태관|문화강좌/;
+// ── 예술인 대상 판정 (2026-10-13) ──────────────────────────────────────────────
+// 사업 '주제'가 예술이냐가 아니라, 돈·공간·혜택을 '받는 사람'이 예술인이냐로 거른다.
+// 예전에는 이름·설명에 예술 · 공연 · 전시 같은 말만 있으면 통과시켜서, 학생 예술수업 · 노인 문화활동 ·
+// 시설 이용요금 감면 · 청년 문화패스처럼 관객 · 시민을 위한 사업이 섞였다. 빼야 할 낱말을 하나씩 늘리는
+// 방식은 새 사업이 들어올 때마다 다시 새어 나오므로, 아래 세 갈래 중 하나에 맞아야만 남긴다.
+//   ① 사업 이름 자체가 예술인 · 창작자 지원 (NAME_STRONG)
+//   ② 지원대상 칸에 예술인 · 창작자 · 예술단체가 적혀 있음 (WHO_ARTIST)
+//   ③ 이름이 '예술 지원 · 예술 활동' 류이고, 지원대상이 학생 · 주민 · 노인 같은 관객층이 아님 (NAME_WEAK)
+const NAME_STRONG = /예술인|예술가|창작자|작가|청년\s*예술|레지던시|창작\s*(?:지원|활동|공간|준비|기반|인력|소)/;
+const NAME_WEAK = /예술\s*(?:창작|활동|지원)|청년문화육성/;
+const WHO_ARTIST = /예술인|예술가|창작자|창제작자|작가|아티스트|뮤지션|문학인|문인|미술인|음악인|연주자|무용수|배우|극단|공예인|공예가|디자이너|예술활동증명|예술(?:\(교육\))?\s*단체|예술교육\s*단체|예술교육가|교육예술가|공연\s*단체|예술\s*동호회|문화기획|기획자|활동가/;
+const WHO_AUDIENCE = /학교|학생|초등|중학|고등학|아동|청소년|노인|어르신|장애인|소외|일반\s*(?:도민|시민|주민|인)|구민|이용하는|관람|수급자|환자|주민/;
+// name: 사업 이름, who: 지원대상 문구(비어 있으면 사업 설명)
+function forArtists(name, who) {
+  const n = String(name || ''), w = String(who || '');
+  if (NAME_STRONG.test(n)) return true;
+  if (WHO_ARTIST.test(w)) return true;
+  return NAME_WEAK.test(n) && !WHO_AUDIENCE.test(w);
+}
 const GOV_ARTS = /예술|창작|(?<!공)공연|전시|미술|작가|공예|음악|연극|무용|국악|레지던시|콘텐츠|영상|출판|문학|웹툰|만화|애니메이션|사진|디자인|공방/;
 async function gov24Page(key, term, page, ms) {
   const u = new URL(GOV_URL);
@@ -115,6 +134,8 @@ async function gov24(q, region) {
       const name = String(d['서비스명'] || '');
       if (!qNot && GOV_NOT.test(name)) continue;
       if (GOV_LIFE_NOT.test(name) && !/예술인|창작|작가/.test(name)) continue;
+      // 받는 사람이 예술인 · 창작자 · 예술단체인 사업만 남긴다 (직접 '다문화' 등으로 찾은 경우 제외)
+      if (!qNot && !forArtists(name, d['지원대상'] || d['서비스목적요약'] || d['지원내용'])) continue;
       // 검색어로 찾은 경우(장르 단어 제외)에도 예술가를 위한 사업이라는 말이 있는 것만 남긴다 ('청년'으로 찾으면 청년 주거 · 취업 사업이 섞이던 문제)
       if (q && !genre && !qNot && !ARTIST_SIGNAL.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원내용'] || ''} ${d['지원대상'] || ''}`)) continue;
       if (!q && !GOV_TITLE.test(name) && !GOV_ARTS.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원내용'] || ''} ${d['지원대상'] || ''}`)) continue;
@@ -224,7 +245,8 @@ async function youth(q, region) {
       const name = `${p.plcyNm} ${p.plcyKywdNm || ''}`;
       if (NOT_ARTS.test(name)) return false;
       if (cat.includes(ARTS_CAT)) return ARTS_SIGNAL.test(`${name} ${p.plcyExplnCn || ''}`);
-      return ARTS_TITLE.test(name);
+      // 예술인 분류가 아닌 정책은 이름에 예술 말이 있고, 받는 사람이 예술인 · 창작자여야 남긴다 (관람 · 체험 정책 제외)
+      return ARTS_TITLE.test(name) && forArtists(p.plcyNm, `${p.plcyExplnCn || ''} ${p.plcySprtCn || ''}`);
     })
     .filter((p) => youthInRegion(p, region))
     .filter((p) => { if (!words.length) return true; const h = `${p.plcyNm} ${p.plcyKywdNm || ''} ${p.plcyExplnCn || ''} ${p.plcySprtCn || ''}`.toLowerCase(); return words.every((w) => hasWord(h, w)); })
@@ -262,4 +284,4 @@ module.exports = async (req, res) => {
     res.status(200).send(JSON.stringify({ ok: false, src, configured: true, error: String(e.message || e), items: [] }));
   }
 };
-module.exports._test = { gov24, youth, REGIONS, lastDate, genreOf, hasWord };
+module.exports._test = { gov24, youth, REGIONS, lastDate, genreOf, hasWord, forArtists };
