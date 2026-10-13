@@ -75,6 +75,8 @@ const GOV_TITLE = /예술|창작|(?<!공)공연/; // '공공연구'의 '공연'�
 const GOV_EXPAND_NOT = /수출|무역|박람회|해외\s*전시회|전시회\s*참가|산업전|기업|창업|농업|어업|축산|관광객|소상공인|체험료|관람|이용료|북카페|예식|결혼|무료\s*이용|재활|치료비|보급|돌봄/;
 // 장르 단어로 넓혀 찾은 사업은 이름 · 설명 · 대상 어딘가에 예술가를 위한 사업이라는 말이 있어야 남긴다
 const ARTIST_SIGNAL = /예술|창작|작가|작품|아티스트|공예인|공예가|미술인|음악인|연주자|무용수|배우|극단|뮤지션|문인/;
+// 이름에 예술가 지원이 아닌 생활 · 체육 · 주거 · 취업 사업임이 드러나면 뺀다 (예: '문화예술회관 스포츠프로그램 수강료 감면', '면접정장 대여')
+const GOV_LIFE_NOT = /스포츠|체육|헬스|수영|요가|수강료|면접|정장|전월세|월세|보증금|대출이자|주거|주택|취업|구직|근속|일자리|교통비|통신비/;
 const GOV_ARTS = /예술|창작|(?<!공)공연|전시|미술|작가|공예|음악|연극|무용|국악|레지던시|콘텐츠|영상|출판|문학|웹툰|만화|애니메이션|사진|디자인|공방/;
 async function gov24Page(key, term, page, ms) {
   const u = new URL(GOV_URL);
@@ -112,6 +114,9 @@ async function gov24(q, region) {
       seen.add(d['서비스ID']); pool++;
       const name = String(d['서비스명'] || '');
       if (!qNot && GOV_NOT.test(name)) continue;
+      if (GOV_LIFE_NOT.test(name) && !/예술인|창작|작가/.test(name)) continue;
+      // 검색어로 찾은 경우(장르 단어 제외)에도 예술 · 문화 활동과 관련된 사업만 남긴다 ('청년'으로 찾으면 청년 주거 · 취업 사업이 섞이던 문제)
+      if (q && !genre && !qNot && !GOV_ARTS.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원내용'] || ''} ${d['지원대상'] || ''}`)) continue;
       if (!q && !GOV_TITLE.test(name) && !GOV_ARTS.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원내용'] || ''} ${d['지원대상'] || ''}`)) continue;
       // 장르 묶음으로 넓혀 찾은 경우: 창업 · 수출처럼 예술가 지원이 아닌 사업과, 장르에 맞지 않는 사업은 뺀다
       if (genre && (GOV_EXPAND_NOT.test(name) || !genre.re.test(name) || !ARTIST_SIGNAL.test(`${name} ${d['서비스목적요약'] || ''} ${d['지원대상'] || ''} ${d['지원내용'] || ''}`))) continue;
