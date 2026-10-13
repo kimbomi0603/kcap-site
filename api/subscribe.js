@@ -8,13 +8,13 @@
 //   KV_REST_API_URL, KV_REST_API_TOKEN : Upstash Redis(Vercel KV) REST 주소·토큰
 //   RESEND_API_KEY : resend.com 발송 키
 //   MAIL_FROM      : 보내는 사람 (기본 'KCAP 정보마당 <onboarding@resend.dev>')
-//   SITE_URL       : 메일 속 링크의 기준 주소 (기본 https://kcap.vercel.app)
+//   SITE_URL       : 메일 속 링크의 기준 주소 (기본 https://www.xn--3e0bw6eoulc8g38eepcq2oc6r0pbbtmt.kr)
 // 환경변수가 없으면 200 {ok:false, configured:false, reason:'kv'|'resend'} — 화면은 '준비 중'으로 표시한다.
 // 저장 구조: sub:<sha256(email)> = JSON {email, who, age, tags, reg, createdAt, confirmed, token}, 집합 subs 에 키 목록.
 
 const crypto = require('crypto');
 
-const SITE_URL = (process.env.SITE_URL || 'https://kcap.vercel.app').replace(/\/+$/, '');
+const SITE_URL = (process.env.SITE_URL || 'https://www.xn--3e0bw6eoulc8g38eepcq2oc6r0pbbtmt.kr').replace(/\/+$/, '');
 const MAIL_FROM = process.env.MAIL_FROM || 'KCAP 정보마당 <onboarding@resend.dev>';
 const REG_KEYS = ['all', 'seoul', 'busan', 'daegu', 'incheon', 'gwangju', 'daejeon', 'ulsan', 'sejong', 'gyeonggi', 'gangwon', 'chungbuk', 'chungnam', 'jeonbuk', 'jeonnam', 'gyeongbuk', 'gyeongnam', 'jeju'];
 const TAGS = ['시각', '공연', '문학', '콘텐츠', '교육'];

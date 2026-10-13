@@ -17,7 +17,7 @@ function fold(line) { const out = []; let s = line; while (Buffer.byteLength(s) 
 
 module.exports = (req, res) => {
   const q = req.query || {};
-  const site = (process.env.SITE_URL || 'https://kcap.vercel.app').replace(/\/$/, '');
+  const site = (process.env.SITE_URL || 'https://www.xn--3e0bw6eoulc8g38eepcq2oc6r0pbbtmt.kr').replace(/\/$/, '');
   const today = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
   const stamp = new Date().toISOString().replace(/[-:]/g, '').slice(0, 15) + 'Z';
   const items = (load().items || []).filter((it) => it.end && it.end >= today && it.kind !== '공지' && (!q.pick || it.source === 'kcap'));
