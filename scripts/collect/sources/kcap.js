@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const { makeItem, parseDate } = require('../lib');
 
-const meta = { key: 'kcap', name: '협회 추천·확인 공모', homepage: 'https://kcap.vercel.app/support.html' };
+const meta = { key: 'kcap', name: '협회 추천·확인 공모', homepage: 'https://www.xn--3e0bw6eoulc8g38eepcq2oc6r0pbbtmt.kr/support.html' };
 const CSV_FILE = path.resolve(__dirname, '../../../data/picks.csv');
 
 function parseCSV(s) {
