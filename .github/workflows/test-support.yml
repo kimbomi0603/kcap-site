@@ -1,0 +1,15 @@
+# 지원사업 찾기 예술인 대상 판정 시험: api/support.js나 시험 파일이 바뀌면 자동 실행
+name: test-support
+on:
+  push:
+    paths: ['api/support.js', 'scripts/test-support.js']
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/test-support.js
