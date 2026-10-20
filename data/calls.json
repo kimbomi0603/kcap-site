@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-19T22:12:44.270Z",
-  "count": 146,
+  "updated": "2026-10-20T21:27:33.866Z",
+  "count": 154,
   "items": [
     {
       "id": "ncas-a83b3d0120",
@@ -23,24 +23,6 @@
       "kind": "공모"
     },
     {
-      "id": "gokams-50901",
-      "title": "2026 서울국제예술포럼 SAFT 서포터즈 2기 모집 공모",
-      "org": "서울문화재단",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50901&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
-      "posted": "",
-      "start": "2026-09-09",
-      "end": "2026-09-22",
-      "who": [],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "서울",
-      "summary": "서울문화재단 · 공모 기금 · 2026-09-09 ~ 09-22",
-      "source": "gokams",
-      "kind": "공모"
-    },
-    {
       "id": "ncas-236051",
       "title": "콘텐츠 유통활성화",
       "org": "(재)인천문화재단",
@@ -58,26 +40,6 @@
       "reg": "전국",
       "summary": "(재)인천문화재단 · 대상 단체 · 분야 무용/전통예술/연극/음악 · 마감",
       "source": "ncas",
-      "kind": "공모"
-    },
-    {
-      "id": "gokams-50900",
-      "title": "2026년 야간 공연 관람권 운영 사업_4차 공모",
-      "org": "(사)한국소극장협회",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50900&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
-      "posted": "",
-      "start": "2026-09-14",
-      "end": "2026-09-27",
-      "who": [
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "공연"
-      ],
-      "reg": "전국",
-      "summary": "(사)한국소극장협회 · 공모 기금 · 2026-09-14 ~ 09-27",
-      "source": "gokams",
       "kind": "공모"
     },
     {
@@ -184,24 +146,6 @@
       "kind": "공지"
     },
     {
-      "id": "gokams-50874",
-      "title": "2027 서울 커넥트 스테이지 연극·무용·음악·전통 공모",
-      "org": "서울문화재단",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50874&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
-      "posted": "",
-      "start": "2026-08-24",
-      "end": "2026-10-02",
-      "who": [],
-      "age": null,
-      "tags": [
-        "공연"
-      ],
-      "reg": "서울",
-      "summary": "서울문화재단 · 공모 기금 · 2026-08-24 ~ 10-02",
-      "source": "gokams",
-      "kind": "공모"
-    },
-    {
       "id": "gokams-50918",
       "title": "2027년 한국잡월드 나래울극장 공동공연 공모",
       "org": "한국잡월드",
@@ -223,7 +167,7 @@
       "id": "gokams-50976",
       "title": "[참여작가모집] 기억을 일상으로 이어줄 예술가를 모집합니다!",
       "org": "플러스마이너스일도씨",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50976&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50976&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-09-23",
       "end": "2026-10-04",
@@ -320,7 +264,7 @@
       "id": "gokams-51078",
       "title": "NOVA-UNIT: ART & VIDEO 오픈콜 | 참여작가 공모",
       "org": "문화예술기획 릴프 LYLF",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51078&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51078&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-10-08",
       "end": "2026-10-15",
@@ -358,7 +302,7 @@
       "id": "gokams-51063",
       "title": "[모집]2027년 금천예술공장 입주작가 정기공모(일반/기획 입주)",
       "org": "서울문화재단 금천예술공장",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51063&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51063&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-10-06",
       "end": "2026-10-19",
@@ -432,6 +376,44 @@
       ],
       "reg": "전국",
       "summary": "2026 공연예술통합전산망 데이터 활용 워크숍 참가 신청 안내(~10.22(목))",
+      "source": "gokams",
+      "kind": "공모"
+    },
+    {
+      "id": "kocca-326D00110005",
+      "title": "2026 대중음악 해외 쇼케이스(Korea Spotlight) 참가뮤지션 모집 공고(3차/태국)",
+      "org": "한국콘텐츠진흥원",
+      "url": "https://www.kocca.kr/kocca/pims/view.do?intcNo=326D00110005&menuNo=204104&recptSt=&category=&pageIndex=1&search=&searchWrd=",
+      "posted": "2026-10-08",
+      "start": "2026-10-08",
+      "end": "2026-10-22",
+      "who": [],
+      "age": null,
+      "tags": [
+        "공연"
+      ],
+      "reg": "전국",
+      "summary": "한국콘텐츠진흥원 지원공고 · 모집공모",
+      "source": "kocca",
+      "kind": "공모"
+    },
+    {
+      "id": "gokams-51171",
+      "title": "2026 고양시립 아람미술관 소장품 구입 공모",
+      "org": "(재)고양문화재단",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51171&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "posted": "",
+      "start": "2026-10-01",
+      "end": "2026-10-23",
+      "who": [
+        "단체"
+      ],
+      "age": null,
+      "tags": [
+        "시각"
+      ],
+      "reg": "전국",
+      "summary": "(재)고양문화재단 · 공모 기금 · 2026-10-01 ~ 10-23",
       "source": "gokams",
       "kind": "공모"
     },
@@ -556,6 +538,60 @@
       "kind": "공모"
     },
     {
+      "id": "gokams-51166",
+      "title": "2027년 천안어린이꿈누리터 공연 제안사 모집",
+      "org": "천안어린이꿈누리터",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51166&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "posted": "",
+      "start": "2026-10-13",
+      "end": "2026-10-27",
+      "who": [],
+      "age": null,
+      "tags": [
+        "공연"
+      ],
+      "reg": "전국",
+      "summary": "천안어린이꿈누리터 · 공모 기금 · 2026-10-13 ~ 10-27",
+      "source": "gokams",
+      "kind": "공모"
+    },
+    {
+      "id": "gokams-4586",
+      "title": "「문화예술진흥법」개정을 위한 정책토론회 안내 (10.28. 14:00)",
+      "org": "예술경영지원센터",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4586&page=1&txtKeyword=&ddlKeyfield=T",
+      "posted": "2026-10-20",
+      "start": "",
+      "end": "2026-10-28",
+      "who": [],
+      "age": null,
+      "tags": [
+        "전체"
+      ],
+      "reg": "전국",
+      "summary": "「문화예술진흥법」개정을 위한 정책토론회 안내 (10.28. 14:00)",
+      "source": "gokams",
+      "kind": "공지"
+    },
+    {
+      "id": "kocca-326D00108003",
+      "title": "<2026년 게임콘텐츠 제작지원 이용자평가 및 QA 지원> 과제 모집공고",
+      "org": "한국콘텐츠진흥원",
+      "url": "https://www.kocca.kr/kocca/pims/view.do?intcNo=326D00108003&menuNo=204104&recptSt=&category=&pageIndex=1&search=&searchWrd=",
+      "posted": "2026-10-15",
+      "start": "2026-10-15",
+      "end": "2026-10-28",
+      "who": [],
+      "age": null,
+      "tags": [
+        "콘텐츠"
+      ],
+      "reg": "전국",
+      "summary": "한국콘텐츠진흥원 지원공고 · 모집공모",
+      "source": "kocca",
+      "kind": "공모"
+    },
+    {
       "id": "arte-BRD_ID0083704",
       "title": "2026 청년인문교실 여주 <몰입의 정원> 참여자 모집(8.20.~10.29.)",
       "org": "한국문화예술교육진흥원",
@@ -573,6 +609,24 @@
       "reg": "전국",
       "summary": "한국문화예술교육진흥원 공지 · 인문문화확산팀",
       "source": "arte",
+      "kind": "공모"
+    },
+    {
+      "id": "kocca-126D00107006",
+      "title": "2026년 방송영상콘텐츠후반작업지원 추가공고",
+      "org": "한국콘텐츠진흥원",
+      "url": "https://www.kocca.kr/kocca/pims/view.do?intcNo=126D00107006&menuNo=204104&recptSt=&category=&pageIndex=1&search=&searchWrd=",
+      "posted": "2026-10-13",
+      "start": "2026-10-19",
+      "end": "2026-10-29",
+      "who": [],
+      "age": null,
+      "tags": [
+        "콘텐츠"
+      ],
+      "reg": "전국",
+      "summary": "한국콘텐츠진흥원 지원공고 · 자유공모",
+      "source": "kocca",
       "kind": "공모"
     },
     {
@@ -617,6 +671,42 @@
       "reg": "전국",
       "summary": "울산문화관광재단 · 대상 단체/개인 · 분야 무용/시각예술/연극/음악/문학/문화일반/다원예술/전통예술 · 진행중",
       "source": "ncas",
+      "kind": "공모"
+    },
+    {
+      "id": "arko-2301170002",
+      "title": "2026년 크라우드펀딩 확산사업 <크라우드펀딩 챌린지> 2차 공모(공고연장)",
+      "org": "한국문화예술위원회",
+      "url": "https://artnuri.or.kr/crawler/info/view.do?key=2301170002&encData=sUiBAI0l4sHqoD%2B2npmyD8KCZRuK3BLLPelAz0mYGXYPBZm1EJpnMlsBwvsh76BM",
+      "posted": "",
+      "start": "2026-08-14",
+      "end": "2026-10-30",
+      "who": [],
+      "age": null,
+      "tags": [
+        "전체"
+      ],
+      "reg": "전국",
+      "summary": "문화예술 분야의 창작활동 활성화 및 발전을 위해 예술나무 후원자 기부금을 통한 다양한 문화예술 크라우드펀딩 프로젝트 지원",
+      "source": "arko",
+      "kind": "공모"
+    },
+    {
+      "id": "kocca-326D00110006",
+      "title": "2027 대중음악 해외 쇼케이스(Korea Spotlight) 참가뮤지션 모집 공고(1차/스페인)",
+      "org": "한국콘텐츠진흥원",
+      "url": "https://www.kocca.kr/kocca/pims/view.do?intcNo=326D00110006&menuNo=204104&recptSt=&category=&pageIndex=1&search=&searchWrd=",
+      "posted": "2026-10-14",
+      "start": "2026-10-14",
+      "end": "2026-10-30",
+      "who": [],
+      "age": null,
+      "tags": [
+        "공연"
+      ],
+      "reg": "전국",
+      "summary": "한국콘텐츠진흥원 지원공고 · 모집공모",
+      "source": "kocca",
       "kind": "공모"
     },
     {
@@ -701,7 +791,7 @@
       "id": "gokams-50982",
       "title": "제23회 안산거리극축제 거리예술제작지원사업 '안산리서치' 공모",
       "org": "안산문화재단",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50982&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50982&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-09-28",
       "end": "2026-10-31",
@@ -719,7 +809,7 @@
       "id": "gokams-50981",
       "title": "제23회 안산거리극축제 국내공식참가작 공모",
       "org": "안산문화재단",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50981&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50981&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-09-28",
       "end": "2026-10-31",
@@ -757,7 +847,7 @@
       "id": "gokams-51091",
       "title": "제5회 < 국민일보 아르브뤼 미술상> 공모",
       "org": "국민일보",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51091&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51091&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-10-19",
       "end": "2026-11-02",
@@ -787,6 +877,46 @@
       "reg": "전국",
       "summary": "✅ 캠프 미리보기 https://buly.kr/8pj7PAQ ✅ 캠프 신청하기 ▶ 12~13세 https://naver.me/Ghw3c414 *모집 마감 ▶ 14~16세 https://naver.me/xSBaUwwZ *모집 중 (~11.4.(수) 17시까지) ▶ 17~19세 https…",
       "source": "arte",
+      "kind": "공모"
+    },
+    {
+      "id": "kocca-326D00088011",
+      "title": "2026년 KOCCA CKL TOKYO 입주기업 모집",
+      "org": "한국콘텐츠진흥원",
+      "url": "https://www.kocca.kr/kocca/pims/view.do?intcNo=326D00088011&menuNo=204104&recptSt=&category=&pageIndex=1&search=&searchWrd=",
+      "posted": "2026-10-14",
+      "start": "2026-10-14",
+      "end": "2026-11-04",
+      "who": [
+        "단체"
+      ],
+      "age": null,
+      "tags": [
+        "콘텐츠"
+      ],
+      "reg": "전국",
+      "summary": "한국콘텐츠진흥원 지원공고 · 모집공모",
+      "source": "kocca",
+      "kind": "공모"
+    },
+    {
+      "id": "kocca-326D00034008",
+      "title": "2026년 제 2차 글로벌게임허브센터 게임벤처4.0 신규 입주기업 모집",
+      "org": "한국콘텐츠진흥원",
+      "url": "https://www.kocca.kr/kocca/pims/view.do?intcNo=326D00034008&menuNo=204104&recptSt=&category=&pageIndex=1&search=&searchWrd=",
+      "posted": "2026-10-13",
+      "start": "2026-10-15",
+      "end": "2026-11-05",
+      "who": [
+        "단체"
+      ],
+      "age": null,
+      "tags": [
+        "콘텐츠"
+      ],
+      "reg": "전국",
+      "summary": "한국콘텐츠진흥원 지원공고 · 모집공모",
+      "source": "kocca",
       "kind": "공모"
     },
     {
@@ -1268,6 +1398,27 @@
       "kind": "공모"
     },
     {
+      "id": "arko-239201",
+      "title": "아르코·대학로예술극장 2027년 대관 창작자(단체) 공모",
+      "org": "한국문화예술위원회",
+      "url": "https://theater.arko.or.kr/Rent/Notice/239201/?q=null",
+      "posted": "",
+      "start": "2026-10-08",
+      "end": "2026-11-16",
+      "who": [
+        "개인",
+        "단체"
+      ],
+      "age": null,
+      "tags": [
+        "공연"
+      ],
+      "reg": "전국",
+      "summary": "아르코·대학로예술극장은 우수한 공연예술 작품을 통해 동시대 예술계가 직면한 여러 가지 위기를 대처해나갈 방법으로 미래 극장을 제시하고 있습니다. 예술극장이 추구하는 미래 극장은 문...",
+      "source": "arko",
+      "kind": "공모"
+    },
+    {
       "id": "gokams-51130",
       "title": "2027 에든버러 코리안 시즌 협력사업 공모",
       "org": "(주)에이투비즈, (사)글로벌문화교류위원회, 영국 어셈블리 페스티벌",
@@ -1304,10 +1455,28 @@
       "kind": "공모"
     },
     {
+      "id": "gokams-51160",
+      "title": "[국립아시아문화전당] 2027 ACC 시각예술 레지던시 공모",
+      "org": "국립아시아문화전당",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51160&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "posted": "",
+      "start": "2026-10-20",
+      "end": "2026-11-26",
+      "who": [],
+      "age": null,
+      "tags": [
+        "시각"
+      ],
+      "reg": "전국",
+      "summary": "국립아시아문화전당 · 공모 기금 · 2026-10-20 ~ 11-26",
+      "source": "gokams",
+      "kind": "공모"
+    },
+    {
       "id": "gokams-51096",
       "title": "[성북연극협회x플레이티켓] 창작희곡 낭독쇼케이스 제작지원 사업 신청공모 (천장산우화극장)",
       "org": "성북연극협회, 플레이티켓",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51096&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51096&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-10-12",
       "end": "2026-11-27",
@@ -1345,25 +1514,64 @@
       "kind": "공모"
     },
     {
-      "id": "arko-2301170002",
-      "title": "2027년 공연예술대관료지원",
-      "org": "한국문화예술위원회",
-      "url": "https://artnuri.or.kr/crawler/info/view.do?key=2301170002&encData=sUiBAI0l4sHqoD%2B2npmyD%2FE91ohxkls42MD0O%2FDnwd8PBZm1EJpnMlsBwvsh76BM",
-      "posted": "",
-      "start": "2027-05-01",
-      "end": "2027-05-15",
+      "id": "kocca-326D00034004",
+      "title": "[수정/상시공고] 2026년 글로벌게임허브센터 신규 입주기업 추가모집(상시) 수정공고",
+      "org": "한국콘텐츠진흥원",
+      "url": "https://www.kocca.kr/kocca/pims/view.do?intcNo=326D00034004&menuNo=204104&recptSt=&category=&pageIndex=1&search=&searchWrd=",
+      "posted": "2026-04-23",
+      "start": "2026-04-27",
+      "end": "2026-12-31",
       "who": [
-        "개인",
         "단체"
       ],
       "age": null,
       "tags": [
-        "공연"
+        "콘텐츠"
       ],
       "reg": "전국",
-      "summary": "공연예술단체·예술가의 공연장 대관료 일부지원",
-      "source": "arko",
+      "summary": "한국콘텐츠진흥원 지원공고 · 모집공모",
+      "source": "kocca",
       "kind": "공모"
+    },
+    {
+      "id": "kawf-19692",
+      "title": "[공고]「2027년 예술인 전세자금 융자 사업 권리조사 업무 용역」입찰 공고",
+      "org": "한국예술인복지재단",
+      "url": "https://www.kawf.kr/notice/sub01View.do?selIdx=19692",
+      "posted": "2026-10-20",
+      "start": "",
+      "end": "",
+      "who": [
+        "개인"
+      ],
+      "age": null,
+      "tags": [
+        "전체"
+      ],
+      "reg": "전국",
+      "summary": "[공고]「2027년 예술인 전세자금 융자 사업 권리조사 업무 용역」입찰 공고",
+      "source": "kawf",
+      "kind": "공지"
+    },
+    {
+      "id": "kawf-19691",
+      "title": "[공고]「예술인생활안정자금(융자) 사업 개인신용정보 조회서비스 용역」입찰 공고",
+      "org": "한국예술인복지재단",
+      "url": "https://www.kawf.kr/notice/sub01View.do?selIdx=19691",
+      "posted": "2026-10-20",
+      "start": "",
+      "end": "",
+      "who": [
+        "개인"
+      ],
+      "age": null,
+      "tags": [
+        "전체"
+      ],
+      "reg": "전국",
+      "summary": "[공고]「예술인생활안정자금(융자) 사업 개인신용정보 조회서비스 용역」입찰 공고",
+      "source": "kawf",
+      "kind": "공지"
     },
     {
       "id": "gokams-4585",
@@ -1675,7 +1883,7 @@
       "id": "gokams-4576",
       "title": "2026 예술산업아카데미 <예술산업 AI 트렌드 특강Ⅱ> 수강생 모집",
       "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4576&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4576&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "2026-10-02",
       "start": "",
       "end": "",
@@ -2170,26 +2378,6 @@
       "kind": "공지"
     },
     {
-      "id": "kawf-19622",
-      "title": "[공고]「예술인 공제사업 통합관리시스템 구축 용역」우선협상대상자 공고",
-      "org": "한국예술인복지재단",
-      "url": "https://www.kawf.kr/notice/sub01View.do?selIdx=19622",
-      "posted": "2026-08-13",
-      "start": "",
-      "end": "",
-      "who": [
-        "개인"
-      ],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "전국",
-      "summary": "[공고]「예술인 공제사업 통합관리시스템 구축 용역」우선협상대상자 공고",
-      "source": "kawf",
-      "kind": "공지"
-    },
-    {
       "id": "arte-BRD_ID0083705",
       "title": "한국문화예술교육진흥원 직원 사칭 납품요구 주의",
       "org": "한국문화예술교육진흥원",
@@ -2205,26 +2393,6 @@
       "reg": "전국",
       "summary": "한국문화예술교육진흥원 공지 · 총무회계팀",
       "source": "arte",
-      "kind": "공지"
-    },
-    {
-      "id": "kawf-19604",
-      "title": "[공고]「예술인경력정보시스템 재구축 용역」입찰 공고",
-      "org": "한국예술인복지재단",
-      "url": "https://www.kawf.kr/notice/sub01View.do?selIdx=19604",
-      "posted": "2026-08-11",
-      "start": "",
-      "end": "",
-      "who": [
-        "개인"
-      ],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "전국",
-      "summary": "[공고]「예술인경력정보시스템 재구축 용역」입찰 공고",
-      "source": "kawf",
       "kind": "공지"
     },
     {
@@ -2691,27 +2859,6 @@
       ],
       "confirmed": true,
       "when": "매년 9–10월 정기공모"
-    },
-    {
-      "id": "arko-239201",
-      "title": "아르코·대학로예술극장 2027년 대관 창작자(단체) 공모",
-      "org": "한국문화예술위원회",
-      "url": "https://theater.arko.or.kr/Rent/Notice/239201/?q=null",
-      "posted": "",
-      "start": "",
-      "end": "",
-      "who": [
-        "개인",
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "공연"
-      ],
-      "reg": "전국",
-      "summary": "아르코·대학로예술극장은 우수한 공연예술 작품을 통해 동시대 예술계가 직면한 여러 가지 위기를 대처해나갈 방법으로 미래 극장을 제시하고 있습니다. 예술극장이 추구하는 미래 극장은 문...",
-      "source": "arko",
-      "kind": "공모"
     },
     {
       "id": "kcap-arko-pre",
