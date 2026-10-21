@@ -21,7 +21,7 @@ function keyParam() {
 function kst(d = new Date()) { return new Date(d.getTime() + 9 * 3600 * 1000); }
 function ymd(d) { return d.toISOString().slice(0, 10).replace(/-/g, ''); }
 
-const ENT = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", middot: '·', nbsp: ' ', hellip: '…', lsquo: '‘', rsquo: '’', ldquo: '“', rdquo: '”' };
+const ENT = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", middot: '·', nbsp: ' ', hellip: '…', lsquo: '‘', rsquo: '’', ldquo: '“', rdquo: '”', ndash: '–', mdash: '—', times: '×', deg: '°', sup1: '¹', sup2: '²', sup3: '³', laquo: '«', raquo: '»', bull: '•' };
 function decode(s) {
   if (!s) return '';
   let t = String(s).replace(/^<!\[CDATA\[|\]\]>$/g, '');
@@ -65,12 +65,15 @@ function freeOf(price) {
   return null;
 }
 
+// 원자료 area가 '광주'인데 시군구가 광주 5개 구가 아니면 전남(무안·목포·나주 등). 광역 이름 표기 통일
+const AREA_FIX = { '서울시': '서울', '전북특별자치도': '전북', '강원특별자치도': '강원', '제주특별자치도': '제주', '세종특별자치시': '세종' };
+function areaOf(a, sg) { a = AREA_FIX[a] || a || ''; if (a === '광주' && sg && !/^(동구|서구|남구|북구|광산구)$/.test(sg)) a = '전남'; return a; }
 function norm(it) {
   return {
     id: String(it.seq || '').trim(),
     title: it.title || '',
     start: d8(it.startDate), end: d8(it.endDate),
-    place: it.place || '', area: it.area || '', sigungu: it.sigungu || '',
+    place: it.place || '', area: areaOf(it.area, it.sigungu), sigungu: it.sigungu || '',
     realm: it.realmName || '',
     thumb: https(it.thumbnail || it.imgUrl || ''),
     lng: parseFloat(it.gpsX) || null, lat: parseFloat(it.gpsY) || null,
