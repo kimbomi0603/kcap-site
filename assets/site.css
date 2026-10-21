@@ -575,7 +575,7 @@ details.more ul{margin-top:12px}
 .cd-ac .btn.red{background:var(--red)}
 @media (max-width:960px){.dash-head{grid-template-columns:1fr}.dash-nums{grid-template-columns:repeat(2,1fr)}.dash-nums a:nth-child(2){border-right:0}.dash-nums a{padding-bottom:12px}.dash-list{grid-template-columns:1fr}}
 
-.us-out[hidden]{display:none}
+.us-out[hidden],[hidden]{display:none!important}
 .us-out .grp:first-child{grid-column:1/-1}
 .us-out .grp:first-child .gb{grid-template-columns:repeat(2,1fr)}
 
