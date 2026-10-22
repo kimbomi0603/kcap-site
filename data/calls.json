@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-21T21:29:16.717Z",
-  "count": 153,
+  "count": 152,
   "items": [
     {
       "id": "ncas-236051",
@@ -2690,31 +2690,6 @@
       "summary": "[안내] 한국예술인복지재단 방문예약시스템 이용안내",
       "source": "kawf",
       "kind": "공지"
-    },
-    {
-      "id": "kcap-gangjin",
-      "title": "강진군 문화예술진흥기금",
-      "org": "강진군",
-      "url": "https://www.gangjin.go.kr",
-      "posted": "",
-      "start": "",
-      "end": "",
-      "who": [
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "전체"
-      ],
-      "reg": "전국",
-      "summary": "법인 · 단체 · 매년 1월",
-      "source": "kcap",
-      "kind": "공모",
-      "months": [
-        1
-      ],
-      "confirmed": true,
-      "when": "매년 1월"
     },
     {
       "id": "kcap-arte-studio",
