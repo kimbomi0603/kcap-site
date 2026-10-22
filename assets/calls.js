@@ -24,7 +24,7 @@
       if (rn && it.reg && it.reg !== '전국' && it.reg !== rn) return false;
       return true;
     },
-    open: function (it, t) { t = t || K.today(); return it.kind !== '공지' && (!it.end || it.end >= t) && (!it.start || it.start <= t || K.diff(t, it.start) <= 60); },
+    open: function (it, t) { t = t || K.today(); if (!it.end && !(it.months && it.months.length) && it.posted && K.diff(it.posted, t) > 30) return false; /* 마감일 없는 공지는 게시 30일 지나면 내림 */ return it.kind !== '공지' && (!it.end || it.end >= t) && (!it.start || it.start <= t || K.diff(t, it.start) <= 60); },
     // 마감 배지. 마감 미상이면 접수시기(매년 n월)로
     badge: function (it) {
       var t = K.today();
