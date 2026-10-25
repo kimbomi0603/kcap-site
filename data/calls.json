@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24T20:33:04.180Z",
+  "updated": "2026-10-25T20:40:27.230Z",
   "count": 156,
   "items": [
     {
@@ -399,7 +399,7 @@
         "문학"
       ],
       "reg": "제주",
-      "summary": "제주문화예술재단 · 대상 개인 · 분야 무용/연극/음악/다원예술/문학/예술일반/전통예술/시각예술 · 진행중",
+      "summary": "제주문화예술재단 · 대상 개인 · 분야 무용/연극/음악/다원예술/문학/예술일반/전통예술/시각예술 · 마감",
       "source": "ncas",
       "kind": "공모"
     },
@@ -579,7 +579,7 @@
       "id": "gokams-51055",
       "title": "2027년 국립오페라단 지역공연 공모 안내",
       "org": "국립오페라단",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51055&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51055&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-10-14",
       "end": "2026-10-30",
@@ -1360,7 +1360,7 @@
       "id": "gokams-51150",
       "title": "[공연장 무료 대관] 김희수아트센터 SPACE1 대관 지원 2027 1차 공모_수림문화재단",
       "org": "수림문화재단",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51150&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51150&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-10-15",
       "end": "2026-11-09",
@@ -1392,6 +1392,47 @@
       "reg": "서울",
       "summary": "한국토지주택공사 서울지역본부 · 공모 기금 · 2026-10-15 ~ 11-10",
       "source": "gokams",
+      "kind": "공모"
+    },
+    {
+      "id": "arko-2301170002",
+      "title": "2027년 문학상주작가 지원사업 공모",
+      "org": "한국문화예술위원회",
+      "url": "https://artnuri.or.kr/crawler/info/view.do?key=2301170002&encData=sUiBAI0l4sHqoD%2B2npmyDyhT8R%2FrREV1FR1b%2FnOuXSUPBZm1EJpnMlsBwvsh76BM",
+      "posted": "",
+      "start": "2026-10-23",
+      "end": "2026-11-13",
+      "who": [
+        "개인"
+      ],
+      "age": null,
+      "tags": [
+        "문학"
+      ],
+      "reg": "전국",
+      "summary": "작가가 도서관·문학관·서점에 상주하며 주민을 위한 문학프로그램 운영과 창작활동을 병행함으로써 국민 문학 향유 기회 확대 및 문학 시설을 활성화하고, 문인들에게는 일자리 제공 및 안...",
+      "source": "arko",
+      "kind": "공모"
+    },
+    {
+      "id": "arko-239201",
+      "title": "아르코·대학로예술극장 2027년 대관 창작자(단체) 공모",
+      "org": "한국문화예술위원회",
+      "url": "https://theater.arko.or.kr/Rent/Notice/239201/?q=null",
+      "posted": "",
+      "start": "2026-10-08",
+      "end": "2026-11-16",
+      "who": [
+        "개인",
+        "단체"
+      ],
+      "age": null,
+      "tags": [
+        "공연"
+      ],
+      "reg": "전국",
+      "summary": "아르코·대학로예술극장은 우수한 공연예술 작품을 통해 동시대 예술계가 직면한 여러 가지 위기를 대처해나갈 방법으로 미래 극장을 제시하고 있습니다. 예술극장이 추구하는 미래 극장은 문...",
+      "source": "arko",
       "kind": "공모"
     },
     {
@@ -1431,20 +1472,20 @@
       "kind": "공모"
     },
     {
-      "id": "gokams-50970",
-      "title": "[부산광역시] 을숙도 대지·생태예술 국제공모 〈찰나의 우리, 오래 흐르는 대지〉 ~11월 22일(일)까지",
-      "org": "부산광역시",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=50970&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
+      "id": "gokams-51212",
+      "title": "[중앙대학교 예술대학원] 예술경영학과 2027학년도 전기 신입생 모집(~11/23)",
+      "org": "중앙대학교 예술대학원 예술경영학과",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51212&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
       "posted": "",
-      "start": "2026-09-21",
-      "end": "2026-11-22",
+      "start": "2026-10-26",
+      "end": "2026-11-23",
       "who": [],
       "age": null,
       "tags": [
         "전체"
       ],
-      "reg": "부산",
-      "summary": "부산광역시 · 공모 기금 · 2026-09-21 ~ 11-22",
+      "reg": "전국",
+      "summary": "중앙대학교 예술대학원 예술경영학과 · 공모 기금 · 2026-10-26 ~ 11-23",
       "source": "gokams",
       "kind": "공모"
     },
@@ -1543,27 +1584,6 @@
       "reg": "전국",
       "summary": "한국콘텐츠진흥원 지원공고 · 모집공모",
       "source": "kocca",
-      "kind": "공모"
-    },
-    {
-      "id": "arko-2301170002",
-      "title": "2027년 공연예술대관료지원",
-      "org": "한국문화예술위원회",
-      "url": "https://artnuri.or.kr/crawler/info/view.do?key=2301170002&encData=sUiBAI0l4sHqoD%2B2npmyD%2FE91ohxkls42MD0O%2FDnwd8PBZm1EJpnMlsBwvsh76BM",
-      "posted": "",
-      "start": "2027-05-01",
-      "end": "2027-05-15",
-      "who": [
-        "개인",
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "공연"
-      ],
-      "reg": "전국",
-      "summary": "공연예술단체·예술가의 공연장 대관료 일부지원",
-      "source": "arko",
       "kind": "공모"
     },
     {
@@ -2865,27 +2885,6 @@
       ],
       "confirmed": true,
       "when": "매년 9–10월 정기공모"
-    },
-    {
-      "id": "arko-239201",
-      "title": "아르코·대학로예술극장 2027년 대관 창작자(단체) 공모",
-      "org": "한국문화예술위원회",
-      "url": "https://theater.arko.or.kr/Rent/Notice/239201/?q=null",
-      "posted": "",
-      "start": "",
-      "end": "",
-      "who": [
-        "개인",
-        "단체"
-      ],
-      "age": null,
-      "tags": [
-        "공연"
-      ],
-      "reg": "전국",
-      "summary": "아르코·대학로예술극장은 우수한 공연예술 작품을 통해 동시대 예술계가 직면한 여러 가지 위기를 대처해나갈 방법으로 미래 극장을 제시하고 있습니다. 예술극장이 추구하는 미래 극장은 문...",
-      "source": "arko",
-      "kind": "공모"
     },
     {
       "id": "kcap-arko-pre",
