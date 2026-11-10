@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-10T01:23:26.450Z",
-  "count": 158,
+  "updated": "2026-11-10T23:04:23.431Z",
+  "count": 157,
   "items": [
     {
       "id": "ncas-4573",
@@ -107,6 +107,26 @@
       "kind": "공모"
     },
     {
+      "id": "gokams-4582",
+      "title": "예술경영지원센터x파리 인터내셔날레 &quotNEXT KOREA: GALLERIES\"",
+      "org": "예술경영지원센터",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4582&page=2&txtKeyword=&ddlKeyfield=T",
+      "posted": "2026-10-08",
+      "start": "2026-10-19",
+      "end": "2026-10-24",
+      "who": [
+        "단체"
+      ],
+      "age": null,
+      "tags": [
+        "시각"
+      ],
+      "reg": "전국",
+      "summary": "HOME 알림/소식 공지사항 예술경영지원센터x파리 인터내셔날레 \"NEXT KOREA: GALLERIES\" 공지사항 내용 담당부서 예술경영지원센터 시각해외진출팀 작성일 2026-10-08 조회수 1674 파일 NEXT KOREA: GALLERIES 1. 행사 개요 NEXT KOREA:…",
+      "source": "gokams",
+      "kind": "공모"
+    },
+    {
       "id": "gokams-4584",
       "title": "2026 아트코리아랩 오픈 프롬프트 커뮤니티 포스트모템 10월 참여자 모집(~10.25(일)까지)",
       "org": "예술경영지원센터",
@@ -168,7 +188,7 @@
       "id": "gokams-51166",
       "title": "2027년 천안어린이꿈누리터 공연 제안사 모집",
       "org": "천안어린이꿈누리터",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51166&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51166&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-10-13",
       "end": "2026-10-27",
@@ -215,26 +235,6 @@
       ],
       "reg": "전국",
       "summary": "전주세계소리축제 · 공모 기금 · 2026-10-21 ~ 10-28",
-      "source": "gokams",
-      "kind": "공모"
-    },
-    {
-      "id": "gokams-4575",
-      "title": "2026 예술산업아카데미 예술산업 입직을 위한 진로 및 취업상담(11월) 수강생 모집",
-      "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4575&page=2&txtKeyword=&ddlKeyfield=T",
-      "posted": "2026-10-02",
-      "start": "",
-      "end": "2026-10-29",
-      "who": [
-        "개인"
-      ],
-      "age": null,
-      "tags": [
-        "교육"
-      ],
-      "reg": "전국",
-      "summary": "2026 예술산업아카데미 예비인력 예술산업 입직을 위한 진로 및 취업 상담(11월) 1. 프로그램 개요 ○일시: 2026년 11월 4일(수) ~ 6일(금), 9:30 ~ 18:20 ○장소: 아트코리아랩 또는 온라인 등 ○대상: 현재 소속이 없고 예술산업으로 입직을 희망하는 자 ○형태:…",
       "source": "gokams",
       "kind": "공모"
     },
@@ -362,7 +362,7 @@
       "id": "gokams-4588",
       "title": "2026 아트코리아랩 오픈 프롬프트 커뮤니티 포스트모템 11월 참여자 모집(~11.1.(일)까지)",
       "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4588&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4588&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "2026-10-22",
       "start": "",
       "end": "2026-11-01",
@@ -373,24 +373,6 @@
       ],
       "reg": "전국",
       "summary": "2026 아트코리아랩 오픈 프롬프트 커뮤니티 포스트모템 11월 참여자 모집(~11.1.(일)까지)",
-      "source": "gokams",
-      "kind": "공모"
-    },
-    {
-      "id": "gokams-51091",
-      "title": "제5회 < 국민일보 아르브뤼 미술상> 공모",
-      "org": "국민일보",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51091&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
-      "posted": "",
-      "start": "2026-10-19",
-      "end": "2026-11-02",
-      "who": [],
-      "age": null,
-      "tags": [
-        "시각"
-      ],
-      "reg": "전국",
-      "summary": "국민일보 · 공모 기금 · 2026-10-19 ~ 11-02",
       "source": "gokams",
       "kind": "공모"
     },
@@ -419,7 +401,7 @@
       "id": "gokams-51232",
       "title": "[중앙대학교 예술대학원] 2027학년도 전반기 신입생을 위한 입학설명회 (11/5)",
       "org": "중앙대학교 예술대학원",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51232&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51232&flag=34&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "",
       "end": "2026-11-05",
@@ -874,7 +856,7 @@
       "id": "gokams-4589",
       "title": "2026 글로벌 뮤지컬 산업 학술대회 사전 참가 신청",
       "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4589&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4589&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "2026-10-23",
       "start": "",
       "end": "2026-11-07",
@@ -894,7 +876,7 @@
       "id": "gokams-4594",
       "title": "2026 아트코리아랩 AI-융합 페스티벌(ARTS KOREA LAB FESTIVAL) 개최! (11.4.~11.8., 성수동/아트랩)",
       "org": "예술경영지원센터",
-      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4594&page=1&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/notice_view.aspx?Idx=4594&page=2&txtKeyword=&ddlKeyfield=T",
       "posted": "2026-10-27",
       "start": "2026-11-04",
       "end": "2026-11-08",
@@ -1162,10 +1144,10 @@
       "kind": "공모"
     },
     {
-      "id": "gokams-51130",
+      "id": "gokams-51336",
       "title": "2027 에든버러 코리안 시즌 협력사업 공모",
       "org": "(주)에이투비즈, (사)글로벌문화교류위원회, 영국 어셈블리 페스티벌",
-      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51130&flag=34&page=3&txtKeyword=&ddlKeyfield=T",
+      "url": "https://www.gokams.or.kr/01_news/event_view.aspx?Idx=51336&flag=34&page=1&txtKeyword=&ddlKeyfield=T",
       "posted": "",
       "start": "2026-10-16",
       "end": "2026-11-20",
