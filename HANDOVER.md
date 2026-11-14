@@ -38,13 +38,14 @@ Claude 세션에 GitHub 저장소가 붙어 있어야 `git push`가 된다. **�
 index(마퀴 "전국 청년 예술가와 함께", 선언문 "어디에 살든"), about("전국의 청년 문화예술인이 각자의 자리에서"), plan("전국에서 작업하는", "사는 곳을 떠나지 않아도"), join("전국 청년들에게"). 정보마당 지역 선택에서 "전남광주"·"강진군" 기본값 제거, 광주·전남 분리, 서울~제주 전국 순서. 전시 캘린더 기본 전국, 지도 중심 한반도, 주요 기관 바로가기를 전국+3개 지부 권역으로 재구성. 옛 링크(`r=jn`, `gangjin`)는 호환 유지.
 
 ### 3-3. 공모 자동 수집 (`scripts/`)
-- `scripts/collect.js`: 소스 병렬 실행 → id 중복 제거 → **제목(괄호 제거·정규화)+마감일이 같으면 하나만**(우선순위 kcap>arko>ncas>kawf>gokams>arte>kocca) → 마감 30일 지난 것 제거(협회 확인 건은 예외) → 마감 오름차순 → `data/calls.json`, `data/collect-status.json`.
+- `scripts/collect.js`: 소스 병렬 실행 → **같은 상세 주소를 쓰는 세부 사업 분리**(괄호만 다른 세부 유형은 한 줄로 묶어 제목 뒤에 유형 표시, 이름·마감이 다르면 id 뒤에 이름 해시를 붙여 따로 남김 — 2026-11-14 수정 전에는 id가 겹쳐 아르코·NCAS 공모 수십 건이 빠졌음) → 기관 행정 공지 제외(`ADMIN_NOT`: 직원 채용·합격자, 입찰·용역·우선협상, 퇴직연금, 개인정보 위탁, 시스템 작업 등) → **다른 기관끼리만** 제목(괄호 제거·정규화)+마감일이 같으면 하나만(우선순위 kcap>arko>ncas>kawf>gokams>arte>kocca) → 마감 30일 지난 것 제거(협회 확인 건은 예외) → 마감 오름차순 → `data/calls.json`, `data/collect-status.json`.
+- `lib.js`의 `clean()`은 게시판이 세미콜론 없이 쓴 엔티티(`&quotNEXT`)까지 풀어 제목에 `&quot`가 남지 않게 한다.
 - `scripts/collect/lib.js`: fetch(10초 타임아웃·재시도), 한국어 날짜 파서 `parseRange`(2026.10.15 / 10.15(수) / ~까지 / 접수기간 라벨 등), 분류기(신청주체·나이·분야·지역·공모/공지), `makeItem`.
 - 소스(`scripts/collect/sources/`): `kcap`(협회 확인, data/picks.csv 또는 환경변수 `PICKS_SHEET_CSV`의 구글시트 '웹에 게시' CSV), `arko`(예술위 공모 게시판, artnuri 상세), `ncas`(홈 서버렌더 목록 23건, 로그인 필요 페이지는 못 봄), `kawf`(공지 3페이지, 마감은 대부분 포스터 이미지라 미상), `gokams`(공지+공모·기금 게시판 flag=34), `arte`(사업공모 게시판에 접수시작/마감 열 있으나 현재 전부 마감, 공지는 등록일만), `kocca`(진행 중 공모 탭).
 - 실행: `cd kcap-site && npm install && NODE_USE_ENV_PROXY=1 npm run collect` (Claude 컨테이너에선 프록시 변수 필요). 결과 약 140건.
-- `.github/workflows/collect.yml`: 매일 20:30 UTC(05:30 KST) 수집 후 data/ 커밋. **schedule은 기본 브랜치(main)에서만 돈다** → main 병합 전에는 Actions 탭에서 workflow_dispatch로 수동 실행.
+- `.github/workflows/collect.yml`: 매일 18:00 UTC(03:00 KST) 예약(GitHub 대기로 실제 실행은 보통 아침) 수집 후 data/ 커밋. **schedule은 기본 브랜치(main)에서만 돈다** → main 병합 전에는 Actions 탭에서 workflow_dispatch로 수동 실행.
 - 데이터 스키마(한 건): `{ id, title, org, url, posted, start, end(YYYY-MM-DD 마감|''), who:['개인','단체'], age:number|null, tags:['시각','공연','문학','콘텐츠','교육','전체'], reg:'전국'|시도명, summary(≤160자), source, kind:'공모'|'공지' }` + 협회 확인 건은 `months:[..], confirmed:true, when:'매년 9–10월'`.
-- `data/picks.csv` 열: `id,제목,주관기관,링크,신청주체,나이상한,분야,지역,접수시작,접수마감,접수시기(매년),대상설명,메모` (14건). 협회 담당자가 구글시트로 관리하게 하는 게 목표.
+- `data/picks.csv` 열: `id,제목,주관기관,링크,신청주체,나이상한,분야,지역,접수시작,접수마감,접수시기(매년),대상설명,메모` (12건, 2026-11-14 아르코 2027년도분 공모 기준으로 갱신 · 크라우드펀딩 챌린지는 2026년 지원으로 종료돼 뺌). 같은 내용이 `support.html`(카드 · 연간 달력 · `#picksData`)과 `info.html`(`#picksData`)에 정적으로 들어 있으므로 함께 고친다. 협회 담당자가 구글시트로 관리하게 하는 게 목표.
 
 ### 3-4. 프런트 (정보마당)
 - `assets/calls.js`: calls.json 로더, 내 조건(`localStorage kcap_profile_v1` = support.html '나에게 맞는 공모'의 who/age/tag/reg) 매칭, 배지(D-day·매년 n월), 대시보드·목록·상세 렌더.
