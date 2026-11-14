@@ -42,8 +42,8 @@
     var out = $('#pfOut'); if (!out) return;
     if (!hasPf()) { out.innerHTML = '조건을 고르면 신청할 수 있는 공모를 먼저 보여 드립니다.'; return; }
     var tip = '';
-    if (pf.proof === 'n' || pf.proof === '') tip = ' <a class="tip" href="https://www.kawfartist.kr/" target="_blank" rel="noopener">예술로 · 창작준비금은 예술활동증명이 먼저 필요합니다 → 신청하기 ↗</a>';
-    if (pf.age && +pf.age <= 34 && pf.who !== '단체') tip += ' <span class="tip2">만 34세 이하 대상인 「청년예술가도약지원」도 살펴보세요.</span>';
+    if (pf.proof === 'n' || pf.proof === '') tip = ' <a class="tip" href="https://www.kawfartist.kr/" target="_blank" rel="noopener">예술로 · 예술활동준비금(옛 창작준비금)은 예술활동증명이 먼저 필요합니다 → 신청하기 ↗</a>';
+    if (pf.age && +pf.age <= 39 && pf.who !== '단체') tip += ' <span class="tip2">아르코 「청년예술가도약지원」은 2027년도분부터 만 34세 일괄 기준 없이 장르별 사업으로 바뀌었습니다. 아래 <a href="#search">실시간 검색</a>의 「청년정책」도 함께 보세요.</span>';
     out.innerHTML = '<b>' + ok + '건</b>이 조건에 맞습니다.' + tip + ' <button type="button" id="pfReset">조건 지우기</button>';
     $('#pfReset').onclick = function () {
       pf = {}; setPf(pf); F.who.value = ''; F.age.value = ''; F.tag.value = '전체'; F.reg.value = 'all'; F.proof.value = ''; $('#pkOnly').checked = false; applyPf(); filt();
