@@ -40,6 +40,14 @@ function lastDate(s) {
   return last;
 }
 const clip = (s, n) => (s ? String(s).replace(/\s+/g, ' ').trim().slice(0, n) : '');
+// 정부24에는 몇 해 전 정보가 그대로 남은 사업이 있다 (예: 이름 '2025 문화예술교육 배달지원사업', 신청기한 '2023. 4월').
+// 이름에 적힌 해가 올해보다 앞서거나, 신청기한에 지난 해만 적혀 있고 상시 · 연중 · 매년 같은 말이 없으면 옛 정보로 보고 뺀다.
+function staleYear(name, period, year) {
+  const ys = (x) => (String(x || '').match(/20\d{2}(?!\d)/g) || []).map(Number);
+  const ny = ys(name), py = ys(period);
+  if (ny.length && Math.max(...ny) < year) return true;
+  return py.length > 0 && Math.max(...py) < year && !/상시|연중|매년|수시/.test(String(period || ''));
+}
 
 // 장르 단어로 찾을 때 함께 볼 단어. 정부 사업 · 청년정책 이름에는 '미술' 같은 장르 이름이 드물어서
 // '미술'로 찾으면 0건이 나오곤 했다. terms = 정부24 서비스명 검색어, re = 찾은 사업이 그 장르인지 보는 기준.
@@ -146,6 +154,7 @@ async function gov24(q, region) {
       if (!qNot && !forArtists(name, d['지원대상'] || d['서비스목적요약'] || d['지원내용'])) { dropped.push(`${clip(name, 50)} ‖ ${clip(d['지원대상'], 60)}`); continue; }
       const end = lastDate(d['신청기한']);
       if (end && end < t) continue; // 신청 기간이 끝난 사업은 뺀다
+      if (!end && staleYear(name, d['신청기한'], +t.slice(0, 4))) continue; // 몇 해 전 정보가 남은 사업은 뺀다
       items.push({
         src: 'gov24',
         title: clip(name, 80),
@@ -200,13 +209,17 @@ async function youthAll(key, params, maxPages, deadline) {
   return first.list.concat(...rest.filter((x) => x.status === 'fulfilled').map((x) => x.value.list));
 }
 // 지역: 정책거주지역코드(zipCd)가 고른 시도로 시작하거나, 지역 제한이 없는(전국) 정책
+// 시 · 도 이름 (거주지역 코드가 빈 정책이 어느 지자체 것인지 알아볼 때 쓴다)
+const SIDO_NAMES = /서울|부산|대구|인천|광주|대전|울산|세종|경기|강원|충청북도|충북|충청남도|충남|전라북도|전북|전라남도|전남|경상북도|경북|경상남도|경남|제주/;
 function youthInRegion(p, region) {
   if (!region.zip.length && !region.names.length) return true;
   const zips = String(p.zipCd || '').split(',').map((x) => x.trim()).filter(Boolean);
-  if (!zips.length || zips.length > 200) return true; // 전국 대상
+  if (zips.length > 200) return true; // 전국 대상으로 등록된 정책
   if (zips.some((c) => region.zip.some((pre) => c.startsWith(pre)))) return true;
-  const org = `${p.rgtrHghrkInstCdNm || ''} ${p.sprvsnInstCdNm || ''} ${p.rgtrInstCdNm || ''}`;
-  return region.names.some((n) => org.includes(n));
+  const org = `${p.rgtrHghrkInstCdNm || ''} ${p.rgtrUpInstCdNm || ''} ${p.sprvsnInstCdNm || ''} ${p.rgtrInstCdNm || ''}`;
+  if (region.names.some((n) => org.includes(n))) return true;
+  // 거주지역 코드가 비어 있으면 전국 정책으로 보되, 다른 시 · 도 기관이 낸 정책은 뺀다 (예: 전남을 골랐는데 인천 남동구 시설 운영이 나오던 문제)
+  return !zips.length && !SIDO_NAMES.test(org);
 }
 
 // 나이 조건: 0 · 빈칸은 제한 없음, 99세 이상은 상한 없음으로 본다
@@ -265,7 +278,8 @@ async function youth(q, region) {
       arts: String(p.mclsfNm || '').includes(ARTS_CAT),
     }))
     .filter((it) => !it.end || it.end >= t) // 마감 지난 정책 제외
-    .filter((it, i, arr) => arr.findIndex((x) => x.title === it.title && x.org === it.org) === i) // 같은 제목·기관은 하나만
+    // 같은 제목에 기관 이름만 길고 짧게 두 번 등록된 정책(예: '인천광역시 문화체육국 문화정책과' · '문화정책과')은 하나만
+    .filter((it, i, arr) => arr.findIndex((x) => x.title === it.title && (x.org === it.org || (x.org && it.org && (x.org.includes(it.org) || it.org.includes(x.org))))) === i)
     .sort((a, b) => (b.arts - a.arts) || (a.end || '9999').localeCompare(b.end || '9999'));
   return { configured: true, items: items.slice(0, 80), stats: { pool: pool.length, matched: items.length } };
 }
@@ -287,4 +301,4 @@ module.exports = async (req, res) => {
     res.status(200).send(JSON.stringify({ ok: false, src, configured: true, error: String(e.message || e), items: [] }));
   }
 };
-module.exports._test = { gov24, youth, REGIONS, lastDate, genreOf, hasWord, forArtists };
+module.exports._test = { gov24, youth, REGIONS, lastDate, genreOf, hasWord, forArtists, staleYear, youthInRegion };
